@@ -12,11 +12,10 @@ export function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('fg_lang', lang);
   
-  // Sync selector dropdown if exists
-  const langSelect = document.getElementById('lang-select');
-  if (langSelect) {
-    langSelect.value = lang;
-  }
+  // Sync all language selectors on the page
+  document.querySelectorAll('select[onchange*="setLang"]').forEach(sel => {
+    sel.value = lang;
+  });
 
   updateDOM();
   window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
@@ -57,11 +56,9 @@ export function updateDOM() {
   document.documentElement.lang = lang;
 }
 
-// Auto init on script load
 document.addEventListener('DOMContentLoaded', () => {
-  const langSelect = document.getElementById('lang-select');
-  if (langSelect) {
-    langSelect.value = currentLang;
-  }
+  document.querySelectorAll('select[onchange*="setLang"]').forEach(sel => {
+    sel.value = currentLang;
+  });
   updateDOM();
 });

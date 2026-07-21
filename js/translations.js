@@ -259,7 +259,21 @@ export const translations = {
     'modal.close_btn': 'Close Inspector',
 
     // Footer
-    'footer.text': 'NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality'
+    'footer.text': 'NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality',
+
+    // Stargate Landing Page
+    'stargate.title': 'STARGATE INITIATIVE: THE FIRSTGATE CONFIGURATION',
+    'stargate.vision_title': 'THE CONCEPT & MISSION',
+    'stargate.vision_desc': 'Inspired by the classified US Stargate Project which researched psychic remote viewing and trans-dimensional navigation, Firstgate applies these concept parameters to enterprise compute. We construct cryptographically secured computational wormholes, bypassing public cloud boundaries to tunnel workloads directly into local secure hardware enclaves.',
+    'stargate.evo_title': 'DEVELOPMENT CHRONICLES',
+    'stargate.evo_step1': '2024: Quantum Fiber Mapping',
+    'stargate.evo_step1_desc': 'Mapped direct dark fiber link connecting Wall Street Equinix NY4 and remote GPU nodes.',
+    'stargate.evo_step2': '2025: Wormhole Activation',
+    'stargate.evo_step2_desc': 'Activated sub-millisecond multi-model intelligence routing and vector semantic cache mesh.',
+    'stargate.evo_step3': '2026: Deep Space Hardware TEE',
+    'stargate.evo_step3_desc': 'Deployed zero-trust NVIDIA H100 TEE confidential computing clusters with ClickHouse ledger.',
+    'stargate.enter_gate': 'ACTIVATE STARGATE PORTAL',
+    'stargate.skip': 'Enter Directly ⚡'
   },
 
   'zh-CN': {
@@ -520,7 +534,21 @@ export const translations = {
     'modal.close_btn': '关闭诊断窗口',
 
     // Footer
-    'footer.text': '纽约东区 POP 节点 • 目标 SLA: 99.999% • 符合 SOC2 与 TEE 硬件机密架构'
+    'footer.text': '纽约东区 POP 节点 • 目标 SLA: 99.999% • 符合 SOC2 与 TEE 硬件机密架构',
+
+    // Stargate Landing Page
+    'stargate.title': '星际之门计划：FIRSTGATE 构想与演进',
+    'stargate.vision_title': '核心构想与使命',
+    'stargate.vision_desc': '灵感源自美国陆军著名的“星际之门计划”（Stargate Project，该计划探索了超维度视界与意识遥感传输）。Firstgate 将此概念参数映射至企业级算力：我们通过密码学构建算力“虫洞”，跨越传统公有云物理边界，将高价值的 AI 负载瞬间投射至远端硬件保护的安全飞地中。',
+    'stargate.evo_title': '构想与发展演进',
+    'stargate.evo_step1': '2024: 物理层与光纤测绘',
+    'stargate.evo_step1_desc': '在纽约 Equinix NY4 金融数据中心与分布式 GPU 节点间建立直连暗光纤测绘。',
+    'stargate.evo_step2': '2025: 虫洞网关激活',
+    'stargate.evo_step2_desc': '上线亚毫秒级跨模型智能调度引擎，激活边缘向量语义快取网络。',
+    'stargate.evo_step3': '2026: 深空硬件机密计算',
+    'stargate.evo_step3_desc': '全面部署 NVIDIA H100 硬件级 TEE 安全机密集群，内置 ClickHouse 审计账本。',
+    'stargate.enter_gate': '激活星际之门 PORTAL',
+    'stargate.skip': '绕过大门直接进入 ⚡'
   },
 
   'zh-TW': {
@@ -781,6 +809,20 @@ export const translations = {
     'modal.close_btn': '關閉診斷視窗',
 
     // Footer
-    'footer.text': '紐約東區 POP 節點 • 目標 SLA: 99.999% • 符合 SOC2 與 TEE 硬體機密架構'
+    'footer.text': '紐約東區 POP 節點 • 目標 SLA: 99.999% • 符合 SOC2 與 TEE 硬體機密架構',
+
+    // Stargate Landing Page
+    'stargate.title': '星際之門計劃：FIRSTGATE 構想與演進',
+    'stargate.vision_title': '核心構想與使命',
+    'stargate.vision_desc': '靈感源自美國陸軍著名的「星際之門計劃」（Stargate Project，該計劃探索了超維度視界與意識遙感傳輸）。Firstgate 將此概念參數映射至企業級算力：我們通過密碼學建構算力「蟲洞」，跨越傳統公有雲物理邊界，將高價值的 AI 負載瞬間投射至遠端硬體保護的安全飛地中。',
+    'stargate.evo_title': '構想與發展演進',
+    'stargate.evo_step1': '2024: 物理層與光纖測繪',
+    'stargate.evo_step1_desc': '在紐約 Equinix NY4 金融數據中心與分佈式 GPU 節點間建立直連暗光纖測繪。',
+    'stargate.evo_step2': '2025: 蟲洞網關激活',
+    'stargate.evo_step2_desc': '上線亞毫秒級跨模型智能調度引擎，激活邊緣向量語義快取網路。',
+    'stargate.evo_step3': '2026: 深空硬體機密計算',
+    'stargate.evo_step3_desc': '全面部署 NVIDIA H100 硬體級 TEE 安全機密集群，內置 ClickHouse 審計賬本。',
+    'stargate.enter_gate': '啟動星際之門 PORTAL',
+    'stargate.skip': '繞過大門直接進入 ⚡'
   }
 };

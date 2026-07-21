@@ -165,3 +165,73 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00F0FF;
 }
+
+/* Stargate Project Cover Landing View Styles */
+@keyframes stargateRotateOuter {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes stargateRotateInner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes eventHorizonPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1) contrast(1); }
+  50% { transform: scale(1.03); filter: brightness(1.2) contrast(1.1); }
+}
+
+@keyframes stargateStarfield {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 1000px 1000px; }
+}
+
+.stargate-starfield {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: stargateStarfield 180s linear infinite;
+}
+
+.stargate-ring-outer {
+  animation: stargateRotateOuter 80s linear infinite;
+}
+
+.stargate-ring-inner {
+  animation: stargateRotateInner 60s linear infinite;
+}
+
+.stargate-horizon {
+  animation: eventHorizonPulse 12s ease-in-out infinite;
+  background-size: cover;
+  background-position: center;
+}
+
+.stargate-glow {
+  box-shadow: 0 0 60px rgba(0, 240, 255, 0.35), inset 0 0 40px rgba(0, 240, 255, 0.15);
+}
+
+.portal-flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #ffffff, #00f0ff, transparent);
+  mix-blend-mode: screen;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transform: scale(0);
+}
+
+.portal-flash.active {
+  opacity: 1;
+  transform: scale(4);
+}
+
+.stargate-fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+

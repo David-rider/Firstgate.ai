@@ -39,6 +39,52 @@ document.addEventListener('DOMContentLoaded', () => {
   runRoutingSimulation();
 });
 
+// Stargate Portal Transition Logic
+export function enterStargatePortal() {
+  const flash = document.getElementById('portal-flash');
+  const stargate = document.getElementById('stargate-landing');
+  const dashboard = document.getElementById('main-app-content');
+
+  if (flash) flash.classList.add('active');
+
+  setTimeout(() => {
+    if (stargate) stargate.classList.add('stargate-fade-out');
+    if (dashboard) {
+      dashboard.classList.remove('hidden');
+      setTimeout(() => {
+        dashboard.classList.remove('opacity-0', 'scale-95');
+        dashboard.classList.add('opacity-100', 'scale-100');
+      }, 50);
+    }
+  }, 700);
+
+  setTimeout(() => {
+    if (stargate) stargate.classList.add('hidden');
+    if (flash) flash.classList.remove('active');
+    
+    // Trigger telemetry canvas resize in case it was initialized hidden
+    const ctx = document.getElementById('chart-telemetry');
+    if (ctx && telemetryChart) {
+      telemetryChart.resize();
+    }
+  }, 1600);
+}
+window.enterStargatePortal = enterStargatePortal;
+
+export function revealStargate() {
+  const stargate = document.getElementById('stargate-landing');
+  const dashboard = document.getElementById('main-app-content');
+
+  if (stargate) {
+    stargate.classList.remove('hidden', 'stargate-fade-out');
+  }
+  if (dashboard) {
+    dashboard.classList.add('hidden', 'opacity-0', 'scale-95');
+    dashboard.classList.remove('opacity-100', 'scale-100');
+  }
+}
+window.revealStargate = revealStargate;
+
 // Dedicated Sales Portal Modal Handlers
 export function openPortalModal() {
   const modal = document.getElementById('modal-portal-redirect');
