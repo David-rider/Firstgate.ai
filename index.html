@@ -66,7 +66,7 @@
         </div>
         <div>
           <span class="font-extrabold text-white tracking-wider">FIRSTGATE INITIATIVE</span>
-          <p class="text-[9px] text-cyan-400 font-mono tracking-widest uppercase">STARGATE PROJECT V1</p>
+          <p class="text-[9px] text-cyan-400 font-mono tracking-widest uppercase">FIRSTGATE GATEWAY V1</p>
         </div>
       </div>
       
@@ -81,95 +81,72 @@
       </div>
     </div>
 
-    <!-- Center Grid: Concept, Rotating Stargate Portal, Chronicles -->
-    <div class="max-w-7xl mx-auto w-full px-6 py-4 grid lg:grid-cols-12 gap-8 items-center z-10 my-auto">
+    <!-- Center Hero Section: Left Specification + Right Super-sized Digital Gate -->
+    <div class="max-w-7xl mx-auto w-full px-6 py-4 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center z-10 my-auto">
       
-      <!-- Left Panel: Concept Parameters -->
-      <div class="lg:col-span-4 space-y-6 text-left">
+      <!-- Left Panel: Concept & Credentials -->
+      <div class="lg:col-span-5 space-y-6 text-left">
         <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
           <i data-lucide="aperture" class="w-4 h-4"></i>
           <span data-i18n="stargate.vision_title">HYBRID-CLOUD MESH BRIDGE</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight" data-i18n="stargate.title">
-          星际之门计划：FIRSTGATE 安全隧道架构
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight" data-i18n="stargate.title">
+          FIRSTGATE 多云安全网络隧道与智能关口
         </h2>
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans" data-i18n="stargate.vision_desc">
-          Firstgate 致力于解决安全的多云网络桥接问题。我们以此命名，旨在通过零信任安全隧道与加密路由协议，跨越传统的公有云物理边界，将异构 GPU 集群连接为统一的高安全网络。所有的企业级 LLM 负载均通过硬件隔离的机密安全飞地（TEE）运行，从芯片底层保障金融级数据隐私安全。
+          FirstGate 致力于解决安全的多云网络桥化与 AI 算力调度。通过零信任安全隧道与加密路由协议，跨越公有云物理边界，将异构 GPU 集群连接为统一的高安全网络。所有的企业级 LLM 负载均通过硬件隔离的机密安全飞地（TEE）运行，从芯片底层保障数据隐私安全。
         </p>
-        <div class="bg-navy-900/60 border border-navy-800 p-4 rounded-2xl font-mono text-xs space-y-2">
-          <div class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">PROJECT CREDENTIALS</div>
-          <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-400">
-            <div>Class: <span class="text-white">Trans-Cloud</span></div>
-            <div>SLA Target: <span class="text-emerald-400">99.999%</span></div>
-            <div>Decryption: <span class="text-indigo-400 font-bold">Hardware TEE</span></div>
-            <div>Audit: <span class="text-white">Immutable</span></div>
+        
+        <div class="bg-navy-900/70 border border-navy-800 p-5 rounded-2xl font-mono text-xs space-y-3 shadow-xl">
+          <div class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-between">
+            <span>PROJECT CREDENTIALS</span>
+            <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> ACTIVE</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-300">
+            <div>Topology: <span class="text-white font-bold">Multi-Cloud Mesh</span></div>
+            <div>SLA Target: <span class="text-emerald-400 font-bold">99.999%</span></div>
+            <div>Security: <span class="text-indigo-400 font-bold">Hardware TEE</span></div>
+            <div>Audit Log: <span class="text-white font-bold">ClickHouse</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Center Panel: Rotating Holographic Stargate Ring -->
-      <div class="lg:col-span-4 flex flex-col items-center justify-center space-y-6">
-        <div onclick="enterStargatePortal()" class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full flex items-center justify-center cursor-pointer group stargate-glow transition-all duration-500 hover:scale-105 active:scale-95 bg-navy-900">
+      <!-- Right Panel: Super-sized Holographic Digital Gate (放大一倍) -->
+      <div class="lg:col-span-7 flex flex-col items-center justify-center space-y-6">
+        <div onclick="enterStargatePortal()" class="relative w-80 h-80 sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] rounded-full flex items-center justify-center cursor-pointer group stargate-glow transition-all duration-500 hover:scale-105 active:scale-95 bg-navy-900/90 shadow-2xl">
           
           <!-- Outer Rotating Mechanical Glyphs -->
-          <div class="absolute inset-0 rounded-full border-4 border-dashed border-cyan-500/20 stargate-ring-outer"></div>
+          <div class="absolute inset-0 rounded-full border-4 border-dashed border-cyan-500/30 stargate-ring-outer"></div>
           
-          <!-- Inner Rotating Runes/Symbols -->
-          <div class="absolute inset-6 rounded-full border border-dashed border-emerald-500/40 stargate-ring-inner"></div>
+          <!-- Inner Rotating Energy Ring -->
+          <div class="absolute inset-6 sm:inset-10 rounded-full border-2 border-dashed border-emerald-500/50 stargate-ring-inner"></div>
 
-          <!-- The Event Horizon - Plasma fluid warp visual using generated image -->
-          <div class="absolute inset-10 rounded-full overflow-hidden stargate-horizon shadow-inner w-44 h-44 sm:w-60 sm:h-60" style="background-image: url('/images/stargate_portal_nebula.png');">
-            <div class="w-full h-full bg-indigo-950/20 backdrop-blur-[1px] hover:backdrop-blur-none transition-all duration-300"></div>
+          <!-- Pulsing Portal Horizon Image Overlay -->
+          <div class="absolute inset-12 sm:inset-20 rounded-full overflow-hidden stargate-horizon shadow-2xl flex items-center justify-center" style="background-image: url('/images/stargate_portal_nebula.png');">
+            <div class="w-full h-full bg-navy-950/40 backdrop-blur-[1px] group-hover:backdrop-blur-none transition-all duration-300 flex items-center justify-center p-4">
+            </div>
           </div>
 
-          <!-- Pulsing Core Button -->
-          <div class="absolute w-28 h-28 rounded-full bg-navy-950/80 border border-cyan-400/60 flex flex-col items-center justify-center text-center p-3 z-20 group-hover:border-cyan-400 transition-all shadow-2xl">
-            <i data-lucide="orbit" class="w-8 h-8 text-cyan-400 animate-spin group-hover:scale-110 transition-transform" style="animation-duration: 12s;"></i>
-            <span class="text-[9px] font-mono text-slate-200 mt-1.5 font-extrabold tracking-wider" data-i18n="stargate.enter_gate">ENTER DASHBOARD</span>
+          <!-- Explosive Center FIRSTGATE Text & Core Trigger Button -->
+          <div class="absolute inset-16 sm:inset-24 rounded-full bg-navy-950/80 border border-cyan-400/60 flex flex-col items-center justify-center text-center p-4 z-20 group-hover:border-cyan-300 transition-all shadow-2xl space-y-2 sm:space-y-4">
+            <span class="text-2xl sm:text-4xl lg:text-5xl font-black font-mono tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-emerald-300 firstgate-explosive-text">
+              FIRSTGATE
+            </span>
+
+            <button class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full font-mono text-[10px] sm:text-xs font-black tracking-wider shadow-lg shadow-cyan-500/30 transition-all group-hover:scale-110 flex items-center space-x-1.5">
+              <i data-lucide="orbit" class="w-4 h-4 animate-spin"></i>
+              <span data-i18n="stargate.enter_gate">ENTER GATEWAY ➔</span>
+            </button>
           </div>
 
-          <!-- Portal Ripples -->
-          <div class="absolute inset-0 rounded-full bg-cyan-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none scale-105"></div>
+          <!-- Outer Glow Ripples -->
+          <div class="absolute inset-0 rounded-full bg-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none scale-105"></div>
         </div>
         
-        <button onclick="enterStargatePortal()" class="text-xs font-mono text-cyan-400/70 hover:text-cyan-400 flex items-center gap-1.5 transition-colors">
+        <button onclick="enterStargatePortal()" class="text-xs sm:text-sm font-mono text-cyan-400/80 hover:text-cyan-300 flex items-center gap-2 transition-colors">
           <span data-i18n="stargate.skip">Enter Directly ➔</span>
           <i data-lucide="chevron-right" class="w-4 h-4"></i>
         </button>
-      </div>
-
-      <!-- Right Panel: Chronicles/Roadmap -->
-      <div class="lg:col-span-4 space-y-6 text-left">
-        <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 px-3 py-1 rounded-full text-xs font-mono text-indigo-400">
-          <i data-lucide="history" class="w-4 h-4"></i>
-          <span data-i18n="stargate.evo_title">DEVELOPMENT ROADMAP</span>
-        </div>
-
-        <div class="space-y-4 font-mono text-xs">
-          <!-- Step 1 -->
-          <div class="border-l-2 border-cyan-500/40 pl-4 py-1 space-y-1">
-            <div class="font-bold text-white" data-i18n="stargate.evo_step1">2024: Network Topology & Mapping</div>
-            <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="stargate.evo_step1_desc">
-              Established secure networking and latency diagnostics between NYC POP (Secaucus) and distributed GPU pods.
-            </p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="border-l-2 border-emerald-500/40 pl-4 py-1 space-y-1">
-            <div class="font-bold text-white" data-i18n="stargate.evo_step2">2025: Intelligent Routing Engine</div>
-            <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="stargate.evo_step2_desc">
-              Deployed low-latency multi-model routing nodes and local semantic vector caching to reduce API costs.
-            </p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="border-l-2 border-indigo-500/40 pl-4 py-1 space-y-1">
-            <div class="font-bold text-white" data-i18n="stargate.evo_step3">2026: Confidential TEE Infrastructure</div>
-            <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="stargate.evo_step3_desc">
-              Integrated NVIDIA H100 Hardware TEE clusters with ClickHouse audit logging to meet Wall Street compliance.
-            </p>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -178,6 +155,7 @@
     <div class="max-w-7xl mx-auto w-full px-6 py-6 text-center text-[10px] text-slate-500 font-mono z-10 shrink-0">
       TECHNICAL SPECIFICATION • HYBRID CLOUD MULTI-CLOUD SECURE TUNNELING GATEWAY
     </div>
+  </div>
   </div>
 
   <!-- MAIN DASHBOARD CONTENT -->
@@ -258,7 +236,7 @@
       <nav class="hidden lg:flex items-center space-x-1">
         <button onclick="revealStargate()" class="nav-tab text-purple-400 border border-purple-500/20 bg-purple-500/5 hover:bg-purple-500/10 mr-2">
           <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i>
-          <span>Stargate cover</span>
+          <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
         </button>
         <button onclick="switchTab('overview')" id="nav-overview" class="nav-tab active">
           <i data-lucide="layout-grid" class="w-4 h-4"></i>

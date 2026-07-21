@@ -261,21 +261,15 @@ export const translations = {
     // Footer
     'footer.text': 'NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality',
 
-    // Stargate Landing Page
-    'stargate.title': 'THE STARGATE ARCHITECTURE: FIRSTGATE SECURE TUNNELING',
+    // FirstGate Cover Landing Page
+    'stargate.title': 'FIRSTGATE SECURE TUNNELING & GATEWAY',
     'stargate.vision_title': 'HYBRID-CLOUD MESH BRIDGE',
-    'stargate.vision_desc': 'Firstgate targets secure, multi-cloud network bridging. As a metaphorical "Stargate", it bridges isolated GPU clusters across public networks via zero-trust VPN tunnels and encrypted routing protocols. We tunnel enterprise LLM workloads safely into hardware-isolated secure TEE enclaves, protecting data privacy at the silicon level.',
-    'stargate.evo_title': 'DEVELOPMENT ROADMAP',
-    'stargate.evo_step1': '2024: Network Topology & Mapping',
-    'stargate.evo_step1_desc': 'Established secure networking and latency diagnostics between NYC POP (Secaucus) and distributed GPU pods.',
-    'stargate.evo_step2': '2025: Intelligent Routing Engine',
-    'stargate.evo_step2_desc': 'Deployed low-latency multi-model routing nodes and local semantic vector caching to reduce API costs.',
-    'stargate.evo_step3': '2026: Confidential TEE Infrastructure',
-    'stargate.evo_step3_desc': 'Integrated NVIDIA H100 Hardware TEE clusters with ClickHouse audit logging to meet Wall Street compliance.',
-    'stargate.enter_gate': 'ENTER DASHBOARD',
+    'stargate.vision_desc': 'FirstGate bridges isolated GPU clusters across public and private networks via zero-trust VPN tunnels and encrypted routing protocols. All enterprise LLM workloads run inside hardware-isolated secure TEE enclaves, protecting data privacy at the silicon level.',
+    'stargate.enter_gate': 'ENTER GATEWAY ➔',
     'stargate.skip': 'Enter Directly ➔',
 
     // About Us Section
+    'nav.stargate_cover': 'FirstGate Portal',
     'nav.about': 'About Us',
     'about.badge': '20+ Years Infrastructure Evolution • ISP → Cloud & Servers → AI Compute',
     'about.hero_title_p1': 'The Gateway to the',
@@ -575,21 +569,15 @@ export const translations = {
     // Footer
     'footer.text': '纽约东区 POP 节点 • 目标 SLA: 99.999% • 符合 SOC2 与 TEE 硬件机密架构',
 
-    // Stargate Landing Page
-    'stargate.title': '星际之门计划：FIRSTGATE 安全隧道架构',
+    // FirstGate Cover Landing Page
+    'stargate.title': 'FIRSTGATE 多云安全网络隧道与智能关口',
     'stargate.vision_title': '多云桥接与隐私保障',
-    'stargate.vision_desc': 'Firstgate 致力于解决安全的多云网络桥接问题。我们以此命名，旨在通过零信任安全隧道与加密路由协议，跨越传统的公有云物理边界，将异构 GPU 集群连接为统一的高安全网络。所有的企业级 LLM 负载均通过硬件隔离的机密安全飞地（TEE）运行，从芯片底层保障金融级数据隐私安全。',
-    'stargate.evo_title': '构想与发展演进',
-    'stargate.evo_step1': '2024: 网络节点拓扑测绘',
-    'stargate.evo_step1_desc': '在纽约 POP（Secaucus）与分布式 GPU 节点之间建立安全网络互联与延迟诊断机制。',
-    'stargate.evo_step2': '2025: 智能路由引擎部署',
-    'stargate.evo_step2_desc': '部署低延迟多模型路由节点与本地语义向量缓存，有效降低企业 API 调用成本。',
-    'stargate.evo_step3': '2026: 机密计算 TEE 基础设施',
-    'stargate.evo_step3_desc': '集成 NVIDIA H100 硬件级 TEE 机密计算集群，搭载 ClickHouse 审计日志以满足华尔街合规监管要求。',
-    'stargate.enter_gate': '进入控制台',
+    'stargate.vision_desc': 'FirstGate 致力于解决安全的多云网络桥接与 AI 算力调度。通过零信任安全隧道与加密路由协议，跨越公有云物理边界，将异构 GPU 集群连接为统一的高安全网络。所有的企业级 LLM 负载均通过硬件隔离的机密安全飞地（TEE）运行，从芯片底层保障数据隐私安全。',
+    'stargate.enter_gate': '进入控制台 ➔',
     'stargate.skip': '直接进入 ➔',
 
     // About Us Section
+    'nav.stargate_cover': 'FirstGate 智能大门',
     'nav.about': '关于我们',
     'about.badge': '20余年基础设施演进 • ISP网络 → 云与AI服务器 → AI算力网关',
     'about.hero_title_p1': '通往下一代',
@@ -889,21 +877,15 @@ export const translations = {
     // Footer
     'footer.text': '紐約東區 POP 節點 • 目標 SLA: 99.999% • 符合 SOC2 與 TEE 硬體機密架構',
 
-    // Stargate Landing Page
-    'stargate.title': '星際之門計劃：FIRSTGATE 安全隧道架構',
+    // FirstGate Cover Landing Page
+    'stargate.title': 'FIRSTGATE 多雲安全網路隧道與智能關口',
     'stargate.vision_title': '多雲橋接與隱私保障',
-    'stargate.vision_desc': 'Firstgate 致力於解決安全的多雲網路橋接問題。我們以此命名，旨在通過零信任安全隧道與加密路由協定，跨越傳統的公有雲物理邊界，將異構 GPU 集群連接為統一的高安全網路。所有的企業級 LLM 負載均通過硬體隔離的機密安全飛地（TEE）運行，從晶片底層保障金融級數據隱私安全。',
-    'stargate.evo_title': '構想與發展演進',
-    'stargate.evo_step1': '2024: 網路節點拓撲測繪',
-    'stargate.evo_step1_desc': '在紐約 POP（Secaucus）與分佈式 GPU 節點之間建立安全網路互連與延遲診斷機制。',
-    'stargate.evo_step2': '2025: 智能路由引擎部署',
-    'stargate.evo_step2_desc': '部署低延遲多模型路由節點與本地語義向量快取，有效降低企業 API 調用成本。',
-    'stargate.evo_step3': '2026: 機密計算 TEE 基礎設施',
-    'stargate.evo_step3_desc': '集成 NVIDIA H100 硬體級 TEE 機密計算集群，搭載 ClickHouse 審計日誌以滿足華爾街合規監管要求。',
-    'stargate.enter_gate': '進入控制台',
+    'stargate.vision_desc': 'FirstGate 致力於解決安全的多雲網路橋接與 AI 算力調度。通過零信任安全隧道與加密路由協定，跨越公有雲物理邊界，將異構 GPU 集群連接為統一的高安全網路。所有的企業級 LLM 負載均通過硬體隔離的機密安全飛地（TEE）運行，從晶片底層保障數據隱私安全。',
+    'stargate.enter_gate': '進入控制台 ➔',
     'stargate.skip': '直接進入 ➔',
 
     // About Us Section
+    'nav.stargate_cover': 'FirstGate 智能大門',
     'nav.about': '關於我們',
     'about.badge': '20餘年基礎設施演進 • ISP網絡 → 雲與AI伺服器 → AI算力網關',
     'about.hero_title_p1': '通往下一代',
