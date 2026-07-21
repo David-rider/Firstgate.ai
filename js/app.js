@@ -1,4 +1,4 @@
-// Firstgate.ai Authentic Application Script & Real Network Diagnostic Engine
+// Firstgate.ai Authentic Application Script & Dynamic i18n Engine
 import { getLang, setLang, t, updateDOM } from './i18n.js';
 
 let telemetryChart = null;
@@ -6,14 +6,16 @@ let costPieChart = null;
 let currentGpuFilter = 'all';
 let rttHistory = [];
 
-// Sample GPU Spot Marketplace Data
-const gpuMarketData = [
-  { type: 'h100', name: 'NVIDIA H100 80GB SXM5', vram: '80GB HBM3', region: 'NYC East (FinTech Pod)', cloudPrice: '$4.25 / hr', spotPrice: '$2.15 / hr', savings: '-49%', status: 'Available' },
-  { type: 'h100', name: 'NVIDIA H200 141GB SXM5', vram: '141GB HBM3e', region: 'US East (Virginia)', cloudPrice: '$5.40 / hr', spotPrice: '$3.10 / hr', savings: '-42%', status: 'Available' },
-  { type: 'b200', name: 'NVIDIA Blackwell B200', vram: '192GB HBM3e', region: 'NYC On-Prem VPC', cloudPrice: '$7.50 / hr', spotPrice: '$4.80 / hr', savings: '-36%', status: 'High Demand' },
-  { type: 'l40s', name: 'NVIDIA L40S 48GB Ada', vram: '48GB GDDR6', region: 'EU Central (Frankfurt)', cloudPrice: '$2.10 / hr', spotPrice: '$0.82 / hr', savings: '-61%', status: 'Available' },
-  { type: 'l40s', name: 'NVIDIA A100 80GB PCIe', vram: '80GB HBM2e', region: 'US West (Oregon)', cloudPrice: '$3.60 / hr', spotPrice: '$1.45 / hr', savings: '-59%', status: 'Available' }
-];
+// Dynamic GPU Spot Marketplace Data
+function getGpuMarketData() {
+  return [
+    { type: 'h100', name: 'NVIDIA H100 80GB SXM5', vram: '80GB HBM3', region: t('models.m1_host'), cloudPrice: '$4.25 / hr', spotPrice: '$2.15 / hr', savings: '-49%', status: t('market.status_avail') },
+    { type: 'h100', name: 'NVIDIA H200 141GB SXM5', vram: '141GB HBM3e', region: 'US East (Virginia)', cloudPrice: '$5.40 / hr', spotPrice: '$3.10 / hr', savings: '-42%', status: t('market.status_avail') },
+    { type: 'b200', name: 'NVIDIA Blackwell B200', vram: '192GB HBM3e', region: t('models.m1_host'), cloudPrice: '$7.50 / hr', spotPrice: '$4.80 / hr', savings: '-36%', status: t('market.status_demand') },
+    { type: 'l40s', name: 'NVIDIA L40S 48GB Ada', vram: '48GB GDDR6', region: 'EU Central (Frankfurt)', cloudPrice: '$2.10 / hr', spotPrice: '$0.82 / hr', savings: '-61%', status: t('market.status_avail') },
+    { type: 'l40s', name: 'NVIDIA A100 80GB PCIe', vram: '80GB HBM2e', region: 'US West (Oregon)', cloudPrice: '$3.60 / hr', spotPrice: '$1.45 / hr', savings: '-59%', status: t('market.status_avail') }
+  ];
+}
 
 // Initialize App when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -84,11 +86,26 @@ async function measureRealClientNetworkRTT() {
 
 // Listen to language change event
 window.addEventListener('languageChange', (e) => {
+  updateDOM();
   runRoutingSimulation();
   populateGpuMarketTable();
   populateAuditLogs();
   updateChartLabels();
+  updatePlaygroundTextOnLangChange();
 });
+
+function updatePlaygroundTextOnLangChange() {
+  const c1 = document.getElementById('pg-res-1');
+  const c2 = document.getElementById('pg-res-2');
+  const c3 = document.getElementById('pg-res-3');
+  const c4 = document.getElementById('pg-res-4');
+
+  const clickRunStr = t('playground.click_run');
+  if (c1 && (c1.innerText.includes('Click') || c1.innerText.includes('点击') || c1.innerText.includes('點擊'))) c1.innerText = clickRunStr;
+  if (c2 && (c2.innerText.includes('Click') || c2.innerText.includes('点击') || c2.innerText.includes('點擊'))) c2.innerText = clickRunStr;
+  if (c3 && (c3.innerText.includes('Click') || c3.innerText.includes('点击') || c3.innerText.includes('點擊'))) c3.innerText = clickRunStr;
+  if (c4 && (c4.innerText.includes('Click') || c4.innerText.includes('点击') || c4.innerText.includes('點擊'))) c4.innerText = clickRunStr;
+}
 
 // Navigation Tab Switcher
 export function switchTab(tabId) {
@@ -137,12 +154,12 @@ function populateGpuMarketTable() {
   const tbody = document.getElementById('gpu-market-rows');
   if (!tbody) return;
 
+  const rawData = getGpuMarketData();
   const filtered = currentGpuFilter === 'all' 
-    ? gpuMarketData 
-    : gpuMarketData.filter(g => g.type === currentGpuFilter);
+    ? rawData 
+    : rawData.filter(g => g.type === currentGpuFilter);
 
-  const lang = getLang();
-  const reserveStr = lang === 'en' ? 'Reserve Pod' : (lang === 'zh-TW' ? '預定 Pod' : '预定 Pod');
+  const reserveStr = t('market.reserve_btn');
 
   tbody.innerHTML = filtered.map(item => `
     <tr class="hover:bg-navy-850/50 transition-colors">
@@ -219,7 +236,7 @@ export function runRoutingSimulation() {
 
   if (latWeight > 70) {
     if (workload === 'quant') {
-      simModel.innerHTML = `<i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i> DeepSeek V3 (NYC On-Prem VPC)`;
+      simModel.innerHTML = `<i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i> DeepSeek V3 (${t('models.m1_host')})`;
       simLatency.innerText = '18 ms';
       simCost.innerText = '$0.00014 / 1k';
       simCache.innerText = lang === 'en' ? 'Semantic Cache Hit (99%)' : (lang === 'zh-TW' ? '語義快取命中 (99%)' : '语义缓存命中 (99%)');
@@ -306,9 +323,8 @@ function populateAuditLogs() {
   const tbody = document.getElementById('audit-log-rows');
   if (!tbody) return;
 
-  const lang = getLang();
-  const cleanStr = lang === 'en' ? '0 (Clean)' : (lang === 'zh-TW' ? '0 (正常無敏感資料)' : '0 (无敏感数据)');
-  const redactedStr = (n) => lang === 'en' ? `${n} Redacted` : (lang === 'zh-TW' ? `${n} 項已脫敏` : `${n} 项已脱敏`);
+  const cleanStr = t('security.pii_clean');
+  const redactedStr = (n) => `${n} ${t('security.pii_redacted')}`;
 
   const sampleLogs = [
     { time: '2026-07-20 23:14:02.194', app: 'quant-trader-bot-01', model: 'deepseek-v3 (NYC-VPC)', lat: '16.4 ms', tokens: '1,420', pii: cleanStr, status: '200 OK' },
@@ -336,7 +352,7 @@ export function exportAuditLog() {
     "2026-07-20 23:14:02.194,quant-trader-bot-01,deepseek-v3,16.4ms,1420,0,200_OK\n" +
     "2026-07-20 23:13:58.841,compliance-auditor-v2,claude-3-5-sonnet,34.1ms,8920,3,200_OK";
   
-  const encodedUri = encodeURI(encodeURI(csvContent));
+  const encodedUri = encodeURI(csvContent);
   const link = document.createElement("a");
   link.setAttribute("href", encodedUri);
   link.setAttribute("download", "Firstgate_SOC2_Audit_Log_Export.csv");
@@ -349,11 +365,10 @@ window.exportAuditLog = exportAuditLog;
 // Multi-Model Playground Streaming Test Simulator
 export function runPlaygroundComparison() {
   const btn = document.getElementById('pg-run-btn');
-  const lang = getLang();
 
   if (btn) {
     btn.disabled = true;
-    const streamingText = lang === 'en' ? 'Streaming...' : (lang === 'zh-TW' ? '串流傳輸中...' : '流式传输中...');
+    const streamingText = t('playground.streaming');
     btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> ${streamingText}`;
   }
 
@@ -367,33 +382,25 @@ export function runPlaygroundComparison() {
   card3.innerText = '';
   card4.innerText = '';
 
-  const initStreamStr = lang === 'en' ? 'Streaming...' : (lang === 'zh-TW' ? '串流中...' : '流式中...');
+  const initStreamStr = t('playground.streaming');
   document.getElementById('pg-ttft-1').innerText = initStreamStr;
   document.getElementById('pg-ttft-2').innerText = initStreamStr;
   document.getElementById('pg-ttft-3').innerText = initStreamStr;
   document.getElementById('pg-ttft-4').innerText = initStreamStr;
 
   const responses = {
-    c1: lang === 'en'
+    c1: t('lang') === 'en'
       ? "An API Gateway proxies requests, authenticating endpoints and rate-limiting calls. An AI Routing Engine like Firstgate dynamically inspects token payloads, evaluates LLM availability, latency (TTFT), cost per 1k tokens, and routes prompts to optimal endpoints."
-      : (lang === 'zh-TW'
-        ? "API 网关主要负责 HTTP 鉴权与限流。而像 Firstgate 这样的 AI 智能路由引擎，能动态解析 Prompt Token，实时评估 TTFT 延迟与成本，在多模型间做最优智能调度。"
-        : "API 网关主要负责 HTTP 鉴权与限流。而像 Firstgate 这样的 AI 智能路由引擎，能动态解析 Prompt Token，实时评估 TTFT 延迟与成本，在多模型间做最优智能调度。"),
-    c2: lang === 'en'
+      : "API 网关主要负责 HTTP 鉴权与限流。而像 Firstgate 这样的 AI 智能路由引擎，能动态解析 Prompt Token，实时评估 TTFT 延迟与成本，在多模型间做最优智能调度。",
+    c2: t('lang') === 'en'
       ? "API Gateways handle standard HTTP traffic governance. AI Routing Engines add semantic caching, automatic fallback chains, PII redaction, and cost-optimized multi-provider token management tailored for real-time financial trading systems."
-      : (lang === 'zh-TW'
-        ? "API 网关治理标准网络流量。AI 路由引擎进一步提供语义向量缓存、自动降级链、零信任 PII 脱敏以及针对金融交易系统优化的多云算力成本控制。"
-        : "API 网关治理标准网络流量。AI 路由引擎进一步提供语义向量缓存、自动降级链、零信任 PII 脱敏以及针对金融交易系统优化的多云算力成本控制。"),
-    c3: lang === 'en'
+      : "API 网关治理标准网络流量。AI 路由引擎进一步提供语义向量缓存、自动降级链、零信任 PII 脱敏以及针对金融交易系统优化的多云算力成本控制。",
+    c3: t('lang') === 'en'
       ? "⚡ [Firstgate Selected Node: NYC VPC] An AI Routing Engine acts as a dynamic control plane that translates financial trading prompts into execution calls across heterogeneous GPU clusters, reducing cost by 70% while guaranteeing sub-20ms SLA."
-      : (lang === 'zh-TW'
-        ? "⚡ [Firstgate 选中节点: 纽约 VPC 私有集群] AI 智能路由引擎作为控制平面，将金融交易 Prompt 调度至异构 GPU 资源，在保证亚20ms SLA 的同时降低 70% 成本。"
-        : "⚡ [Firstgate 选中节点: 纽约 VPC 私有集群] AI 智能路由引擎作为控制平面，将金融交易 Prompt 调度至异构 GPU 资源，在保证亚20ms SLA 的同时降低 70% 成本。"),
-    c4: lang === 'en'
+      : "⚡ [Firstgate 选中节点: 纽约 VPC 私有集群] AI 智能路由引擎作为控制平面，将金融交易 Prompt 调度至异构 GPU 资源，在保证亚20ms SLA 的同时降低 70% 成本。",
+    c4: t('lang') === 'en'
       ? "While traditional API gateways govern operational QPS, an Enterprise AI Routing Engine provides intelligent model arbitration, vector-based semantic response retrieval, and token budget enforcement."
-      : (lang === 'zh-TW'
-        ? "传统 API 网关管控运维 QPS，而企业级 AI 路由引擎提供智能模型仲裁、向量语义缓存检索以及算力配额与预算硬封顶控制。"
-        : "传统 API 网关管控运维 QPS，而企业级 AI 路由引擎提供智能模型仲裁、向量语义缓存检索以及算力配额与预算硬封顶控制。")
+      : "传统 API 网关管控运维 QPS，而企业级 AI 路由引擎提供智能模型仲裁、向量语义缓存检索以及算力配额与预算硬封顶控制。"
   };
 
   let idx = 0;
@@ -407,8 +414,8 @@ export function runPlaygroundComparison() {
     if (idx >= Math.max(responses.c1.length, responses.c3.length)) {
       clearInterval(timer);
 
-      const fastestStr = lang === 'en' ? '16 ms (Fastest)' : (lang === 'zh-TW' ? '16 ms (最快)' : '16 ms (最快)');
-      const lowestStr = lang === 'en' ? '$0.0001 (Lowest)' : (lang === 'zh-TW' ? '$0.0001 (最低)' : '$0.0001 (最低)');
+      const fastestStr = `16 ms (${t('playground.fastest')})`;
+      const lowestStr = `$0.0001 (${t('playground.lowest')})`;
 
       document.getElementById('pg-ttft-1').innerText = '34 ms';
       document.getElementById('pg-cost-1').innerText = '$0.0032';
@@ -424,7 +431,7 @@ export function runPlaygroundComparison() {
 
       if (btn) {
         btn.disabled = false;
-        const btnText = lang === 'en' ? 'Run Parallel Evaluation' : (lang === 'zh-TW' ? '開始並行測試' : '开始并行测试');
+        const btnText = t('playground.run_btn');
         btn.innerHTML = `<i data-lucide="play" class="w-4 h-4 fill-navy-950"></i> <span>${btnText}</span>`;
         if (window.lucide) lucide.createIcons();
       }
@@ -488,7 +495,7 @@ function initTelemetryChart() {
       labels: labels,
       datasets: [
         {
-          label: 'Client RTT Latency (ms)',
+          label: t('telemetry.legend'),
           data: initialData,
           borderColor: '#10B981',
           backgroundColor: 'rgba(16, 185, 129, 0.1)',

@@ -1,7 +1,7 @@
-// Firstgate.ai i18n Controller
+// Firstgate.ai i18n Core Engine (Seamless Multi-Language DOM Renderer)
 import { translations } from './translations.js';
 
-let currentLang = localStorage.getItem('firstgate_lang') || 'en';
+let currentLang = localStorage.getItem('fg_lang') || 'en';
 
 export function getLang() {
   return currentLang;
@@ -10,12 +10,18 @@ export function getLang() {
 export function setLang(lang) {
   if (!translations[lang]) return;
   currentLang = lang;
-  localStorage.setItem('firstgate_lang', lang);
-  updateDOM();
+  localStorage.setItem('fg_lang', lang);
   
-  // Dispatch custom event for dynamic components (charts, simulator, audit logs)
+  // Sync selector dropdown if exists
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.value = lang;
+  }
+
+  updateDOM();
   window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
 }
+window.setLang = setLang;
 
 export function t(key) {
   const dict = translations[currentLang] || translations['en'];
@@ -23,29 +29,39 @@ export function t(key) {
 }
 
 export function updateDOM() {
+  const lang = currentLang;
+  const dict = translations[lang] || translations['en'];
+
+  // Update text & HTML content for data-i18n
   document.querySelectorAll('[data-i18n]').forEach(elem => {
     const key = elem.getAttribute('data-i18n');
-    const translation = t(key);
-    if (translation) {
-      elem.innerText = translation;
+    const val = dict[key] || translations['en'][key];
+    if (val !== undefined) {
+      if (val.includes('<') && val.includes('>')) {
+        elem.innerHTML = val;
+      } else {
+        elem.textContent = val;
+      }
     }
   });
 
+  // Update placeholders for data-i18n-placeholder
   document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
     const key = elem.getAttribute('data-i18n-placeholder');
-    const translation = t(key);
-    if (translation) {
-      elem.setAttribute('placeholder', translation);
+    const val = dict[key] || translations['en'][key];
+    if (val !== undefined) {
+      elem.setAttribute('placeholder', val);
     }
   });
 
-  // Update Language Selector UI buttons/selects
+  document.documentElement.lang = lang;
+}
+
+// Auto init on script load
+document.addEventListener('DOMContentLoaded', () => {
   const langSelect = document.getElementById('lang-select');
   if (langSelect) {
     langSelect.value = currentLang;
   }
-}
-
-// Global window attachment for inline HTML events
-window.setLang = setLang;
-window.t = t;
+  updateDOM();
+});

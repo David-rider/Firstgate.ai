@@ -1,4 +1,4 @@
-// Firstgate.ai i18n Language Dictionaries (Node Transparency & F12 Proof Guide)
+// Firstgate.ai i18n Dictionaries — 100% Complete Multi-Language Coverage (en, zh-CN, zh-TW)
 
 export const translations = {
   'en': {
@@ -10,7 +10,10 @@ export const translations = {
     'top.status': 'Gateway Health',
     'top.soc2': 'SOC2 Type II & TEE Certified',
     'top.sla': 'Wall Street SLA: 99.999%',
+    'top.verify_btn': 'Verify Node & F12 Proof',
+    'top.proto_val': 'HTTP/1.1 (Vite Dev Server)',
 
+    // Navigation Menu
     'nav.overview': 'Overview',
     'nav.marketplace': 'Compute Marketplace',
     'nav.router': 'Smart Router',
@@ -80,6 +83,7 @@ export const translations = {
     // Compute Marketplace Page
     'market.title': 'AI Compute Spot Marketplace & Exchange',
     'market.subtitle': 'Compare real-time GPU spot prices, reserve dedicated inference clusters, and deploy serverless vLLM endpoints across global regions',
+    'market.gpus_avail': '4,820 GPUs AVAILABLE',
     'market.filter_all': 'All GPU Types',
     'market.filter_h100': 'H100 / H200',
     'market.filter_b200': 'Blackwell B200',
@@ -92,14 +96,31 @@ export const translations = {
     'market.col_savings': 'Savings',
     'market.col_action': 'Action',
     'market.reserve_btn': 'Reserve Pod',
+    'market.status_avail': 'Available',
+    'market.status_demand': 'High Demand',
 
     // Models Marketplace Section
     'models.title': 'Hosted Open-Weights AI Models Marketplace',
     'models.subtitle': 'One-click serverless deployment for state-of-the-art open models with sub-20ms first token latency',
+    'models.m1_desc': 'FP8 Quantized • 128k Context',
+    'models.m2_desc': 'Reinforcement Learning • Chain-of-Thought',
+    'models.m3_desc': 'Meta AI • 128k Context Window',
+    'models.m4_desc': 'Alibaba Cloud • Code & Math Specialism',
+    'models.badge_ready': 'READY',
+    'models.badge_popular': 'POPULAR',
+    'models.badge_fastest': 'FASTEST',
+    'models.price_unit': '/ 1M Tokens',
+    'models.host_label': 'Hosting:',
+    'models.m1_host': 'NYC On-Prem VPC Pod',
+    'models.m2_host': 'AWS H100 TEE Cluster',
+    'models.m3_host': 'GCP L40S Pool',
+    'models.m4_host': 'NYC East Edge POP',
+    'models.deploy_btn': 'Deploy Endpoint',
 
     // Telemetry Section
     'telemetry.title': 'Live Gateway Network Telemetry',
     'telemetry.subtitle': 'Real-time measured client-to-edge RTT latency and network ping diagnostics',
+    'telemetry.legend': 'Measured Client RTT Ping (ms)',
 
     // Router Configurator Page
     'router.title': 'Intelligent Router Configurator',
@@ -115,9 +136,19 @@ export const translations = {
     'router.preset_airgap_badge': 'AIR-GAPPED',
     'router.preset_airgap_desc': '100% of requests restricted to local NYC private GPU clusters. Zero public cloud exposure.',
     'router.chain_title': 'Fallback Chain Execution Order',
+    'router.step1_meta': 'Primary Endpoint • Timeout: 1200ms • Max Cost: $3.00/1M',
+    'router.step2_meta': 'Fallback 1 • Trigger on 429/500/503 • Timeout: 1500ms',
+    'router.step3_meta': 'Fallback 2 • Trigger on Latency > 1800ms • Zero External Cost',
+    'router.status_healthy': 'HEALTHY (24ms)',
+    'router.status_standby': 'STANDBY',
     'router.cache_title': 'Vector Semantic Caching',
     'router.cache_desc': 'Automatically matches historical prompts with cosine similarity above threshold. Cache hits return in 3.8ms with zero token cost.',
     'router.cache_thresh_label': 'Similarity Threshold (Cosine Similarity):',
+    'router.cache_eff_label': 'Cache Efficiency Status:',
+    'router.cache_eff_val': 'OPTIMAL',
+    'router.cache_total_label': 'Total Requests Cached:',
+    'router.cache_avg_label': 'Avg Latency (Cache Hit):',
+    'router.cache_saved_label': 'Estimated Cost Saved:',
 
     // Quotas & Governance Page
     'quotas.title': 'Capacity Quotas & Cost Governance',
@@ -130,12 +161,24 @@ export const translations = {
     'quotas.col_usage': 'Usage %',
     'quotas.col_rate': 'Rate Limit (QPS)',
     'quotas.col_action': 'Actions',
+    'quotas.edit_btn': 'Edit Quota',
+    'quotas.dept1': 'Quant Trading Desk',
+    'quotas.dept2': 'Risk & Compliance',
+    'quotas.dept3': 'Enterprise Copilot',
     'quotas.mesh_title': 'Compute Capacity Mesh',
+    'quotas.mesh1_name': 'NYC On-Prem H100 Cluster (Secured VPC)',
+    'quotas.mesh1_desc': 'Local FinTech Pod • 64x H100 80GB',
+    'quotas.mesh2_name': 'AWS us-east-1 Capacity Pool',
+    'quotas.mesh2_desc': 'Claude & Bedrock Orchestrator',
+    'quotas.mesh3_name': 'GCP us-central1 Capacity Pool',
+    'quotas.mesh3_desc': 'Gemini 1.5 Pro & Flash Pipelines',
+    'quotas.util_label': 'Utilized',
     'quotas.chart_cost_title': 'Cost Distribution by Model',
 
     // Security Page
     'security.title': 'Wall Street Security, TEE & Audit Hub',
     'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, and immutable ClickHouse audit logging',
+    'security.pii_active_badge': 'PII MASKING & TEE: ACTIVE',
     'security.pii_title': 'Live PII & Financial Data Masking Tester',
     'security.pii_subtitle': 'Input prompt containing sensitive financial data to inspect Firstgate sub-millisecond redaction',
     'security.pii_btn': 'Test Masking',
@@ -150,23 +193,52 @@ export const translations = {
     'security.col_tokens': 'Tokens',
     'security.col_pii': 'PII Redacted',
     'security.col_status': 'Status',
+    'security.pii_clean': '0 (Clean)',
+    'security.pii_redacted': 'Redacted',
 
     // Playground Page
     'playground.title': 'Interactive Multi-Model Playground',
     'playground.subtitle': 'Dispatch a single prompt to 4 LLM clusters simultaneously to evaluate TTFT, total latency, token cost, and routing decisions side-by-side',
     'playground.input_label': 'Enter Prompt for Parallel Routing Evaluation:',
+    'playground.proxy_active': 'Firstgate Intelligent Proxy Active',
+    'playground.prompt_placeholder': 'Explain the architectural differences between an API Gateway and a Multi-Model AI Routing Engine in financial trading systems.',
+    'playground.stream_label': 'Stream Output:',
+    'playground.stream_val': 'ENABLED (SSE)',
     'playground.run_btn': 'Run Parallel Evaluation',
+    'playground.streaming': 'Streaming...',
+    'playground.click_run': 'Click "Run Parallel Evaluation" to stream response...',
+    'playground.ttft_label': 'TTFT:',
+    'playground.cost_label': 'Est. Cost:',
+    'playground.fastest': 'Fastest',
+    'playground.lowest': 'Lowest',
+    'playground.badge_routed': 'ROUTED',
 
     // Docs Page
     'docs.title': 'Developer Documentation & SDK',
     'docs.subtitle': 'Seamless drop-in replacement for OpenAI SDK. Modify 1 line `base_url` to unlock full intelligent routing & capacity governance',
+    'docs.integration_title': 'Drop-in OpenAI Protocol Integration',
+
+    // Node & F12 Proof Modal
+    'modal.title': 'Node Health & Network Real Verification',
+    'modal.sec1_title': '1. Current Live Environment',
+    'modal.active_host_label': 'Active Host:',
+    'modal.transport_label': 'HTTP Transport:',
+    'modal.ping_label': 'Measured RTT Ping:',
+    'modal.sec2_title': '2. How to Prove it is Real in Browser F12',
+    'modal.step1': 'Press <strong>F12</strong> (or Right Click -> Inspect) to open Browser Developer Tools.',
+    'modal.step2': 'Switch to the <strong>Network</strong> tab.',
+    'modal.step3': 'Observe the HEAD request dispatched to <code>/css/style.css?t=...</code> every 3 seconds.',
+    'modal.step4': 'Notice the <strong>200 OK</strong> status code and exact matching RTT timing!',
+    'modal.sec3_title': '3. Production Architecture Node',
+    'modal.prod_desc': 'In production deployment, requests are routed to <strong>NYC-East POP (Equinix NY4 Secaucus, NJ / 111 8th Ave NYC)</strong> connected directly to Wall Street high-frequency optical fiber backbones.',
+    'modal.close_btn': 'Close Inspector',
 
     // Footer
     'footer.text': 'NYC-East POP Point of Presence • SLA: 99.999% • SOC2 Type II Certified'
   },
 
   'zh-CN': {
-    // Top Bar & Header (真实环境透明标注)
+    // Top Bar & Header
     'top.edge_status': '本地开发节点: 在线 (200 OK)',
     'top.latency': '真实客户端 RTT 网络时延',
     'top.protocol': '传输协议',
@@ -174,7 +246,10 @@ export const translations = {
     'top.status': '网关集群状态',
     'top.soc2': 'SOC2 Type II & TEE 机密认证',
     'top.sla': '华尔街 SLA: 99.999%',
+    'top.verify_btn': '节点验证与 F12 抓包证明',
+    'top.proto_val': 'HTTP/1.1 (Vite 开发服务器)',
 
+    // Navigation Menu
     'nav.overview': '平台概述',
     'nav.marketplace': '算力交易市场',
     'nav.router': '智能路由',
@@ -244,6 +319,7 @@ export const translations = {
     // Compute Marketplace Page
     'market.title': 'AI 算力交易与 Spot 竞价市场',
     'market.subtitle': '实时对比全球 GPU 竞价价格，一键预定专用推理算力集群，部署跨区域 Serverless vLLM 节点',
+    'market.gpus_avail': '4,820 张 GPU 算力在线',
     'market.filter_all': '全部 GPU 类型',
     'market.filter_h100': 'H100 / H200 系列',
     'market.filter_b200': 'Blackwell B200',
@@ -256,14 +332,31 @@ export const translations = {
     'market.col_savings': '节省比例',
     'market.col_action': '操作',
     'market.reserve_btn': '立即预定 Pod',
+    'market.status_avail': '算力就绪',
+    'market.status_demand': '高需求争抢',
 
     // Models Marketplace Section
     'models.title': '托管开源大模型市场',
     'models.subtitle': '一键拉起 SOTA 开源模型 Serverless 端点，提供亚 20ms 首包延迟体验',
+    'models.m1_desc': 'FP8 量化版本 • 128k 上下文窗口',
+    'models.m2_desc': '强化学习 • 思维链 (CoT) 深度推理',
+    'models.m3_desc': 'Meta 旗舰大模型 • 128k 长文本',
+    'models.m4_desc': '阿里云出品 • 代码与数学推理专家',
+    'models.badge_ready': '服务就绪',
+    'models.badge_popular': '最受欢迎',
+    'models.badge_fastest': '响应最快',
+    'models.price_unit': '/ 100万 Tokens',
+    'models.host_label': '托管部署节点:',
+    'models.m1_host': '纽约本地私有 VPC 节点',
+    'models.m2_host': 'AWS H100 TEE 安全机密集群',
+    'models.m3_host': 'GCP L40S 算力池',
+    'models.m4_host': '纽约东区 POP 边缘节点',
+    'models.deploy_btn': '部署推理端点',
 
     // Telemetry Section
     'telemetry.title': '网关网络真实测速与诊断',
     'telemetry.subtitle': '基于浏览器 Performance API 实时测量客户端到边缘节点的真实 RTT 往返时延与网络 Ping 值',
+    'telemetry.legend': '实测客户端 RTT 往返延迟 (ms)',
 
     // Router Configurator Page
     'router.title': '智能路由规则中心',
@@ -279,9 +372,19 @@ export const translations = {
     'router.preset_airgap_badge': '物理隔离预设',
     'router.preset_airgap_desc': '请求 100% 局限在纽约本地私有化 GPU 集群，绝不流经公有云 API。',
     'router.chain_title': '降级策略（Fallback Chain）执行顺序',
+    'router.step1_meta': '主调度端点 • 超时门限: 1200ms • 最高允许成本: $3.00/1M Tokens',
+    'router.step2_meta': '备用端点 1 • 触发条件: 429/500/503 错误 • 超时门限: 1500ms',
+    'router.step3_meta': '备用端点 2 • 触发条件: 延迟 > 1800ms • 零外部 API 支出',
+    'router.status_healthy': '运行正常 (24ms)',
+    'router.status_standby': '热备就绪',
     'router.cache_title': '向量语义缓存设置',
     'router.cache_desc': '自动匹配相似度高于阈值的历史 Prompt。命中的请求在 3.8ms 内极速返回，且耗费零 Token 费用。',
     'router.cache_thresh_label': '余弦相似度门限 (Cosine Similarity):',
+    'router.cache_eff_label': '缓存运行状态:',
+    'router.cache_eff_val': '最佳优化状态',
+    'router.cache_total_label': '累计已缓存请求量:',
+    'router.cache_avg_label': '命中平均响应耗时:',
+    'router.cache_saved_label': '预估已节省成本:',
 
     // Quotas & Governance Page
     'quotas.title': '算力配额与治理中心',
@@ -294,12 +397,24 @@ export const translations = {
     'quotas.col_usage': '使用率 %',
     'quotas.col_rate': '速率限制 (QPS)',
     'quotas.col_action': '操作',
+    'quotas.edit_btn': '修改配额',
+    'quotas.dept1': '量化交易交易台',
+    'quotas.dept2': '风控与合规部',
+    'quotas.dept3': '企业 AI Copilot 助手',
     'quotas.mesh_title': '算力节点网络分布',
+    'quotas.mesh1_name': '纽约本地 H100 私有集群 (安全 VPC)',
+    'quotas.mesh1_desc': '本地金融 Pod • 64x H100 80GB',
+    'quotas.mesh2_name': 'AWS us-east-1 算力池',
+    'quotas.mesh2_desc': 'Claude & Bedrock 调度节点',
+    'quotas.mesh3_name': 'GCP us-central1 算力池',
+    'quotas.mesh3_desc': 'Gemini 1.5 Pro & Flash 管道',
+    'quotas.util_label': '负载率',
     'quotas.chart_cost_title': '按模型划分的支出占比',
 
     // Security Page
     'security.title': '安全、机密计算与审计中心',
     'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏与不可篡改 ClickHouse 审计日志',
+    'security.pii_active_badge': 'PII 脱敏与 TEE 机密保护：开启',
     'security.pii_title': '实时 PII 与金融数据脱敏测试器',
     'security.pii_subtitle': '输入包含敏感信息的 Prompt，查看 Firstgate 如何在请求发出前完成毫秒级脱敏',
     'security.pii_btn': '执行脱敏测试',
@@ -314,23 +429,52 @@ export const translations = {
     'security.col_tokens': 'Token 数量',
     'security.col_pii': 'PII 脱敏状态',
     'security.col_status': '状态码',
+    'security.pii_clean': '0 (正常无敏感数据)',
+    'security.pii_redacted': '项已脱敏',
 
     // Playground Page
     'playground.title': '多模型对比试用台',
     'playground.subtitle': '单次 Prompt 同时向 4 大模型集群发包，实时对比首包延迟 (TTFT)、总耗时、Token 成本与路由策略',
     'playground.input_label': '输入 Prompt 进行并行测速与对比:',
+    'playground.proxy_active': 'Firstgate 智能代理已就绪',
+    'playground.prompt_placeholder': '请对比 API 网关与多模型 AI 智能路由引擎在金融交易系统中的架构差异。',
+    'playground.stream_label': '流式传输模式:',
+    'playground.stream_val': '已开启 (SSE)',
     'playground.run_btn': '开始并行测试',
+    'playground.streaming': '流式传输中...',
+    'playground.click_run': '点击“开始并行测试”以实时流式输出响应...',
+    'playground.ttft_label': '首包延迟 (TTFT):',
+    'playground.cost_label': '预估成本:',
+    'playground.fastest': '最快',
+    'playground.lowest': '最低',
+    'playground.badge_routed': '命中路由',
 
     // Docs Page
     'docs.title': '开发文档与 SDK Quickstart',
     'docs.subtitle': '无缝替代 OpenAI SDK。只需修改 1 行 `base_url`，即刻获得全量智能路由与算力治理能力',
+    'docs.integration_title': '无缝替代 OpenAI 协议接入',
+
+    // Node & F12 Proof Modal
+    'modal.title': '节点健康度与网络真实性验证',
+    'modal.sec1_title': '1. 当前在线节点信息',
+    'modal.active_host_label': '活跃主机地址:',
+    'modal.transport_label': 'HTTP 传输协议:',
+    'modal.ping_label': '实测 RTT 往返延迟:',
+    'modal.sec2_title': '2. 如何在浏览器 F12 中验证真实性',
+    'modal.step1': '按下 <strong>F12</strong>（或右键 -> 检查）打开浏览器开发者工具。',
+    'modal.step2': '切换至 <strong>Network (网络)</strong> 标签页。',
+    'modal.step3': '观察网页每 3 秒自动向 <code>/css/style.css?t=...</code> 发起的 HEAD 请求。',
+    'modal.step4': '核对 <strong>200 OK</strong> 状态码与实测往返时间！',
+    'modal.sec3_title': '3. 生产环境节点架构',
+    'modal.prod_desc': '在生产部署环境中，请求将被调度至<strong>纽约 Secaucus (Equinix NY4) 与曼哈顿 111 8th Ave</strong>，直连华尔街金融高频光纤骨干网。',
+    'modal.close_btn': '关闭诊断窗口',
 
     // Footer
     'footer.text': '纽约东区 POP 节点 • 服务可用性 SLA: 99.999% • 通过 SOC2 Type II 与 TEE 机密认证'
   },
 
   'zh-TW': {
-    // Top Bar & Header (真實環境透明標註)
+    // Top Bar & Header
     'top.edge_status': '本地開發節點: 在線 (200 OK)',
     'top.latency': '真實用戶端 RTT 網路時延',
     'top.protocol': '傳輸協定',
@@ -338,7 +482,10 @@ export const translations = {
     'top.status': '網關集群狀態',
     'top.soc2': 'SOC2 Type II & TEE 機密認證',
     'top.sla': '華爾街 SLA: 99.999%',
+    'top.verify_btn': '節點驗證與 F12 抓包證明',
+    'top.proto_val': 'HTTP/1.1 (Vite 開發伺服器)',
 
+    // Navigation Menu
     'nav.overview': '平台概述',
     'nav.marketplace': '算力交易市場',
     'nav.router': '智能路由',
@@ -408,6 +555,7 @@ export const translations = {
     // Compute Marketplace Page
     'market.title': 'AI 算力交易與 Spot 競價市場',
     'market.subtitle': '即時對比全球 GPU 競價價格，一鍵預定專用推理算力集群，部署跨區域 Serverless vLLM 節點',
+    'market.gpus_avail': '4,820 張 GPU 算力在線',
     'market.filter_all': '全部 GPU 類型',
     'market.filter_h100': 'H100 / H200 系列',
     'market.filter_b200': 'Blackwell B200',
@@ -420,14 +568,31 @@ export const translations = {
     'market.col_savings': '節省比例',
     'market.col_action': '操作',
     'market.reserve_btn': '立即預定 Pod',
+    'market.status_avail': '算力就緒',
+    'market.status_demand': '高需求爭搶',
 
     // Models Marketplace Section
     'models.title': '託管開源大模型市場',
     'models.subtitle': '一鍵拉起 SOTA 開源模型 Serverless 端點，提供亞 20ms 首包延遲體驗',
+    'models.m1_desc': 'FP8 量化版本 • 128k 上下文視窗',
+    'models.m2_desc': '強化學習 • 思維鏈 (CoT) 深度推理',
+    'models.m3_desc': 'Meta 旗艦大模型 • 128k 長文本',
+    'models.m4_desc': '阿里雲出品 • 程式碼與數學推理專家',
+    'models.badge_ready': '服務就緒',
+    'models.badge_popular': '最受歡迎',
+    'models.badge_fastest': '響應最快',
+    'models.price_unit': '/ 100萬 Tokens',
+    'models.host_label': '託管部署節點:',
+    'models.m1_host': '紐約本地私有 VPC 節點',
+    'models.m2_host': 'AWS H100 TEE 安全機密集群',
+    'models.m3_host': 'GCP L40S 算力池',
+    'models.m4_host': '紐約東區 POP 邊緣節點',
+    'models.deploy_btn': '部署推理端點',
 
     // Telemetry Section
     'telemetry.title': '網關網路真實測速與診斷',
     'telemetry.subtitle': '基於瀏覽器 Performance API 即時測量用戶端到邊緣節點的真實 RTT 往返時延與網路 Ping 值',
+    'telemetry.legend': '實測用戶端 RTT 往返延遲 (ms)',
 
     // Router Configurator Page
     'router.title': '智能路由規則中心',
@@ -443,9 +608,19 @@ export const translations = {
     'router.preset_airgap_badge': '物理隔離預設',
     'router.preset_airgap_desc': '請求 100% 局限在紐約本地私有化 GPU 集群，絕不流經公有雲 API。',
     'router.chain_title': '降級策略（Fallback Chain）執行順序',
+    'router.step1_meta': '主調度端點 • 超時門限: 1200ms • 最高允許成本: $3.00/1M Tokens',
+    'router.step2_meta': '備用端點 1 • 觸發條件: 429/500/503 錯誤 • 超時門限: 1500ms',
+    'router.step3_meta': '備用端點 2 • 觸發條件: 延遲 > 1800ms • 零外部 API 支出',
+    'router.status_healthy': '運行正常 (24ms)',
+    'router.status_standby': '熱備就緒',
     'router.cache_title': '向量語義快取設定',
     'router.cache_desc': '自動匹配相似度高於閾值的歷史 Prompt。命中的請求在 3.8ms 內極速返回，且耗費零 Token 費用。',
     'router.cache_thresh_label': '餘弦相似度門限 (Cosine Similarity):',
+    'router.cache_eff_label': '快取運行狀態:',
+    'router.cache_eff_val': '最佳優化狀態',
+    'router.cache_total_label': '累計已快取請求量:',
+    'router.cache_avg_label': '命中平均響應耗時:',
+    'router.cache_saved_label': '預估已節省成本:',
 
     // Quotas & Governance Page
     'quotas.title': '算力配額與治理中心',
@@ -458,12 +633,24 @@ export const translations = {
     'quotas.col_usage': '使用率 %',
     'quotas.col_rate': '速率限制 (QPS)',
     'quotas.col_action': '操作',
+    'quotas.edit_btn': '修改配額',
+    'quotas.dept1': '量化交易交易台',
+    'quotas.dept2': '風控與合規部',
+    'quotas.dept3': '企業 AI Copilot 助手',
     'quotas.mesh_title': '算力節點網路分佈',
+    'quotas.mesh1_name': '紐約本地 H100 私有集群 (安全 VPC)',
+    'quotas.mesh1_desc': '本地金融 Pod • 64x H100 80GB',
+    'quotas.mesh2_name': 'AWS us-east-1 算力池',
+    'quotas.mesh2_desc': 'Claude & Bedrock 調度節點',
+    'quotas.mesh3_name': 'GCP us-central1 算力池',
+    'quotas.mesh3_desc': 'Gemini 1.5 Pro & Flash 管道',
+    'quotas.util_label': '負載率',
     'quotas.chart_cost_title': '按模型劃分的支出佔比',
 
     // Security Page
     'security.title': '安全、機密計算與審計中心',
     'security.subtitle': '硬體級 TEE 機密計算保護、Zero-Trust 敏感資料脫敏與不可篡改 ClickHouse 審計日誌',
+    'security.pii_active_badge': 'PII 脫敏與 TEE 機密保護：開啟',
     'security.pii_title': '即時 PII 與金融資料脫敏測試器',
     'security.pii_subtitle': '輸入包含敏感資訊的 Prompt，檢視 Firstgate 如何在請求發出前完成毫秒級脫敏',
     'security.pii_btn': '執行脫敏測試',
@@ -478,16 +665,45 @@ export const translations = {
     'security.col_tokens': 'Tokens 數量',
     'security.col_pii': 'PII 脫敏狀態',
     'security.col_status': '狀態碼',
+    'security.pii_clean': '0 (正常無敏感資料)',
+    'security.pii_redacted': '項已脫敏',
 
     // Playground Page
     'playground.title': '多模型對比試用台',
     'playground.subtitle': '單次 Prompt 同時向 4 大模型集群發包，即時對比首包延遲 (TTFT)、總耗時、Token 成本與路由策略',
     'playground.input_label': '輸入 Prompt 進行並行測速與對比:',
+    'playground.proxy_active': 'Firstgate 智能代理已就緒',
+    'playground.prompt_placeholder': '請對比 API 網關與多模型 AI 智能路由引擎在金融交易系統中的架構差異。',
+    'playground.stream_label': '流式傳輸模式:',
+    'playground.stream_val': '已開啟 (SSE)',
     'playground.run_btn': '開始並行測試',
+    'playground.streaming': '串流傳輸中...',
+    'playground.click_run': '點擊「開始並行測試」以即時串流輸出響應...',
+    'playground.ttft_label': '首包延遲 (TTFT):',
+    'playground.cost_label': '預估成本:',
+    'playground.fastest': '最快',
+    'playground.lowest': '最低',
+    'playground.badge_routed': '命中路由',
 
     // Docs Page
     'docs.title': '開發文檔與 SDK Quickstart',
     'docs.subtitle': '無縫替代 OpenAI SDK。只需修改 1 行 `base_url`，即刻獲得全量智能路由與算力治理能力',
+    'docs.integration_title': '無縫替代 OpenAI 協定接入',
+
+    // Node & F12 Proof Modal
+    'modal.title': '節點健康度與網路真實性驗證',
+    'modal.sec1_title': '1. 當前在線節點資訊',
+    'modal.active_host_label': '活躍主機地址:',
+    'modal.transport_label': 'HTTP 傳輸協定:',
+    'modal.ping_label': '實測 RTT 往返延遲:',
+    'modal.sec2_title': '2. 如何在瀏覽器 F12 中驗證真實性',
+    'modal.step1': '按下 <strong>F12</strong>（或右鍵 -> 檢查）打開瀏覽器開發者工具。',
+    'modal.step2': '切換至 <strong>Network (網路)</strong> 標籤頁。',
+    'modal.step3': '觀察網頁每 3 秒自動向 <code>/css/style.css?t=...</code> 發起的 HEAD 請求。',
+    'modal.step4': '核對 <strong>200 OK</strong> 狀態碼與實測往返時間！',
+    'modal.sec3_title': '3. 生產環境節點架構',
+    'modal.prod_desc': '在生產部署環境中，請求將被調度至<strong>紐約 Secaucus (Equinix NY4) 與曼哈頓 111 8th Ave</strong>，直連華爾街金融高頻光纖骨幹網。',
+    'modal.close_btn': '關閉診斷視窗',
 
     // Footer
     'footer.text': '紐約東區 POP 節點 • 服務可用性 SLA: 99.999% • 通過 SOC2 Type II 與 TEE 機密認證'

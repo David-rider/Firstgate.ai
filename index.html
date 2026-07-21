@@ -64,7 +64,7 @@
       <div class="hidden md:flex items-center space-x-3 text-slate-400 font-mono">
         <span><span data-i18n="top.latency">Client RTT Latency</span>: <strong class="text-emerald-400 font-bold" id="top-latency">Measuring...</strong></span>
         <span>•</span>
-        <span><span data-i18n="top.protocol">Transport Protocol</span>: <strong class="text-slate-200">HTTP/1.1 (Vite Dev Server)</strong></span>
+        <span><span data-i18n="top.protocol">Transport Protocol</span>: <strong class="text-slate-200" data-i18n="top.proto_val">HTTP/1.1 (Vite Dev Server)</strong></span>
         <span>•</span>
         <span><span data-i18n="top.node_region">Active Node</span>: <strong class="text-slate-200" id="top-active-host">127.0.0.1:5173</strong></span>
       </div>
@@ -73,7 +73,7 @@
     <div class="flex items-center space-x-3 text-slate-400 font-mono text-[11px]">
       <button onclick="toggleNodeProofModal()" class="bg-navy-800 hover:bg-navy-700 text-cyan-400 border border-cyan-500/30 px-2.5 py-0.5 rounded flex items-center gap-1 transition-all">
         <i data-lucide="check-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-        <span>Verify Node & F12 Proof</span>
+        <span data-i18n="top.verify_btn">Verify Node & F12 Proof</span>
       </button>
       <span class="hidden sm:inline-block" data-i18n="top.sla">Wall Street SLA: 99.999%</span>
 
@@ -415,7 +415,7 @@
             <p class="text-xs text-slate-400" data-i18n="telemetry.subtitle">Real-time measured client-to-edge RTT latency and network ping diagnostics</p>
           </div>
           <div class="flex items-center space-x-3 text-xs font-mono">
-            <span class="flex items-center gap-1.5 text-emerald-400"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> Measured Client RTT Ping (ms)</span>
+            <span class="flex items-center gap-1.5 text-emerald-400"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> <span data-i18n="telemetry.legend">Measured Client RTT Ping (ms)</span></span>
           </div>
         </div>
         <div class="h-64 w-full">
@@ -434,7 +434,7 @@
         </div>
         <div class="flex items-center space-x-2 text-xs font-mono">
           <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-            <i data-lucide="cpu" class="w-4 h-4"></i> 4,820 GPUs AVAILABLE
+            <i data-lucide="cpu" class="w-4 h-4"></i> <span data-i18n="market.gpus_avail">4,820 GPUs AVAILABLE</span>
           </span>
         </div>
       </div>
@@ -482,16 +482,16 @@
             <div class="flex justify-between items-start">
               <div>
                 <div class="text-sm font-bold text-white">DeepSeek V3 (671B MoE)</div>
-                <div class="text-[11px] text-slate-400">FP8 Quantized • 128k Context</div>
+                <div class="text-[11px] text-slate-400" data-i18n="models.m1_desc">FP8 Quantized • 128k Context</div>
               </div>
-              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]">READY</span>
+              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]" data-i18n="models.badge_ready">READY</span>
             </div>
             <div class="space-y-1 text-[11px] text-slate-300">
               <div>TTFT: <strong class="text-cyan-400">14.2 ms</strong></div>
-              <div>Price: <strong class="text-emerald-400">$0.14 / 1M Tokens</strong></div>
-              <div>Hosting: <strong>NYC On-Prem VPC Pod</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.14 <span data-i18n="models.price_unit">/ 1M Tokens</span></strong></div>
+              <div><span data-i18n="models.host_label">Hosting:</span> <strong data-i18n="models.m1_host">NYC On-Prem VPC Pod</strong></div>
             </div>
-            <button onclick="deployModelEndpoint('DeepSeek-V3')" class="w-full bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs py-2 rounded-lg transition-all">
+            <button onclick="deployModelEndpoint('DeepSeek-V3')" class="w-full bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs py-2 rounded-lg transition-all" data-i18n="models.deploy_btn">
               Deploy Endpoint
             </button>
           </div>
@@ -501,16 +501,16 @@
             <div class="flex justify-between items-start">
               <div>
                 <div class="text-sm font-bold text-white">DeepSeek R1 (Reasoning)</div>
-                <div class="text-[11px] text-slate-400">Reinforcement Learning • Chain-of-Thought</div>
+                <div class="text-[11px] text-slate-400" data-i18n="models.m2_desc">Reinforcement Learning • Chain-of-Thought</div>
               </div>
-              <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2 py-0.5 rounded text-[10px]">POPULAR</span>
+              <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2 py-0.5 rounded text-[10px]" data-i18n="models.badge_popular">POPULAR</span>
             </div>
             <div class="space-y-1 text-[11px] text-slate-300">
               <div>TTFT: <strong class="text-cyan-400">18.5 ms</strong></div>
-              <div>Price: <strong class="text-emerald-400">$0.55 / 1M Tokens</strong></div>
-              <div>Hosting: <strong>AWS H100 TEE Cluster</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.55 <span data-i18n="models.price_unit">/ 1M Tokens</span></strong></div>
+              <div><span data-i18n="models.host_label">Hosting:</span> <strong data-i18n="models.m2_host">AWS H100 TEE Cluster</strong></div>
             </div>
-            <button onclick="deployModelEndpoint('DeepSeek-R1')" class="w-full bg-purple-500 hover:bg-purple-400 text-white font-bold text-xs py-2 rounded-lg transition-all">
+            <button onclick="deployModelEndpoint('DeepSeek-R1')" class="w-full bg-purple-500 hover:bg-purple-400 text-white font-bold text-xs py-2 rounded-lg transition-all" data-i18n="models.deploy_btn">
               Deploy Endpoint
             </button>
           </div>
@@ -520,16 +520,16 @@
             <div class="flex justify-between items-start">
               <div>
                 <div class="text-sm font-bold text-white">Llama 3.3 (70B Instruct)</div>
-                <div class="text-[11px] text-slate-400">Meta AI • 128k Context Window</div>
+                <div class="text-[11px] text-slate-400" data-i18n="models.m3_desc">Meta AI • 128k Context Window</div>
               </div>
-              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]">READY</span>
+              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]" data-i18n="models.badge_ready">READY</span>
             </div>
             <div class="space-y-1 text-[11px] text-slate-300">
               <div>TTFT: <strong class="text-cyan-400">12.8 ms</strong></div>
-              <div>Price: <strong class="text-emerald-400">$0.35 / 1M Tokens</strong></div>
-              <div>Hosting: <strong>GCP L40S Pool</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.35 <span data-i18n="models.price_unit">/ 1M Tokens</span></strong></div>
+              <div><span data-i18n="models.host_label">Hosting:</span> <strong data-i18n="models.m3_host">GCP L40S Pool</strong></div>
             </div>
-            <button onclick="deployModelEndpoint('Llama-3.3-70B')" class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs py-2 rounded-lg transition-all">
+            <button onclick="deployModelEndpoint('Llama-3.3-70B')" class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs py-2 rounded-lg transition-all" data-i18n="models.deploy_btn">
               Deploy Endpoint
             </button>
           </div>
@@ -539,16 +539,16 @@
             <div class="flex justify-between items-start">
               <div>
                 <div class="text-sm font-bold text-white">Qwen 2.5 Coder (32B)</div>
-                <div class="text-[11px] text-slate-400">Alibaba Cloud • Code & Math Specialism</div>
+                <div class="text-[11px] text-slate-400" data-i18n="models.m4_desc">Alibaba Cloud • Code & Math Specialism</div>
               </div>
-              <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded text-[10px]">FASTEST</span>
+              <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded text-[10px]" data-i18n="models.badge_fastest">FASTEST</span>
             </div>
             <div class="space-y-1 text-[11px] text-slate-300">
               <div>TTFT: <strong class="text-cyan-400">8.4 ms</strong></div>
-              <div>Price: <strong class="text-emerald-400">$0.18 / 1M Tokens</strong></div>
-              <div>Hosting: <strong>NYC East Edge POP</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.18 <span data-i18n="models.price_unit">/ 1M Tokens</span></strong></div>
+              <div><span data-i18n="models.host_label">Hosting:</span> <strong data-i18n="models.m4_host">NYC East Edge POP</strong></div>
             </div>
-            <button onclick="deployModelEndpoint('Qwen-2.5-Coder')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-navy-950 font-bold text-xs py-2 rounded-lg transition-all">
+            <button onclick="deployModelEndpoint('Qwen-2.5-Coder')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-navy-950 font-bold text-xs py-2 rounded-lg transition-all" data-i18n="models.deploy_btn">
               Deploy Endpoint
             </button>
           </div>
@@ -617,11 +617,11 @@
               <span class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 font-mono font-bold text-xs flex items-center justify-center border border-cyan-500/30">1</span>
               <div>
                 <div class="text-sm font-bold text-white">Claude 3.5 Sonnet (Anthropic US-East)</div>
-                <div class="text-xs text-slate-400 font-mono">Primary Endpoint • Timeout: 1200ms • Max Cost: $3.00/1M</div>
+                <div class="text-xs text-slate-400 font-mono" data-i18n="router.step1_meta">Primary Endpoint • Timeout: 1200ms • Max Cost: $3.00/1M</div>
               </div>
             </div>
             <div class="flex items-center space-x-3 text-xs font-mono">
-              <span class="text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/30">HEALTHY (24ms)</span>
+              <span class="text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/30" data-i18n="router.status_healthy">HEALTHY (24ms)</span>
               <button class="text-slate-400 hover:text-slate-200"><i data-lucide="move" class="w-4 h-4"></i></button>
             </div>
           </div>
@@ -632,11 +632,11 @@
               <span class="w-7 h-7 rounded-lg bg-navy-800 text-slate-300 font-mono font-bold text-xs flex items-center justify-center border border-navy-700">2</span>
               <div>
                 <div class="text-sm font-bold text-white">GPT-4o (OpenAI Direct)</div>
-                <div class="text-xs text-slate-400 font-mono">Fallback 1 • Trigger on 429/500/503 • Timeout: 1500ms</div>
+                <div class="text-xs text-slate-400 font-mono" data-i18n="router.step2_meta">Fallback 1 • Trigger on 429/500/503 • Timeout: 1500ms</div>
               </div>
             </div>
             <div class="flex items-center space-x-3 text-xs font-mono">
-              <span class="text-slate-300 bg-navy-800 px-2.5 py-1 rounded border border-navy-700">STANDBY</span>
+              <span class="text-slate-300 bg-navy-800 px-2.5 py-1 rounded border border-navy-700" data-i18n="router.status_standby">STANDBY</span>
               <button class="text-slate-400 hover:text-slate-200"><i data-lucide="move" class="w-4 h-4"></i></button>
             </div>
           </div>
@@ -647,11 +647,11 @@
               <span class="w-7 h-7 rounded-lg bg-navy-800 text-slate-300 font-mono font-bold text-xs flex items-center justify-center border border-navy-700">3</span>
               <div>
                 <div class="text-sm font-bold text-white">DeepSeek V3 (NYC On-Premise GPU Cluster)</div>
-                <div class="text-xs text-slate-400 font-mono">Fallback 2 • Trigger on Latency > 1800ms • Zero External Cost</div>
+                <div class="text-xs text-slate-400 font-mono" data-i18n="router.step3_meta">Fallback 2 • Trigger on Latency > 1800ms • Zero External Cost</div>
               </div>
             </div>
             <div class="flex items-center space-x-3 text-xs font-mono">
-              <span class="text-slate-300 bg-navy-800 px-2.5 py-1 rounded border border-navy-700">STANDBY</span>
+              <span class="text-slate-300 bg-navy-800 px-2.5 py-1 rounded border border-navy-700" data-i18n="router.status_standby">STANDBY</span>
               <button class="text-slate-400 hover:text-slate-200"><i data-lucide="move" class="w-4 h-4"></i></button>
             </div>
           </div>
@@ -678,20 +678,20 @@
 
         <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-3 font-mono text-xs">
           <div class="flex justify-between items-center text-slate-400">
-            <span>Cache Efficiency Status:</span>
-            <span class="text-emerald-400 font-bold">OPTIMAL</span>
+            <span data-i18n="router.cache_eff_label">Cache Efficiency Status:</span>
+            <span class="text-emerald-400 font-bold" data-i18n="router.cache_eff_val">OPTIMAL</span>
           </div>
           <div class="space-y-1.5 text-[11px]">
             <div class="flex justify-between">
-              <span>Total Requests Cached:</span>
+              <span data-i18n="router.cache_total_label">Total Requests Cached:</span>
               <span class="text-slate-200 font-bold">1,492,030</span>
             </div>
             <div class="flex justify-between">
-              <span>Avg Latency (Cache Hit):</span>
+              <span data-i18n="router.cache_avg_label">Avg Latency (Cache Hit):</span>
               <span class="text-cyan-400 font-bold">3.8 ms</span>
             </div>
             <div class="flex justify-between">
-              <span>Estimated Cost Saved:</span>
+              <span data-i18n="router.cache_saved_label">Estimated Cost Saved:</span>
               <span class="text-emerald-400 font-bold">$48,290.00</span>
             </div>
           </div>
@@ -733,7 +733,7 @@
             <tbody class="divide-y divide-navy-800/60">
               <tr>
                 <td class="p-3 text-white font-bold flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Quant Trading Desk
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span> <span data-i18n="quotas.dept1">Quant Trading Desk</span>
                 </td>
                 <td class="p-3 text-slate-200">$100,000</td>
                 <td class="p-3 text-emerald-400 font-bold">$68,420</td>
@@ -744,12 +744,12 @@
                 </td>
                 <td class="p-3 text-slate-300">5,000 QPS</td>
                 <td class="p-3">
-                  <button onclick="editQuota('Quant Trading')" class="text-cyan-400 hover:underline">Edit Quota</button>
+                  <button onclick="editQuota('Quant Trading')" class="text-cyan-400 hover:underline" data-i18n="quotas.edit_btn">Edit Quota</button>
                 </td>
               </tr>
               <tr>
                 <td class="p-3 text-white font-bold flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span> Risk & Compliance
+                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span> <span data-i18n="quotas.dept2">Risk & Compliance</span>
                 </td>
                 <td class="p-3 text-slate-200">$50,000</td>
                 <td class="p-3 text-emerald-400 font-bold">$21,300</td>
@@ -760,12 +760,12 @@
                 </td>
                 <td class="p-3 text-slate-300">2,000 QPS</td>
                 <td class="p-3">
-                  <button onclick="editQuota('Risk & Compliance')" class="text-cyan-400 hover:underline">Edit Quota</button>
+                  <button onclick="editQuota('Risk & Compliance')" class="text-cyan-400 hover:underline" data-i18n="quotas.edit_btn">Edit Quota</button>
                 </td>
               </tr>
               <tr>
                 <td class="p-3 text-white font-bold flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-yellow-400"></span> Enterprise Copilot
+                  <span class="w-2 h-2 rounded-full bg-yellow-400"></span> <span data-i18n="quotas.dept3">Enterprise Copilot</span>
                 </td>
                 <td class="p-3 text-slate-200">$60,000</td>
                 <td class="p-3 text-yellow-400 font-bold">$54,190</td>
@@ -776,7 +776,7 @@
                 </td>
                 <td class="p-3 text-slate-300">1,500 QPS</td>
                 <td class="p-3">
-                  <button onclick="editQuota('Enterprise Copilot')" class="text-cyan-400 hover:underline">Edit Quota</button>
+                  <button onclick="editQuota('Enterprise Copilot')" class="text-cyan-400 hover:underline" data-i18n="quotas.edit_btn">Edit Quota</button>
                 </td>
               </tr>
             </tbody>
@@ -793,26 +793,26 @@
           <div class="space-y-3 font-mono text-xs">
             <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
               <div>
-                <div class="text-slate-200 font-bold">NYC On-Prem H100 Cluster (Secured VPC)</div>
-                <div class="text-slate-400 text-[11px]">Local FinTech Pod • 64x H100 80GB</div>
+                <div class="text-slate-200 font-bold" data-i18n="quotas.mesh1_name">NYC On-Prem H100 Cluster (Secured VPC)</div>
+                <div class="text-slate-400 text-[11px]" data-i18n="quotas.mesh1_desc">Local FinTech Pod • 64x H100 80GB</div>
               </div>
-              <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-1 rounded">82% Utilized</span>
+              <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-1 rounded">82% <span data-i18n="quotas.util_label">Utilized</span></span>
             </div>
 
             <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
               <div>
-                <div class="text-slate-200 font-bold">AWS us-east-1 Capacity Pool</div>
-                <div class="text-slate-400 text-[11px]">Claude & Bedrock Orchestrator</div>
+                <div class="text-slate-200 font-bold" data-i18n="quotas.mesh2_name">AWS us-east-1 Capacity Pool</div>
+                <div class="text-slate-400 text-[11px]" data-i18n="quotas.mesh2_desc">Claude & Bedrock Orchestrator</div>
               </div>
-              <span class="text-cyan-400 font-bold bg-cyan-500/10 px-2 py-1 rounded">45% Utilized</span>
+              <span class="text-cyan-400 font-bold bg-cyan-500/10 px-2 py-1 rounded">45% <span data-i18n="quotas.util_label">Utilized</span></span>
             </div>
 
             <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
               <div>
-                <div class="text-slate-200 font-bold">GCP us-central1 Capacity Pool</div>
-                <div class="text-slate-400 text-[11px]">Gemini 1.5 Pro & Flash Pipelines</div>
+                <div class="text-slate-200 font-bold" data-i18n="quotas.mesh3_name">GCP us-central1 Capacity Pool</div>
+                <div class="text-slate-400 text-[11px]" data-i18n="quotas.mesh3_desc">Gemini 1.5 Pro & Flash Pipelines</div>
               </div>
-              <span class="text-indigo-400 font-bold bg-indigo-500/10 px-2 py-1 rounded">38% Utilized</span>
+              <span class="text-indigo-400 font-bold bg-indigo-500/10 px-2 py-1 rounded">38% <span data-i18n="quotas.util_label">Utilized</span></span>
             </div>
           </div>
         </div>
@@ -836,7 +836,7 @@
           <p class="text-xs text-slate-400 mt-1" data-i18n="security.subtitle">Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, and immutable ClickHouse audit logging</p>
         </div>
         <div class="flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-mono font-bold">
-          <i data-lucide="shield-check" class="w-4 h-4"></i> PII MASKING & TEE: ACTIVE
+          <i data-lucide="shield-check" class="w-4 h-4"></i> <span data-i18n="security.pii_active_badge">PII MASKING & TEE: ACTIVE</span>
         </div>
       </div>
 
@@ -915,14 +915,14 @@
         <div class="space-y-2">
           <label class="text-xs text-slate-300 font-semibold flex justify-between">
             <span data-i18n="playground.input_label">Enter Prompt for Parallel Routing Evaluation:</span>
-            <span class="text-cyan-400 font-mono">Firstgate Intelligent Proxy Active</span>
+            <span class="text-cyan-400 font-mono" data-i18n="playground.proxy_active">Firstgate Intelligent Proxy Active</span>
           </label>
-          <textarea id="pg-prompt-input" rows="3" class="w-full bg-navy-950 border border-navy-800 rounded-xl p-3 text-xs text-slate-100 font-mono outline-none focus:border-cyan-500 resize-none">Explain the architectural differences between an API Gateway and a Multi-Model AI Routing Engine in financial trading systems.</textarea>
+          <textarea id="pg-prompt-input" rows="3" class="w-full bg-navy-950 border border-navy-800 rounded-xl p-3 text-xs text-slate-100 font-mono outline-none focus:border-cyan-500 resize-none" data-i18n-placeholder="playground.prompt_placeholder"></textarea>
         </div>
 
         <div class="flex justify-between items-center">
           <div class="flex items-center space-x-2 text-xs font-mono text-slate-400">
-            <span>Stream Output: <strong class="text-emerald-400">ENABLED (SSE)</strong></span>
+            <span><span data-i18n="playground.stream_label">Stream Output:</span> <strong class="text-emerald-400" data-i18n="playground.stream_val">ENABLED (SSE)</strong></span>
           </div>
           <button onclick="runPlaygroundComparison()" id="pg-run-btn" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-6 py-2.5 rounded-xl transition-all shadow-md shadow-cyan-500/20 flex items-center space-x-2">
             <i data-lucide="play" class="w-4 h-4 fill-navy-950"></i>
@@ -940,13 +940,13 @@
               <span class="text-xs font-bold text-white">Claude 3.5 Sonnet</span>
               <span class="text-[10px] bg-cyan-500/20 text-cyan-400 px-1.5 py-0.5 rounded">Anthropic</span>
             </div>
-            <div id="pg-res-1" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+            <div id="pg-res-1" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850" data-i18n="playground.click_run">
               Click "Run Parallel Evaluation" to stream response...
             </div>
           </div>
           <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
-            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-1" class="text-cyan-400 font-bold">-- ms</span></div>
-            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-1" class="text-emerald-400 font-bold">--</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.ttft_label">TTFT:</span><span id="pg-ttft-1" class="text-cyan-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.cost_label">Est. Cost:</span><span id="pg-cost-1" class="text-emerald-400 font-bold">--</span></div>
           </div>
         </div>
 
@@ -957,13 +957,13 @@
               <span class="text-xs font-bold text-white">GPT-4o</span>
               <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">OpenAI</span>
             </div>
-            <div id="pg-res-2" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+            <div id="pg-res-2" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850" data-i18n="playground.click_run">
               Click "Run Parallel Evaluation" to stream response...
             </div>
           </div>
           <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
-            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-2" class="text-cyan-400 font-bold">-- ms</span></div>
-            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-2" class="text-emerald-400 font-bold">--</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.ttft_label">TTFT:</span><span id="pg-ttft-2" class="text-cyan-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.cost_label">Est. Cost:</span><span id="pg-cost-2" class="text-emerald-400 font-bold">--</span></div>
           </div>
         </div>
 
@@ -974,15 +974,15 @@
               <span class="text-xs font-bold text-white flex items-center gap-1">
                 <i data-lucide="zap" class="w-3 h-3 text-emerald-400"></i> DeepSeek V3 (NYC)
               </span>
-              <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">ROUTED</span>
+              <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded" data-i18n="playground.badge_routed">ROUTED</span>
             </div>
-            <div id="pg-res-3" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+            <div id="pg-res-3" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850" data-i18n="playground.click_run">
               Click "Run Parallel Evaluation" to stream response...
             </div>
           </div>
           <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
-            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-3" class="text-emerald-400 font-bold">-- ms</span></div>
-            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-3" class="text-emerald-400 font-bold">--</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.ttft_label">TTFT:</span><span id="pg-ttft-3" class="text-emerald-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.cost_label">Est. Cost:</span><span id="pg-cost-3" class="text-emerald-400 font-bold">--</span></div>
           </div>
         </div>
 
@@ -993,13 +993,13 @@
               <span class="text-xs font-bold text-white">Gemini 1.5 Pro</span>
               <span class="text-[10px] bg-indigo-500/20 text-indigo-400 px-1.5 py-0.5 rounded">Google</span>
             </div>
-            <div id="pg-res-4" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+            <div id="pg-res-4" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850" data-i18n="playground.click_run">
               Click "Run Parallel Evaluation" to stream response...
             </div>
           </div>
           <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
-            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-4" class="text-cyan-400 font-bold">-- ms</span></div>
-            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-4" class="text-emerald-400 font-bold">--</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.ttft_label">TTFT:</span><span id="pg-ttft-4" class="text-cyan-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span data-i18n="playground.cost_label">Est. Cost:</span><span id="pg-cost-4" class="text-emerald-400 font-bold">--</span></div>
           </div>
         </div>
       </div>
@@ -1018,7 +1018,7 @@
       <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
         <div class="flex items-center justify-between">
           <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <i data-lucide="code" class="w-5 h-5 text-cyan-400"></i> Drop-in OpenAI Protocol Integration
+            <i data-lucide="code" class="w-5 h-5 text-cyan-400"></i> <span data-i18n="docs.integration_title">Drop-in OpenAI Protocol Integration</span>
           </h3>
           <div class="flex items-center space-x-2 font-mono text-xs">
             <button onclick="setDocLang('python')" id="doc-btn-python" class="doc-lang-btn active">Python</button>
@@ -1092,39 +1092,39 @@ main();</pre>
     <div class="bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
         <h3 class="text-sm font-bold text-white flex items-center gap-2">
-          <i data-lucide="check-check" class="w-4 h-4 text-cyan-400"></i> Node Health & Network Real Verification
+          <i data-lucide="check-check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="modal.title">Node Health & Network Real Verification</span>
         </h3>
         <button onclick="toggleNodeProofModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-300">
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1.5">
-          <div class="text-cyan-400 font-bold text-[11px] uppercase tracking-wider">1. Current Live Environment (当前节点信息)</div>
-          <div>Active Host: <strong class="text-white" id="modal-host">http://localhost:5173</strong></div>
-          <div>HTTP Transport: <strong class="text-emerald-400">HTTP/1.1 (Vite Live Dev Server)</strong></div>
-          <div>Measured RTT Ping: <strong class="text-emerald-400" id="modal-rtt">Measuring...</strong></div>
+          <div class="text-cyan-400 font-bold text-[11px] uppercase tracking-wider" data-i18n="modal.sec1_title">1. Current Live Environment</div>
+          <div><span data-i18n="modal.active_host_label">Active Host:</span> <strong class="text-white" id="modal-host">http://localhost:5173</strong></div>
+          <div><span data-i18n="modal.transport_label">HTTP Transport:</span> <strong class="text-emerald-400" data-i18n="top.proto_val">HTTP/1.1 (Vite Live Dev Server)</strong></div>
+          <div><span data-i18n="modal.ping_label">Measured RTT Ping:</span> <strong class="text-emerald-400" id="modal-rtt">Measuring...</strong></div>
         </div>
 
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1.5">
-          <div class="text-emerald-400 font-bold text-[11px] uppercase tracking-wider">2. How to Prove it is Real in Browser F12 (如何验证真实性)</div>
+          <div class="text-emerald-400 font-bold text-[11px] uppercase tracking-wider" data-i18n="modal.sec2_title">2. How to Prove it is Real in Browser F12</div>
           <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
-            <li>Press <strong>F12</strong> (or Right Click -> Inspect) to open Browser Developer Tools.</li>
-            <li>Switch to the <strong>Network (网络)</strong> tab.</li>
-            <li>Observe the HEAD request dispatched to <code>/css/style.css?t=...</code> every 3 seconds.</li>
-            <li>Notice the <strong>200 OK</strong> status code and exact matching RTT timing!</li>
+            <li data-i18n="modal.step1">Press <strong>F12</strong> (or Right Click -> Inspect) to open Browser Developer Tools.</li>
+            <li data-i18n="modal.step2">Switch to the <strong>Network</strong> tab.</li>
+            <li data-i18n="modal.step3">Observe the HEAD request dispatched to <code>/css/style.css?t=...</code> every 3 seconds.</li>
+            <li data-i18n="modal.step4">Notice the <strong>200 OK</strong> status code and exact matching RTT timing!</li>
           </ol>
         </div>
 
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1 text-[11px]">
-          <div class="text-indigo-400 font-bold uppercase tracking-wider">3. Production Architecture Node (生产环境网关节点)</div>
-          <p class="text-slate-400 leading-relaxed">
+          <div class="text-indigo-400 font-bold uppercase tracking-wider" data-i18n="modal.sec3_title">3. Production Architecture Node</div>
+          <p class="text-slate-400 leading-relaxed" data-i18n="modal.prod_desc">
             In production deployment, requests are routed to <strong>NYC-East POP (Equinix NY4 Secaucus, NJ / 111 8th Ave NYC)</strong> connected directly to Wall Street high-frequency optical fiber backbones.
           </p>
         </div>
       </div>
 
       <div class="flex justify-end pt-2">
-        <button onclick="toggleNodeProofModal()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all">
+        <button onclick="toggleNodeProofModal()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="modal.close_btn">
           Close Inspector
         </button>
       </div>
