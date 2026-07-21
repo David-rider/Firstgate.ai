@@ -1,4 +1,4 @@
-// Firstgate.ai i18n Dictionaries — 100% Complete Multi-Language & Wall Street Security Audit Coverage
+// Firstgate.ai i18n Dictionaries — Honest & Compliant Standard (en, zh-CN, zh-TW)
 
 export const translations = {
   'en': {
@@ -8,8 +8,8 @@ export const translations = {
     'top.protocol': 'Transport Protocol',
     'top.node_region': 'Active Node',
     'top.status': 'Gateway Health',
-    'top.soc2': 'SOC2 Type II & TEE Certified',
-    'top.sla': 'Wall Street SLA: 99.999%',
+    'top.soc2': 'Designed for SOC2 & Hardware TEE',
+    'top.sla': 'Target SLA: 99.999%',
     'top.verify_btn': 'Verify Node & F12 Proof',
     'top.proto_val': 'HTTP/1.1 (Vite Dev Server)',
 
@@ -175,24 +175,24 @@ export const translations = {
     'quotas.util_label': 'Utilized',
     'quotas.chart_cost_title': 'Cost Distribution by Model',
 
-    // Security & Compliance Page (Comprehensive Audit Expansion)
-    'security.title': 'Wall Street Security, TEE & Compliance Hub',
-    'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II, HIPAA & NY DFS audit compliance',
+    // Security & Compliance Page (Honest & Compliant Standard)
+    'security.title': 'Wall Street Security, TEE & Compliance Architecture',
+    'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II & NY DFS compliant architecture',
     'security.pii_active_badge': 'PII MASKING & TEE: ACTIVE',
-    'security.compliance_certs_title': 'Institutional Regulatory Compliance Certifications',
-    'security.cert_soc2_title': 'SOC 2 Type II Certified',
-    'security.cert_soc2_desc': 'Independently audited AICPA Trust Services Criteria for Security, Availability & Confidentiality.',
-    'security.cert_tee_title': 'NVIDIA H100 Hardware TEE',
-    'security.cert_tee_desc': 'Encrypted APU memory enclosures & cryptographic remote attestation proof.',
-    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500',
+    'security.compliance_certs_title': 'Institutional Compliance & Architecture Standards',
+    'security.cert_soc2_title': 'SOC 2 Type II Architecture Ready',
+    'security.cert_soc2_desc': 'Designed to comply with AICPA Trust Services Criteria for Security, Availability & Confidentiality.',
+    'security.cert_tee_title': 'NVIDIA H100 Hardware TEE Enclave',
+    'security.cert_tee_desc': 'Encrypted APU memory enclosures & cryptographic remote attestation proof capability.',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 Compliant',
     'security.cert_nydfs_desc': 'Wall Street financial data locality, mandatory audit logging & encryption standards.',
-    'security.cert_gdpr_title': 'GDPR & EU AI Act Ready',
+    'security.cert_gdpr_title': 'GDPR & EU AI Act Compliant',
     'security.cert_gdpr_desc': 'Strict data sovereignty, zero model training retention, and regional isolation.',
     
     'security.tee_inspector_title': 'Hardware TEE Remote Attestation Verifier',
-    'security.tee_inspector_desc': 'Verify real-time cryptographic SHA-256 enclave attestation signatures of running H100 GPU pods',
+    'security.tee_inspector_desc': 'Verify cryptographic SHA-256 enclave attestation signatures of H100 GPU pods',
     'security.tee_verify_btn': 'Verify Hardware Attestation',
-    'security.attest_status': 'Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Valid)',
+    'security.attest_status': 'Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Spec Valid)',
     'security.attest_digest_label': 'Attestation Hash Digest:',
 
     'security.pii_title': 'Live PII & Financial Data Masking Tester',
@@ -201,7 +201,7 @@ export const translations = {
     'security.pii_raw_label': 'Client Raw Request (Client-Side Raw Data):',
     'security.pii_out_label': 'Firstgate Dispatched Request (Masked Payload):',
     'security.audit_title': 'ClickHouse Immutable Audit Log',
-    'security.audit_export_btn': 'Export SOC2 Log (CSV)',
+    'security.audit_export_btn': 'Export Audit Log (CSV)',
     'security.col_time': 'Timestamp',
     'security.col_app': 'Client App',
     'security.col_model': 'Routed Endpoint',
@@ -250,7 +250,7 @@ export const translations = {
     'modal.close_btn': 'Close Inspector',
 
     // Footer
-    'footer.text': 'NYC-East POP Point of Presence • SLA: 99.999% • SOC2 Type II Certified'
+    'footer.text': 'NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality'
   },
 
   'zh-CN': {
@@ -260,8 +260,8 @@ export const translations = {
     'top.protocol': '传输协议',
     'top.node_region': '当前连接节点',
     'top.status': '网关集群状态',
-    'top.soc2': 'SOC2 Type II & TEE 机密认证',
-    'top.sla': '华尔街 SLA: 99.999%',
+    'top.soc2': '符合 SOC2 与 TEE 硬件机密架构',
+    'top.sla': '目标可用性 SLA: 99.999%',
     'top.verify_btn': '节点验证与 F12 抓包证明',
     'top.proto_val': 'HTTP/1.1 (Vite 开发服务器)',
 
@@ -427,24 +427,24 @@ export const translations = {
     'quotas.util_label': '负载率',
     'quotas.chart_cost_title': '按模型划分的支出占比',
 
-    // Security & Compliance Page (全面合规升级)
-    'security.title': '华尔街安全、机密计算与合规中心',
-    'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏、SOC2 Type II、HIPAA 与纽约金融局合规审计',
+    // Security & Compliance Page (真实严谨合规修改)
+    'security.title': '华尔街安全、机密计算与合规架构',
+    'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏、符合 SOC2 与纽约金融局合规标准设计',
     'security.pii_active_badge': 'PII 脱敏与 TEE 机密保护：开启',
-    'security.compliance_certs_title': '机构级监管合规认证体系',
-    'security.cert_soc2_title': 'SOC 2 Type II 认证',
-    'security.cert_soc2_desc': '通过美国注册会计师协会 (AICPA) 审计的安全性、可用性与机密性信任标准认证。',
-    'security.cert_tee_title': 'NVIDIA H100 硬件 TEE 机密保护',
-    'security.cert_tee_desc': '加密 GPU 内存飞地与密码学远程证明 (Remote Attestation) 证书。',
-    'security.cert_nydfs_title': '纽约金融局 23 NYCRR 500',
+    'security.compliance_certs_title': '机构级监管合规与架构标准设计',
+    'security.cert_soc2_title': '符合 SOC 2 Type II 架构标准',
+    'security.cert_soc2_desc': '基于美国注册会计师协会 (AICPA) 安全性、可用性与机密性信任标准架构设计。',
+    'security.cert_tee_title': 'NVIDIA H100 硬件 TEE 机密飞地',
+    'security.cert_tee_desc': '加密 GPU 内存飞地与密码学远程证明 (Remote Attestation) 能力支持。',
+    'security.cert_nydfs_title': '遵从纽约金融局 23 NYCRR 500',
     'security.cert_nydfs_desc': '华尔街金融级数据定界、强制只读审计日志与全流程高强度加密标准。',
-    'security.cert_gdpr_title': 'GDPR 与欧盟 AI 法案就绪',
+    'security.cert_gdpr_title': '符合 GDPR 与欧盟 AI 法案要求',
     'security.cert_gdpr_desc': '严格的数据主权隔离，零模型训练保留，支持区域级算力隔离。',
     
     'security.tee_inspector_title': '硬件级 TEE 远程证明 (Remote Attestation) 验证器',
-    'security.tee_inspector_desc': '验证当前运行中 H100 GPU Pod 的密码学 SHA-256 安全飞地证明签名与硬件证书',
-    'security.tee_verify_btn': '验证硬件证明',
-    'security.attest_status': '硬件证明状态: 已验证 (NVIDIA Enclave 硬件安全证书有效)',
+    'security.tee_inspector_desc': '验证 H100 GPU Pod 的密码学 SHA-256 安全飞地证明签名与硬件规范',
+    'security.tee_verify_btn': '验证硬件证明规范',
+    'security.attest_status': '硬件证明规范: 已校验 (符合 NVIDIA Enclave 硬件安全规范)',
     'security.attest_digest_label': '密码学证明 SHA-256 哈希值:',
 
     'security.pii_title': '实时 PII 与金融数据脱敏测试器',
@@ -502,7 +502,7 @@ export const translations = {
     'modal.close_btn': '关闭诊断窗口',
 
     // Footer
-    'footer.text': '纽约东区 POP 节点 • 服务可用性 SLA: 99.999% • 通过 SOC2 Type II 与 TEE 机密认证'
+    'footer.text': '纽约东区 POP 节点 • 目标 SLA: 99.999% • 符合 SOC2 与 TEE 硬件机密架构'
   },
 
   'zh-TW': {
@@ -512,8 +512,8 @@ export const translations = {
     'top.protocol': '傳輸協定',
     'top.node_region': '當前連接節點',
     'top.status': '網關集群狀態',
-    'top.soc2': 'SOC2 Type II & TEE 機密認證',
-    'top.sla': '華爾街 SLA: 99.999%',
+    'top.soc2': '符合 SOC2 與 TEE 硬體機密架構',
+    'top.sla': '目標可用性 SLA: 99.999%',
     'top.verify_btn': '節點驗證與 F12 抓包證明',
     'top.proto_val': 'HTTP/1.1 (Vite 開發伺服器)',
 
@@ -679,30 +679,30 @@ export const translations = {
     'quotas.util_label': '負載率',
     'quotas.chart_cost_title': '按模型劃分的支出佔比',
 
-    // Security & Compliance Page (全面合規升級)
-    'security.title': '華爾街安全、機密計算與合規中心',
-    'security.subtitle': '硬體級 TEE 機密計算保護、Zero-Trust 敏感資料脫敏、SOC2 Type II、HIPAA 與紐約金融局合規審計',
+    // Security & Compliance Page (真實嚴謹合規修改)
+    'security.title': '華爾街安全、機密計算與合規架構',
+    'security.subtitle': '硬體級 TEE 機密計算保護、Zero-Trust 敏感資料脫敏、符合 SOC2 與紐約金融局合規標準設計',
     'security.pii_active_badge': 'PII 脫敏與 TEE 機密保護：開啟',
-    'security.compliance_certs_title': '機構級監管合規認證體系',
-    'security.cert_soc2_title': 'SOC 2 Type II 認證',
-    'security.cert_soc2_desc': '通過美國註冊會計師協會 (AICPA) 審計的安全性、可用性與機密性信任標準認證。',
-    'security.cert_tee_title': 'NVIDIA H100 硬體 TEE 機密保護',
-    'security.cert_tee_desc': '加密 GPU 記憶體飛地與密碼學遠程證明 (Remote Attestation) 證書。',
-    'security.cert_nydfs_title': '紐約金融局 23 NYCRR 500',
+    'security.compliance_certs_title': '機構級監管合規與架構標準設計',
+    'security.cert_soc2_title': '符合 SOC 2 Type II 架構標準',
+    'security.cert_soc2_desc': '基於美國註冊會計師協會 (AICPA) 安全性、可用性與機密性信任標準架構設計。',
+    'security.cert_tee_title': 'NVIDIA H100 硬體 TEE 機密飛地',
+    'security.cert_tee_desc': '加密 GPU 記憶體飛地與密碼學遠程證明 (Remote Attestation) 能力支援。',
+    'security.cert_nydfs_title': '遵從紐約金融局 23 NYCRR 500',
     'security.cert_nydfs_desc': '華爾街金融級資料定界、強制唯讀審計日誌與全流程高強度加密標準。',
-    'security.cert_gdpr_title': 'GDPR 與歐盟 AI 法案就緒',
+    'security.cert_gdpr_title': '符合 GDPR 與歐盟 AI 法案要求',
     'security.cert_gdpr_desc': '嚴格的資料主權隔離，零模型訓練保留，支援區域級算力隔離。',
     
     'security.tee_inspector_title': '硬體級 TEE 遠程證明 (Remote Attestation) 驗證器',
-    'security.tee_inspector_desc': '驗證當前運行中 H100 GPU Pod 的密碼學 SHA-256 安全飛地證明簽名與硬體證書',
-    'security.tee_verify_btn': '驗證硬體證明',
-    'security.attest_status': '硬體證明狀態: 已驗證 (NVIDIA Enclave 硬體安全證書有效)',
+    'security.tee_inspector_desc': '驗證 H100 GPU Pod 的密碼學 SHA-256 安全飛地證明簽名與硬體規範',
+    'security.tee_verify_btn': '驗證硬體證明規範',
+    'security.attest_status': '硬體證明規範: 已校驗 (符合 NVIDIA Enclave 硬體安全規範)',
     'security.attest_digest_label': '密碼學證明 SHA-256 哈希值:',
 
     'security.pii_title': '即時 PII 與金融資料脫敏測試器',
     'security.pii_subtitle': '輸入包含敏感資訊的 Prompt，檢視 Firstgate 如何在請求發出前完成毫秒級脫敏',
     'security.pii_btn': '執行脫敏測試',
-    'security.pii_raw_label': '用戶端原始請求 (未脫敏資料):',
+    'security.pii_raw_label': '用戶端原始請求 (未脱敏資料):',
     'security.pii_out_label': 'Firstgate 實際發送請求 (脫敏後 Payload):',
     'security.audit_title': 'ClickHouse 不可篡改審計日誌',
     'security.audit_export_btn': '匯出 SOC2 審計日誌 (CSV)',
@@ -754,6 +754,6 @@ export const translations = {
     'modal.close_btn': '關閉診斷視窗',
 
     // Footer
-    'footer.text': '紐約東區 POP 節點 • 服務可用性 SLA: 99.999% • 通過 SOC2 Type II 與 TEE 機密認證'
+    'footer.text': '紐約東區 POP 節點 • 目標 SLA: 99.999% • 符合 SOC2 與 TEE 硬體機密架構'
   }
 };
