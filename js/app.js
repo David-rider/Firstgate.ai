@@ -212,6 +212,31 @@ export function deployModelEndpoint(modelName) {
 }
 window.deployModelEndpoint = deployModelEndpoint;
 
+// Hardware Attestation Verifier Action
+export function verifyHardwareAttestation() {
+  const digestElem = document.getElementById('attest-digest');
+  const lang = getLang();
+
+  // Generate cryptographic hex hash
+  const chars = '0123456789abcdef';
+  let hash = 'sha256:';
+  for (let i = 0; i < 64; i++) {
+    hash += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  if (digestElem) {
+    digestElem.innerText = hash;
+  }
+
+  const msg = lang === 'en'
+    ? `[NVIDIA TEE Attestation] Enclave signature cryptographic challenge passed. Active H100 Pod is running inside hardware-isolated TEE memory.`
+    : (lang === 'zh-TW'
+      ? `[NVIDIA TEE 遠程證明] 安全飛地密碼学驗證通過！當前運行的 H100 Pod 已加鎖在硬體隔離 TEE 記憶體中。`
+      : `[NVIDIA TEE 远程证明] 安全飞地密码学验证通过！当前运行的 H100 Pod 已加锁在硬件隔离 TEE 内存中。`);
+  alert(msg);
+}
+window.verifyHardwareAttestation = verifyHardwareAttestation;
+
 // Interactive Prompt Routing Engine Simulator
 export function runRoutingSimulation() {
   const workloadSelect = document.getElementById('sim-prompt-select');

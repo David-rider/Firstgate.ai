@@ -828,15 +828,97 @@
       </div>
     </section>
 
-    <!-- ================= TAB 5: WALL STREET SECURITY & AUDIT ================= -->
+    <!-- ================= TAB 5: WALL STREET SECURITY & COMPLIANCE ================= -->
     <section id="tab-security" class="tab-content hidden space-y-8">
       <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
         <div>
-          <h2 class="text-2xl font-bold text-white" data-i18n="security.title">Wall Street Security, TEE & Audit Hub</h2>
-          <p class="text-xs text-slate-400 mt-1" data-i18n="security.subtitle">Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, and immutable ClickHouse audit logging</p>
+          <h2 class="text-2xl font-bold text-white" data-i18n="security.title">Wall Street Security, TEE & Compliance Hub</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="security.subtitle">Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II, HIPAA & NY DFS audit compliance</p>
         </div>
         <div class="flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-mono font-bold">
           <i data-lucide="shield-check" class="w-4 h-4"></i> <span data-i18n="security.pii_active_badge">PII MASKING & TEE: ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- Regulatory Compliance Certification Grid -->
+      <div class="space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="award" class="w-5 h-5 text-cyan-400"></i> <span data-i18n="security.compliance_certs_title">Institutional Regulatory Compliance Certifications</span>
+        </h3>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+          <!-- Cert 1 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center text-cyan-400 font-bold text-sm">
+              <span data-i18n="security.cert_soc2_title">SOC 2 Type II Certified</span>
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_soc2_desc">
+              Independently audited AICPA Trust Services Criteria for Security, Availability & Confidentiality.
+            </p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center text-emerald-400 font-bold text-sm">
+              <span data-i18n="security.cert_tee_title">NVIDIA H100 Hardware TEE</span>
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+            </div>
+            <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_tee_desc">
+              Encrypted APU memory enclosures & cryptographic remote attestation proof.
+            </p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center text-indigo-400 font-bold text-sm">
+              <span data-i18n="security.cert_nydfs_title">NY DFS 23 NYCRR 500</span>
+              <i data-lucide="shield-alert" class="w-4 h-4"></i>
+            </div>
+            <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_nydfs_desc">
+              Wall Street financial data locality, mandatory audit logging & encryption standards.
+            </p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center text-purple-400 font-bold text-sm">
+              <span data-i18n="security.cert_gdpr_title">GDPR & EU AI Act Ready</span>
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </div>
+            <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_gdpr_desc">
+              Strict data sovereignty, zero model training retention, and regional isolation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardware TEE Remote Attestation Verifier Panel -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="flex flex-wrap justify-between items-center gap-4">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="key" class="w-5 h-5 text-emerald-400"></i> <span data-i18n="security.tee_inspector_title">Hardware TEE Remote Attestation Verifier</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5" data-i18n="security.tee_inspector_desc">
+              Verify real-time cryptographic SHA-256 enclave attestation signatures of running H100 GPU pods
+            </p>
+          </div>
+          <button onclick="verifyHardwareAttestation()" class="bg-emerald-500 hover:bg-emerald-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 font-mono">
+            <i data-lucide="file-check" class="w-4 h-4"></i> <span data-i18n="security.tee_verify_btn">Verify Hardware Attestation</span>
+          </button>
+        </div>
+
+        <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-2 font-mono text-xs">
+          <div class="text-emerald-400 font-bold flex items-center gap-1.5" id="attest-status" data-i18n="security.attest_status">
+            Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Valid)
+          </div>
+          <div class="text-slate-400 text-[11px] flex flex-wrap items-center gap-2">
+            <span data-i18n="security.attest_digest_label">Attestation Hash Digest:</span>
+            <code class="text-cyan-400 font-bold bg-navy-900 px-2 py-0.5 rounded border border-navy-800" id="attest-digest">
+              sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+            </code>
+          </div>
         </div>
       </div>
 

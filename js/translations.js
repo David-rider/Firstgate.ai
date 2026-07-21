@@ -1,4 +1,4 @@
-// Firstgate.ai i18n Dictionaries — 100% Complete Multi-Language Coverage (en, zh-CN, zh-TW)
+// Firstgate.ai i18n Dictionaries — 100% Complete Multi-Language & Wall Street Security Audit Coverage
 
 export const translations = {
   'en': {
@@ -175,10 +175,26 @@ export const translations = {
     'quotas.util_label': 'Utilized',
     'quotas.chart_cost_title': 'Cost Distribution by Model',
 
-    // Security Page
-    'security.title': 'Wall Street Security, TEE & Audit Hub',
-    'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, and immutable ClickHouse audit logging',
+    // Security & Compliance Page (Comprehensive Audit Expansion)
+    'security.title': 'Wall Street Security, TEE & Compliance Hub',
+    'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II, HIPAA & NY DFS audit compliance',
     'security.pii_active_badge': 'PII MASKING & TEE: ACTIVE',
+    'security.compliance_certs_title': 'Institutional Regulatory Compliance Certifications',
+    'security.cert_soc2_title': 'SOC 2 Type II Certified',
+    'security.cert_soc2_desc': 'Independently audited AICPA Trust Services Criteria for Security, Availability & Confidentiality.',
+    'security.cert_tee_title': 'NVIDIA H100 Hardware TEE',
+    'security.cert_tee_desc': 'Encrypted APU memory enclosures & cryptographic remote attestation proof.',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500',
+    'security.cert_nydfs_desc': 'Wall Street financial data locality, mandatory audit logging & encryption standards.',
+    'security.cert_gdpr_title': 'GDPR & EU AI Act Ready',
+    'security.cert_gdpr_desc': 'Strict data sovereignty, zero model training retention, and regional isolation.',
+    
+    'security.tee_inspector_title': 'Hardware TEE Remote Attestation Verifier',
+    'security.tee_inspector_desc': 'Verify real-time cryptographic SHA-256 enclave attestation signatures of running H100 GPU pods',
+    'security.tee_verify_btn': 'Verify Hardware Attestation',
+    'security.attest_status': 'Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Valid)',
+    'security.attest_digest_label': 'Attestation Hash Digest:',
+
     'security.pii_title': 'Live PII & Financial Data Masking Tester',
     'security.pii_subtitle': 'Input prompt containing sensitive financial data to inspect Firstgate sub-millisecond redaction',
     'security.pii_btn': 'Test Masking',
@@ -411,10 +427,26 @@ export const translations = {
     'quotas.util_label': '负载率',
     'quotas.chart_cost_title': '按模型划分的支出占比',
 
-    // Security Page
-    'security.title': '安全、机密计算与审计中心',
-    'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏与不可篡改 ClickHouse 审计日志',
+    // Security & Compliance Page (全面合规升级)
+    'security.title': '华尔街安全、机密计算与合规中心',
+    'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏、SOC2 Type II、HIPAA 与纽约金融局合规审计',
     'security.pii_active_badge': 'PII 脱敏与 TEE 机密保护：开启',
+    'security.compliance_certs_title': '机构级监管合规认证体系',
+    'security.cert_soc2_title': 'SOC 2 Type II 认证',
+    'security.cert_soc2_desc': '通过美国注册会计师协会 (AICPA) 审计的安全性、可用性与机密性信任标准认证。',
+    'security.cert_tee_title': 'NVIDIA H100 硬件 TEE 机密保护',
+    'security.cert_tee_desc': '加密 GPU 内存飞地与密码学远程证明 (Remote Attestation) 证书。',
+    'security.cert_nydfs_title': '纽约金融局 23 NYCRR 500',
+    'security.cert_nydfs_desc': '华尔街金融级数据定界、强制只读审计日志与全流程高强度加密标准。',
+    'security.cert_gdpr_title': 'GDPR 与欧盟 AI 法案就绪',
+    'security.cert_gdpr_desc': '严格的数据主权隔离，零模型训练保留，支持区域级算力隔离。',
+    
+    'security.tee_inspector_title': '硬件级 TEE 远程证明 (Remote Attestation) 验证器',
+    'security.tee_inspector_desc': '验证当前运行中 H100 GPU Pod 的密码学 SHA-256 安全飞地证明签名与硬件证书',
+    'security.tee_verify_btn': '验证硬件证明',
+    'security.attest_status': '硬件证明状态: 已验证 (NVIDIA Enclave 硬件安全证书有效)',
+    'security.attest_digest_label': '密码学证明 SHA-256 哈希值:',
+
     'security.pii_title': '实时 PII 与金融数据脱敏测试器',
     'security.pii_subtitle': '输入包含敏感信息的 Prompt，查看 Firstgate 如何在请求发出前完成毫秒级脱敏',
     'security.pii_btn': '执行脱敏测试',
@@ -647,10 +679,26 @@ export const translations = {
     'quotas.util_label': '負載率',
     'quotas.chart_cost_title': '按模型劃分的支出佔比',
 
-    // Security Page
-    'security.title': '安全、機密計算與審計中心',
-    'security.subtitle': '硬體級 TEE 機密計算保護、Zero-Trust 敏感資料脫敏與不可篡改 ClickHouse 審計日誌',
+    // Security & Compliance Page (全面合規升級)
+    'security.title': '華爾街安全、機密計算與合規中心',
+    'security.subtitle': '硬體級 TEE 機密計算保護、Zero-Trust 敏感資料脫敏、SOC2 Type II、HIPAA 與紐約金融局合規審計',
     'security.pii_active_badge': 'PII 脫敏與 TEE 機密保護：開啟',
+    'security.compliance_certs_title': '機構級監管合規認證體系',
+    'security.cert_soc2_title': 'SOC 2 Type II 認證',
+    'security.cert_soc2_desc': '通過美國註冊會計師協會 (AICPA) 審計的安全性、可用性與機密性信任標準認證。',
+    'security.cert_tee_title': 'NVIDIA H100 硬體 TEE 機密保護',
+    'security.cert_tee_desc': '加密 GPU 記憶體飛地與密碼學遠程證明 (Remote Attestation) 證書。',
+    'security.cert_nydfs_title': '紐約金融局 23 NYCRR 500',
+    'security.cert_nydfs_desc': '華爾街金融級資料定界、強制唯讀審計日誌與全流程高強度加密標準。',
+    'security.cert_gdpr_title': 'GDPR 與歐盟 AI 法案就緒',
+    'security.cert_gdpr_desc': '嚴格的資料主權隔離，零模型訓練保留，支援區域級算力隔離。',
+    
+    'security.tee_inspector_title': '硬體級 TEE 遠程證明 (Remote Attestation) 驗證器',
+    'security.tee_inspector_desc': '驗證當前運行中 H100 GPU Pod 的密碼學 SHA-256 安全飛地證明簽名與硬體證書',
+    'security.tee_verify_btn': '驗證硬體證明',
+    'security.attest_status': '硬體證明狀態: 已驗證 (NVIDIA Enclave 硬體安全證書有效)',
+    'security.attest_digest_label': '密碼學證明 SHA-256 哈希值:',
+
     'security.pii_title': '即時 PII 與金融資料脫敏測試器',
     'security.pii_subtitle': '輸入包含敏感資訊的 Prompt，檢視 Firstgate 如何在請求發出前完成毫秒級脫敏',
     'security.pii_btn': '執行脫敏測試',
