@@ -1,4 +1,4 @@
-// Firstgate.ai i18n Dictionaries — Honest & Compliant Standard (en, zh-CN, zh-TW)
+// Firstgate.ai i18n Dictionaries — Futuristic Portal Showcase Standard (en, zh-CN, zh-TW)
 
 export const translations = {
   'en': {
@@ -21,7 +21,8 @@ export const translations = {
     'nav.security': 'Security & TEE',
     'nav.playground': 'Playground',
     'nav.docs': 'Developer Docs',
-    'nav.console_btn': 'Launch Compute Portal',
+    'nav.portal_link': 'API & Token Sales Portal',
+    'nav.console_btn': 'Buy API Key & Token',
 
     // Hero Section
     'hero.badge': 'Real-Time Edge Diagnostics + Multi-Model Routing + Wall Street FinOps',
@@ -36,6 +37,14 @@ export const translations = {
     'hero.badge_cost_sub': 'GPU Cost Savings',
     'hero.badge_security_title': 'TEE & SOC2',
     'hero.badge_security_sub': 'Hardware Confidential',
+
+    // Portal Redirect Showcase Section
+    'portal.banner_title': 'Direct Access to Institutional LLM API & Token Purchase Portal',
+    'portal.banner_desc': 'Purchase dedicated API keys, high-concurrency token quota packages, and private GPU inference slots via our specialized billing & checkout portal.',
+    'portal.launch_btn': 'Launch API & Token Portal 🚀',
+    'portal.modal_title': 'Redirecting to Firstgate API & Token Sales Portal',
+    'portal.modal_desc': 'You will be redirected to the secure portal (portal.firstgate.ai) to manage API keys, top-up token balances, and inspect transaction invoices.',
+    'portal.modal_proceed': 'Proceed to Billing Portal',
 
     // GPU Ticker Bar
     'ticker.title': 'LIVE GLOBAL GPU SPOT MARKET RATES:',
@@ -175,7 +184,7 @@ export const translations = {
     'quotas.util_label': 'Utilized',
     'quotas.chart_cost_title': 'Cost Distribution by Model',
 
-    // Security & Compliance Page (Honest & Compliant Standard)
+    // Security & Compliance Page
     'security.title': 'Wall Street Security, TEE & Compliance Architecture',
     'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II & NY DFS compliant architecture',
     'security.pii_active_badge': 'PII MASKING & TEE: ACTIVE',
@@ -273,7 +282,8 @@ export const translations = {
     'nav.security': '安全与机密计算',
     'nav.playground': '对比测试台',
     'nav.docs': '开发文档',
-    'nav.console_btn': '进入算力控制台',
+    'nav.portal_link': 'Token 算力购买 Portal',
+    'nav.console_btn': '购买 API Key & Token',
 
     // Hero Section
     'hero.badge': '真实边缘网络诊断 + 动态智能路由 + 华尔街级 FinOps',
@@ -288,6 +298,14 @@ export const translations = {
     'hero.badge_cost_sub': 'GPU 算力成本节省',
     'hero.badge_security_title': 'TEE & SOC2',
     'hero.badge_security_sub': '硬件级机密保护',
+
+    // Portal Redirect Showcase Section
+    'portal.banner_title': '直连机构级 LLM API 密钥与 Token 算力购买 Portal',
+    'portal.banner_desc': '通过专有算力与 Token 交易控制台，一键购买专属 API Key、高并发 Token 配额包及私有 GPU 算力资源。',
+    'portal.launch_btn': '前往 API & Token 算力交易控制台 🚀',
+    'portal.modal_title': '正在跳转至 Firstgate API 密钥与 Token 购买控制台',
+    'portal.modal_desc': '您即将跳转至安全交易控制台 (portal.firstgate.ai)，用以管理 API 密钥、充值 Token 余额及开具增值税发票。',
+    'portal.modal_proceed': '继续前往 Portal 控制台',
 
     // GPU Ticker Bar
     'ticker.title': '全球 GPU 实时竞价市场行情:',
@@ -427,7 +445,7 @@ export const translations = {
     'quotas.util_label': '负载率',
     'quotas.chart_cost_title': '按模型划分的支出占比',
 
-    // Security & Compliance Page (真实严谨合规修改)
+    // Security & Compliance Page
     'security.title': '华尔街安全、机密计算与合规架构',
     'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏、符合 SOC2 与纽约金融局合规标准设计',
     'security.pii_active_badge': 'PII 脱敏与 TEE 机密保护：开启',
@@ -525,7 +543,8 @@ export const translations = {
     'nav.security': '安全與機密計算',
     'nav.playground': '對比測試台',
     'nav.docs': '開發文檔',
-    'nav.console_btn': '進入算力控制台',
+    'nav.portal_link': 'Token 算力購買 Portal',
+    'nav.console_btn': '購買 API Key & Token',
 
     // Hero Section
     'hero.badge': '真實邊緣網路診斷 + 動態智能路由 + 華爾街級 FinOps',
@@ -540,6 +559,14 @@ export const translations = {
     'hero.badge_cost_sub': 'GPU 算力成本節省',
     'hero.badge_security_title': 'TEE & SOC2',
     'hero.badge_security_sub': '硬體級機密保護',
+
+    // Portal Redirect Showcase Section
+    'portal.banner_title': '直連機構級 LLM API 密鑰與 Token 算力購買 Portal',
+    'portal.banner_desc': '通過專有算力與 Token 交易控制台，一鍵購買專屬 API Key、高併發 Token 配額包及私有 GPU 算力資源。',
+    'portal.launch_btn': '前往 API & Token 算力交易控制台 🚀',
+    'portal.modal_title': '正在跳轉至 Firstgate API 密鑰與 Token 購買控制台',
+    'portal.modal_desc': '您即將跳轉至安全交易控制台 (portal.firstgate.ai)，用以管理 API 密鑰、充值 Token 餘額及開具交易發票。',
+    'portal.modal_proceed': '繼續前往 Portal 控制台',
 
     // GPU Ticker Bar
     'ticker.title': '全球 GPU 即時競價市場行情:',
@@ -575,7 +602,7 @@ export const translations = {
     'pillar2.desc': '統一 OpenAI 協定 API 接入。基於 SLA 效能指標、Token 成本與質量得分，在 Claude 3.5、GPT-4o、Gemini 1.5、DeepSeek V3 及本地集群間秒級智能路由。',
     'pillar2.feat1': '零停機時間自動降級切換鏈',
     'pillar2.feat2': '亞10毫秒語義向量快取',
-    'pillar3.title': '3. 算力配額與 FinOps 治理',
+    'pillar3.title': '3. 算力配额與 FinOps 治理',
     'pillar3.desc': '自研算力與配額治理模式，跨 AWS、GCP、Azure 及本地 Private GPU 建立統一 Token 預算控制、多租戶部門隔離與 ROI 即時追蹤。',
     'pillar3.feat1': '多層級部門預算與 Token 硬封頂',
     'pillar3.feat2': '閒置 GPU 自動回收與 FinOps 優化',
@@ -702,7 +729,7 @@ export const translations = {
     'security.pii_title': '即時 PII 與金融資料脫敏測試器',
     'security.pii_subtitle': '輸入包含敏感資訊的 Prompt，檢視 Firstgate 如何在請求發出前完成毫秒級脫敏',
     'security.pii_btn': '執行脫敏測試',
-    'security.pii_raw_label': '用戶端原始請求 (未脱敏資料):',
+    'security.pii_raw_label': '用戶端原始請求 (未脫敏資料):',
     'security.pii_out_label': 'Firstgate 實際發送請求 (脫敏後 Payload):',
     'security.audit_title': 'ClickHouse 不可篡改審計日誌',
     'security.audit_export_btn': '匯出 SOC2 審計日誌 (CSV)',

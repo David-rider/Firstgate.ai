@@ -75,7 +75,7 @@
         <i data-lucide="check-check" class="w-3.5 h-3.5 text-cyan-400"></i>
         <span data-i18n="top.verify_btn">Verify Node & F12 Proof</span>
       </button>
-      <span class="hidden sm:inline-block" data-i18n="top.sla">Wall Street SLA: 99.999%</span>
+      <span class="hidden sm:inline-block" data-i18n="top.sla">Target SLA: 99.999%</span>
 
       <!-- i18n Language Selector Dropdown -->
       <div class="flex items-center space-x-1 bg-navy-950 border border-navy-700 px-2 py-0.5 rounded text-xs">
@@ -153,11 +153,11 @@
         </button>
       </nav>
 
-      <!-- Right Action CTA -->
+      <!-- Right Action CTA: Dedicated Portal Button -->
       <div class="flex items-center space-x-3">
-        <button onclick="switchTab('marketplace')" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-semibold text-xs px-4 py-2 rounded-lg transition-all shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/30">
-          <i data-lucide="zap" class="w-4 h-4"></i>
-          <span data-i18n="nav.console_btn">Launch Compute Portal</span>
+        <button onclick="openPortalModal()" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-cyan-500 via-emerald-400 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-xl transition-all shadow-lg shadow-cyan-500/25 border border-cyan-400/40">
+          <i data-lucide="key" class="w-4 h-4"></i>
+          <span data-i18n="nav.console_btn">Buy API Key & Token</span>
         </button>
 
         <!-- Mobile Menu Toggle Button -->
@@ -191,22 +191,47 @@
       <button onclick="switchTab('docs'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
         <i data-lucide="book-open" class="w-4 h-4"></i> <span data-i18n="nav.docs">Docs</span>
       </button>
+      <button onclick="openPortalModal(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile text-cyan-400 font-bold">
+        <i data-lucide="key" class="w-4 h-4"></i> <span data-i18n="nav.console_btn">Buy API Key & Token</span>
+      </button>
     </div>
   </header>
 
   <!-- MAIN APP CONTAINER -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 min-h-[calc(100vh-140px)]">
 
+    <!-- Dedicated API & Token Sales Portal Banner (Cyber Light Beam Border) -->
+    <div class="cyber-glow-card cyber-beam-border rounded-2xl p-6 sm:p-8 space-y-4 shadow-2xl relative overflow-hidden">
+      <div class="flex flex-wrap justify-between items-center gap-6 relative z-10">
+        <div class="space-y-2 max-w-3xl">
+          <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
+            <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+            <span>COMMERCIAL SALES PORTAL READY</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight" data-i18n="portal.banner_title">
+            Direct Access to Institutional LLM API & Token Purchase Portal
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="portal.banner_desc">
+            Purchase dedicated API keys, high-concurrency token quota packages, and private GPU inference slots via our specialized billing & checkout portal.
+          </p>
+        </div>
+
+        <button onclick="openPortalModal()" class="bg-gradient-to-r from-cyan-500 via-emerald-400 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-navy-950 font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-xl shadow-cyan-500/30 flex items-center space-x-2 shrink-0">
+          <span data-i18n="portal.launch_btn">Launch API & Token Portal 🚀</span>
+        </button>
+      </div>
+    </div>
+
     <!-- ================= TAB 1: OVERVIEW / LANDING PORTAL ================= -->
     <section id="tab-overview" class="tab-content space-y-12">
       
-      <!-- Hero Header Section -->
+      <!-- Hero Header Section with High-Tech AI GPU Visual -->
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-navy-900/90 via-navy-950 to-navy-950 border border-navy-800/80 p-8 sm:p-12 shadow-2xl">
         <!-- Glow Orbs in background -->
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="grid lg:col-span-12 lg:grid-cols-12 gap-8 items-center relative z-10">
           <div class="lg:col-span-7 space-y-6">
             <div class="inline-flex items-center space-x-2 bg-navy-800/80 border border-cyan-500/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
               <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
@@ -223,14 +248,26 @@
               Firstgate.ai is the premier institutional AI compute marketplace and dynamic inference gateway. We unify fragmented global GPU capacity (H100/H200/B200/L40S) across public clouds and private data centers, delivering real-time spot price arbitration, sub-millisecond prompt routing, zero-trust confidential TEE computing, and enterprise FinOps token governance.
             </p>
 
+            <!-- High-Tech GPU Cluster Visual Preview Card -->
+            <div class="relative rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl group">
+              <img src="/images/gpu_cluster_hero.png" alt="Futuristic AI GPU Supercomputer Cluster" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent p-4 flex items-end justify-between">
+                <div class="font-mono text-xs text-slate-200">
+                  <div class="text-cyan-400 font-bold">NYC-East Liquid-Cooled H100 Cluster</div>
+                  <div class="text-[11px] text-slate-400">Equinix NY4 Secaucus • 100Gbps Direct Fiber</div>
+                </div>
+                <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2.5 py-1 rounded text-xs font-mono font-bold">ONLINE</span>
+              </div>
+            </div>
+
             <div class="flex flex-wrap gap-4 pt-2">
               <button onclick="switchTab('marketplace')" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/25 flex items-center space-x-2">
                 <span data-i18n="hero.cta_market">Explore GPU Spot Market</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
-              <button onclick="switchTab('router')" class="bg-navy-900 hover:bg-navy-800 border border-navy-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-xl transition-all flex items-center space-x-2">
-                <i data-lucide="git-fork" class="w-4 h-4 text-cyan-400"></i>
-                <span data-i18n="hero.cta_router">Configure Smart Router</span>
+              <button onclick="openPortalModal()" class="bg-navy-900 hover:bg-navy-800 border border-cyan-500/40 text-cyan-400 font-semibold text-sm px-6 py-3 rounded-xl transition-all flex items-center space-x-2">
+                <i data-lucide="key" class="w-4 h-4 text-emerald-400"></i>
+                <span data-i18n="nav.console_btn">Buy API Key & Token</span>
               </button>
             </div>
 
@@ -313,7 +350,7 @@
         </div>
       </div>
 
-      <!-- Architecture Topology & Four Pillars -->
+      <!-- Architecture Topology & Four Pillars with High-Tech Graphics -->
       <div class="space-y-6">
         <div class="text-center max-w-2xl mx-auto space-y-2">
           <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" data-i18n="pillars.header">Four Architectural Pillars of Firstgate Ecosystem</h2>
@@ -342,10 +379,11 @@
             </ul>
           </div>
 
-          <!-- Pillar 2 -->
+          <!-- Pillar 2 with Graphic -->
           <div class="bg-navy-900/60 border border-navy-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-all group space-y-4">
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
-              <i data-lucide="git-fork" class="w-6 h-6"></i>
+            <div class="relative h-24 rounded-xl overflow-hidden border border-emerald-500/30">
+              <img src="/images/smart_router_gateway.png" alt="Smart Router Quantum Fiber Gateway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-navy-950/40"></div>
             </div>
             <h3 class="text-base font-bold text-white" data-i18n="pillar2.title">2. Dynamic Multi-Model Engine</h3>
             <p class="text-xs text-slate-300 leading-relaxed" data-i18n="pillar2.desc">
@@ -384,10 +422,11 @@
             </ul>
           </div>
 
-          <!-- Pillar 4 -->
+          <!-- Pillar 4 with Graphic -->
           <div class="bg-navy-900/60 border border-navy-800 rounded-2xl p-6 hover:border-purple-500/50 transition-all group space-y-4">
-            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
-              <i data-lucide="lock" class="w-6 h-6"></i>
+            <div class="relative h-24 rounded-xl overflow-hidden border border-purple-500/30">
+              <img src="/images/tee_confidential_chip.png" alt="NVIDIA H100 Hardware TEE Chip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-navy-950/40"></div>
             </div>
             <h3 class="text-base font-bold text-white" data-i18n="pillar4.title">4. Hardware Confidential (TEE)</h3>
             <p class="text-xs text-slate-300 leading-relaxed" data-i18n="pillar4.desc">
@@ -850,29 +889,29 @@
           <!-- Cert 1 -->
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-cyan-400 font-bold text-sm">
-              <span data-i18n="security.cert_soc2_title">SOC 2 Type II Certified</span>
+              <span data-i18n="security.cert_soc2_title">SOC 2 Type II Architecture Ready</span>
               <i data-lucide="check-circle" class="w-4 h-4"></i>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_soc2_desc">
-              Independently audited AICPA Trust Services Criteria for Security, Availability & Confidentiality.
+              Designed to comply with AICPA Trust Services Criteria for Security, Availability & Confidentiality.
             </p>
           </div>
 
           <!-- Cert 2 -->
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-emerald-400 font-bold text-sm">
-              <span data-i18n="security.cert_tee_title">NVIDIA H100 Hardware TEE</span>
+              <span data-i18n="security.cert_tee_title">NVIDIA H100 Hardware TEE Enclave</span>
               <i data-lucide="cpu" class="w-4 h-4"></i>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_tee_desc">
-              Encrypted APU memory enclosures & cryptographic remote attestation proof.
+              Encrypted APU memory enclosures & cryptographic remote attestation proof capability.
             </p>
           </div>
 
           <!-- Cert 3 -->
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-indigo-400 font-bold text-sm">
-              <span data-i18n="security.cert_nydfs_title">NY DFS 23 NYCRR 500</span>
+              <span data-i18n="security.cert_nydfs_title">NY DFS 23 NYCRR 500 Compliant</span>
               <i data-lucide="shield-alert" class="w-4 h-4"></i>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_nydfs_desc">
@@ -883,7 +922,7 @@
           <!-- Cert 4 -->
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-purple-400 font-bold text-sm">
-              <span data-i18n="security.cert_gdpr_title">GDPR & EU AI Act Ready</span>
+              <span data-i18n="security.cert_gdpr_title">GDPR & EU AI Act Compliant</span>
               <i data-lucide="globe" class="w-4 h-4"></i>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_gdpr_desc">
@@ -901,7 +940,7 @@
               <i data-lucide="key" class="w-5 h-5 text-emerald-400"></i> <span data-i18n="security.tee_inspector_title">Hardware TEE Remote Attestation Verifier</span>
             </h3>
             <p class="text-xs text-slate-400 mt-0.5" data-i18n="security.tee_inspector_desc">
-              Verify real-time cryptographic SHA-256 enclave attestation signatures of running H100 GPU pods
+              Verify cryptographic SHA-256 enclave attestation signatures of H100 GPU pods
             </p>
           </div>
           <button onclick="verifyHardwareAttestation()" class="bg-emerald-500 hover:bg-emerald-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 font-mono">
@@ -911,7 +950,7 @@
 
         <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-2 font-mono text-xs">
           <div class="text-emerald-400 font-bold flex items-center gap-1.5" id="attest-status" data-i18n="security.attest_status">
-            Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Valid)
+            Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Spec Valid)
           </div>
           <div class="text-slate-400 text-[11px] flex flex-wrap items-center gap-2">
             <span data-i18n="security.attest_digest_label">Attestation Hash Digest:</span>
@@ -958,7 +997,7 @@
             <i data-lucide="scroll" class="w-5 h-5 text-indigo-400"></i> <span data-i18n="security.audit_title">ClickHouse Immutable Audit Log</span>
           </h3>
           <button onclick="exportAuditLog()" class="bg-navy-950 hover:bg-navy-800 border border-navy-700 text-slate-300 font-mono text-xs px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
-            <i data-lucide="download" class="w-3.5 h-3.5"></i> <span data-i18n="security.audit_export_btn">Export SOC2 Log (CSV)</span>
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> <span data-i18n="security.audit_export_btn">Export Audit Log (CSV)</span>
           </button>
         </div>
 
@@ -1213,6 +1252,37 @@ main();</pre>
     </div>
   </div>
 
+  <!-- Dedicated API & Token Sales Portal Redirect Modal -->
+  <div id="modal-portal-redirect" class="fixed inset-0 z-50 bg-navy-950/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-navy-900 border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 font-mono relative overflow-hidden">
+      <div class="flex justify-between items-center border-b border-navy-800 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="portal.modal_title">Redirecting to Firstgate API & Token Sales Portal</span>
+        </h3>
+        <button onclick="togglePortalModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+        <p data-i18n="portal.modal_desc">
+          You will be redirected to the secure portal (portal.firstgate.ai) to manage API keys, top-up token balances, and inspect transaction invoices.
+        </p>
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1 font-mono text-[11px]">
+          <div>Target Portal Host: <strong class="text-cyan-400">https://portal.firstgate.ai</strong></div>
+          <div>Billing Status: <strong class="text-emerald-400">SSL Encrypted 256-bit</strong></div>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-2">
+        <button onclick="togglePortalModal()" class="bg-navy-800 text-slate-300 hover:text-white font-bold text-xs px-4 py-2 rounded-lg transition-all">
+          Cancel
+        </button>
+        <button onclick="proceedToPortal()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-5 py-2 rounded-lg transition-all shadow-md shadow-cyan-500/20" data-i18n="portal.modal_proceed">
+          Proceed to Billing Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="border-t border-navy-800 bg-navy-950 py-8 text-xs text-slate-400 font-mono">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-4">
@@ -1222,7 +1292,7 @@ main();</pre>
         <span>Institutional AI Compute Marketplace & Intelligent Gateway</span>
       </div>
       <div>
-        <span data-i18n="footer.text">NYC-East POP Point of Presence • SLA: 99.999% • SOC2 Type II Certified</span>
+        <span data-i18n="footer.text">NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality</span>
       </div>
     </div>
   </footer>

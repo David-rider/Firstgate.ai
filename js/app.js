@@ -39,6 +39,31 @@ document.addEventListener('DOMContentLoaded', () => {
   runRoutingSimulation();
 });
 
+// Dedicated Sales Portal Modal Handlers
+export function openPortalModal() {
+  const modal = document.getElementById('modal-portal-redirect');
+  if (modal) modal.classList.remove('hidden');
+}
+window.openPortalModal = openPortalModal;
+
+export function togglePortalModal() {
+  const modal = document.getElementById('modal-portal-redirect');
+  if (modal) modal.classList.toggle('hidden');
+}
+window.togglePortalModal = togglePortalModal;
+
+export function proceedToPortal() {
+  const lang = getLang();
+  const msg = lang === 'en'
+    ? '[Firstgate Portal Redirect] Opening secure billing portal (https://portal.firstgate.ai)...'
+    : (lang === 'zh-TW'
+      ? '[Firstgate 交易控制台] 正在跳轉至安全 Token & API 購買 Portal (https://portal.firstgate.ai)...'
+      : '[Firstgate 交易控制台] 正在跳转至安全 Token & API 购买 Portal (https://portal.firstgate.ai)...');
+  alert(msg);
+  togglePortalModal();
+}
+window.proceedToPortal = proceedToPortal;
+
 // Modal Inspector Toggle
 export function toggleNodeProofModal() {
   const modal = document.getElementById('modal-node-proof');
@@ -191,24 +216,12 @@ export function filterGpuMarket(filterType) {
 window.filterGpuMarket = filterGpuMarket;
 
 export function reserveGpuPod(gpuName) {
-  const lang = getLang();
-  const msg = lang === 'en'
-    ? `[Firstgate Compute] Provisioning 8x ${gpuName} Dedicated Spot Pod in NYC East. Provisioning completed in 12.4s.`
-    : (lang === 'zh-TW'
-      ? `[Firstgate 算力交易] 正在紐約東區拉起 8x ${gpuName} 專用競價 Pod。算力已在 12.4 秒內就緒。`
-      : `[Firstgate 算力交易] 正在纽约东区拉起 8x ${gpuName} 专用竞价 Pod。算力已在 12.4 秒内就绪。`);
-  alert(msg);
+  openPortalModal();
 }
 window.reserveGpuPod = reserveGpuPod;
 
 export function deployModelEndpoint(modelName) {
-  const lang = getLang();
-  const msg = lang === 'en'
-    ? `[Firstgate Model Hub] Serverless vLLM endpoint for ${modelName} deployed! Endpoint URL: https://gateway.firstgate.ai/v1/models/${modelName.toLowerCase()}`
-    : (lang === 'zh-TW'
-      ? `[Firstgate 大模型市場] ${modelName} 的 Serverless vLLM 端點已成功拉起！接入地址: https://gateway.firstgate.ai/v1/models/${modelName.toLowerCase()}`
-      : `[Firstgate 大模型市场] ${modelName} 的 Serverless vLLM 端点已成功拉起！接入地址: https://gateway.firstgate.ai/v1/models/${modelName.toLowerCase()}`);
-  alert(msg);
+  openPortalModal();
 }
 window.deployModelEndpoint = deployModelEndpoint;
 
@@ -416,7 +429,7 @@ export function runPlaygroundComparison() {
   const responses = {
     c1: t('lang') === 'en'
       ? "An API Gateway proxies requests, authenticating endpoints and rate-limiting calls. An AI Routing Engine like Firstgate dynamically inspects token payloads, evaluates LLM availability, latency (TTFT), cost per 1k tokens, and routes prompts to optimal endpoints."
-      : "API 网关主要负责 HTTP 鉴权与限流。而像 Firstgate 这样的 AI 智能路由引擎，能动态解析 Prompt Token，实时评估 TTFT 延迟与成本，在多模型间做最优智能调度。",
+      : "API 网关主要负责 HTTP 鉴权与限流。而像 Firstgate 样的 AI 智能路由引擎，能动态解析 Prompt Token，实时评估 TTFT 延迟与成本，在多模型间做最优智能调度。",
     c2: t('lang') === 'en'
       ? "API Gateways handle standard HTTP traffic governance. AI Routing Engines add semantic caching, automatic fallback chains, PII redaction, and cost-optimized multi-provider token management tailored for real-time financial trading systems."
       : "API 网关治理标准网络流量。AI 路由引擎进一步提供语义向量缓存、自动降级链、零信任 PII 脱敏以及针对金融交易系统优化的多云算力成本控制。",
