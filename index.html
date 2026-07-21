@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firstgate.ai — Institutional AI Compute Marketplace & Intelligent Gateway</title>
+  <meta name="description" content="Institutional AI Compute Marketplace and Dynamic Inference Gateway. Real-time GPU spot pricing (H100/H200/B200), sub-millisecond prompt routing, zero-trust TEE confidential computing, and enterprise FinOps.">
+  
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN & Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#070A11',
+              900: '#0E1422',
+              850: '#151D30',
+              800: '#1C2740',
+              700: '#2C3C60',
+            },
+            cyan: {
+              400: '#00F0FF',
+            },
+            emerald: {
+              400: '#10B981',
+            },
+            indigo: {
+              400: '#8B5CF6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-navy-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-navy-950">
+
+  <!-- Top Bar / Transparent Gateway Node Status Header -->
+  <div class="bg-navy-900/90 border-b border-navy-800 text-xs py-1.5 px-4 flex flex-wrap justify-between items-center backdrop-blur-md sticky top-0 z-50">
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="font-mono text-emerald-400 font-semibold" id="top-cluster-status" data-i18n="top.edge_status">LOCAL DEV NODE: ONLINE (200 OK)</span>
+      </div>
+      <div class="hidden md:flex items-center space-x-3 text-slate-400 font-mono">
+        <span><span data-i18n="top.latency">Client RTT Latency</span>: <strong class="text-emerald-400 font-bold" id="top-latency">Measuring...</strong></span>
+        <span>•</span>
+        <span><span data-i18n="top.protocol">Transport Protocol</span>: <strong class="text-slate-200">HTTP/1.1 (Vite Dev Server)</strong></span>
+        <span>•</span>
+        <span><span data-i18n="top.node_region">Active Node</span>: <strong class="text-slate-200" id="top-active-host">127.0.0.1:5173</strong></span>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-3 text-slate-400 font-mono text-[11px]">
+      <button onclick="toggleNodeProofModal()" class="bg-navy-800 hover:bg-navy-700 text-cyan-400 border border-cyan-500/30 px-2.5 py-0.5 rounded flex items-center gap-1 transition-all">
+        <i data-lucide="check-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span>Verify Node & F12 Proof</span>
+      </button>
+      <span class="hidden sm:inline-block" data-i18n="top.sla">Wall Street SLA: 99.999%</span>
+
+      <!-- i18n Language Selector Dropdown -->
+      <div class="flex items-center space-x-1 bg-navy-950 border border-navy-700 px-2 py-0.5 rounded text-xs">
+        <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <select id="lang-select" onchange="window.setLang(this.value)" class="bg-transparent text-slate-200 outline-none cursor-pointer font-mono">
+          <option value="en" class="bg-navy-900 text-slate-200">English</option>
+          <option value="zh-CN" class="bg-navy-900 text-slate-200">简体中文</option>
+          <option value="zh-TW" class="bg-navy-900 text-slate-200">繁體中文</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live GPU Spot Market Rates Ticker Bar -->
+  <div class="bg-navy-950 border-b border-navy-800/80 text-[11px] font-mono py-1 px-4 overflow-x-auto whitespace-nowrap flex items-center space-x-6 text-slate-300">
+    <span class="text-cyan-400 font-bold flex items-center gap-1.5">
+      <i data-lucide="activity" class="w-3.5 h-3.5 animate-pulse"></i>
+      <span data-i18n="ticker.title">LIVE GLOBAL GPU SPOT MARKET RATES:</span>
+    </span>
+    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800" data-i18n="ticker.h100">NVIDIA H100 80GB: $2.15/hr (-48%)</span>
+    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800" data-i18n="ticker.h200">NVIDIA H200 141GB: $3.10/hr (-42%)</span>
+    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800" data-i18n="ticker.b200">NVIDIA Blackwell B200: $4.80/hr (-35%)</span>
+    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800 text-emerald-400" data-i18n="ticker.l40s">NVIDIA L40S 48GB: $0.82/hr (-60%)</span>
+  </div>
+
+  <!-- Main Navigation Navbar -->
+  <header class="border-b border-navy-800/80 bg-navy-950/80 backdrop-blur-xl sticky top-[33px] z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center space-x-3 group" onclick="switchTab('overview')">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-emerald-500 to-indigo-600 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all">
+          <div class="w-full h-full bg-navy-950 rounded-[10.5px] flex items-center justify-center">
+            <i data-lucide="cpu" class="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="font-extrabold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-300">FIRSTGATE</span>
+            <span class="bg-gradient-to-r from-cyan-500 to-emerald-400 text-navy-950 font-mono font-black text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wider">AI</span>
+          </div>
+          <p class="text-[10px] text-slate-400 tracking-wider uppercase font-mono">AI Compute & Router</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center space-x-1">
+        <button onclick="switchTab('overview')" id="nav-overview" class="nav-tab active">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          <span data-i18n="nav.overview">Overview</span>
+        </button>
+        <button onclick="switchTab('marketplace')" id="nav-marketplace" class="nav-tab">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i>
+          <span data-i18n="nav.marketplace">Compute Marketplace</span>
+        </button>
+        <button onclick="switchTab('router')" id="nav-router" class="nav-tab">
+          <i data-lucide="git-fork" class="w-4 h-4"></i>
+          <span data-i18n="nav.router">Smart Router</span>
+        </button>
+        <button onclick="switchTab('quotas')" id="nav-quotas" class="nav-tab">
+          <i data-lucide="pie-chart" class="w-4 h-4"></i>
+          <span data-i18n="nav.quotas">Capacity Governance</span>
+        </button>
+        <button onclick="switchTab('security')" id="nav-security" class="nav-tab">
+          <i data-lucide="shield" class="w-4 h-4"></i>
+          <span data-i18n="nav.security">Security & TEE</span>
+        </button>
+        <button onclick="switchTab('playground')" id="nav-playground" class="nav-tab">
+          <i data-lucide="terminal" class="w-4 h-4"></i>
+          <span data-i18n="nav.playground">Playground</span>
+        </button>
+        <button onclick="switchTab('docs')" id="nav-docs" class="nav-tab">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          <span data-i18n="nav.docs">Docs</span>
+        </button>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="flex items-center space-x-3">
+        <button onclick="switchTab('marketplace')" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-semibold text-xs px-4 py-2 rounded-lg transition-all shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/30">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+          <span data-i18n="nav.console_btn">Launch Compute Portal</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-navy-900 border border-navy-800 text-slate-300">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-navy-800 bg-navy-950/95 px-4 py-3 space-y-2">
+      <button onclick="switchTab('overview'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="layout-grid" class="w-4 h-4"></i> <span data-i18n="nav.overview">Overview</span>
+      </button>
+      <button onclick="switchTab('marketplace'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="nav.marketplace">Compute Marketplace</span>
+      </button>
+      <button onclick="switchTab('router'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="git-fork" class="w-4 h-4"></i> <span data-i18n="nav.router">Smart Router</span>
+      </button>
+      <button onclick="switchTab('quotas'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="pie-chart" class="w-4 h-4"></i> <span data-i18n="nav.quotas">Capacity Governance</span>
+      </button>
+      <button onclick="switchTab('security'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="shield" class="w-4 h-4"></i> <span data-i18n="nav.security">Security & TEE</span>
+      </button>
+      <button onclick="switchTab('playground'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="terminal" class="w-4 h-4"></i> <span data-i18n="nav.playground">Playground</span>
+      </button>
+      <button onclick="switchTab('docs'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="book-open" class="w-4 h-4"></i> <span data-i18n="nav.docs">Docs</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 min-h-[calc(100vh-140px)]">
+
+    <!-- ================= TAB 1: OVERVIEW / LANDING PORTAL ================= -->
+    <section id="tab-overview" class="tab-content space-y-12">
+      
+      <!-- Hero Header Section -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-navy-900/90 via-navy-950 to-navy-950 border border-navy-800/80 p-8 sm:p-12 shadow-2xl">
+        <!-- Glow Orbs in background -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-navy-800/80 border border-cyan-500/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span data-i18n="hero.badge">Real-Time Edge Diagnostics + Multi-Model Routing + Wall Street FinOps</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              <span data-i18n="hero.title_p1">The Global AI Compute &</span> <br/>
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-emerald-400 to-indigo-400" data-i18n="hero.title_p2">
+                Intelligent Routing Marketplace
+              </span>
+            </h1>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed" data-i18n="hero.subtitle">
+              Firstgate.ai is the premier institutional AI compute marketplace and dynamic inference gateway. We unify fragmented global GPU capacity (H100/H200/B200/L40S) across public clouds and private data centers, delivering real-time spot price arbitration, sub-millisecond prompt routing, zero-trust confidential TEE computing, and enterprise FinOps token governance.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+              <button onclick="switchTab('marketplace')" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/25 flex items-center space-x-2">
+                <span data-i18n="hero.cta_market">Explore GPU Spot Market</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+              <button onclick="switchTab('router')" class="bg-navy-900 hover:bg-navy-800 border border-navy-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-xl transition-all flex items-center space-x-2">
+                <i data-lucide="git-fork" class="w-4 h-4 text-cyan-400"></i>
+                <span data-i18n="hero.cta_router">Configure Smart Router</span>
+              </button>
+            </div>
+
+            <!-- Key Feature Badges -->
+            <div class="grid grid-cols-3 gap-3 pt-4 border-t border-navy-800/80 text-xs font-mono">
+              <div class="bg-navy-900/60 border border-navy-800 p-3 rounded-xl">
+                <div class="text-cyan-400 font-bold text-base" id="hero-badge-rtt" data-i18n="hero.badge_latency_title">Real RTT</div>
+                <div class="text-slate-400 text-[11px] mt-0.5" data-i18n="hero.badge_latency_sub">Measured Edge Latency</div>
+              </div>
+              <div class="bg-navy-900/60 border border-navy-800 p-3 rounded-xl">
+                <div class="text-emerald-400 font-bold text-base" data-i18n="hero.badge_cost_title">up to 68%</div>
+                <div class="text-slate-400 text-[11px] mt-0.5" data-i18n="hero.badge_cost_sub">GPU Cost Savings</div>
+              </div>
+              <div class="bg-navy-900/60 border border-navy-800 p-3 rounded-xl">
+                <div class="text-indigo-400 font-bold text-base" data-i18n="hero.badge_security_title">TEE & SOC2</div>
+                <div class="text-slate-400 text-[11px] mt-0.5" data-i18n="hero.badge_security_sub">Hardware Confidential</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right: Interactive Prompt Router & Compute Arbitrator Widget -->
+          <div class="lg:col-span-5 bg-navy-900/90 border border-navy-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-navy-800 pb-3">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                <span class="font-mono text-xs text-slate-300 ml-2 font-semibold" data-i18n="sim.header">Live Intelligent Router & Compute Arbitrator</span>
+              </div>
+              <span class="text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded" data-i18n="sim.realtime">REAL NETWORK DIAGNOSTICS</span>
+            </div>
+
+            <!-- Prompt Selection Presets -->
+            <div class="space-y-2">
+              <label class="text-xs text-slate-300 font-medium" data-i18n="sim.select_label">Select Enterprise AI Workload:</label>
+              <select id="sim-prompt-select" onchange="runRoutingSimulation()" class="w-full bg-navy-950 border border-navy-800 rounded-lg text-xs text-slate-200 p-2.5 font-mono focus:border-cyan-500 outline-none">
+                <option value="quant" data-i18n="sim.opt_quant">📈 [FinTech] Perform Monte Carlo VaR simulation on 10k stock portfolio</option>
+                <option value="legal" data-i18n="sim.opt_legal">⚖️ [Compliance] Analyze 200-page SEC 10-K filing for risk disclosures</option>
+                <option value="customer" data-i18n="sim.opt_customer">💬 [Support] Summarize customer support ticket & generate response</option>
+                <option value="code" data-i18n="sim.opt_code">💻 [DevOps] Refactor Python Asyncio gRPC microservice</option>
+              </select>
+            </div>
+
+            <!-- Priority Sliders -->
+            <div class="space-y-3 pt-2">
+              <div>
+                <div class="flex justify-between text-xs text-slate-300 mb-1">
+                  <span data-i18n="sim.lat_priority">Latency Priority Weight</span>
+                  <span class="font-mono text-cyan-400 font-bold" id="val-latency">80%</span>
+                </div>
+                <input type="range" id="slider-latency" min="0" max="100" value="80" oninput="runRoutingSimulation()" class="w-full accent-cyan-400 h-1.5 bg-navy-950 rounded-lg appearance-none cursor-pointer">
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs text-slate-300 mb-1">
+                  <span data-i18n="sim.cost_priority">Spot Cost Savings Priority</span>
+                  <span class="font-mono text-emerald-400 font-bold" id="val-cost">40%</span>
+                </div>
+                <input type="range" id="slider-cost" min="0" max="100" value="40" oninput="runRoutingSimulation()" class="w-full accent-emerald-400 h-1.5 bg-navy-950 rounded-lg appearance-none cursor-pointer">
+              </div>
+            </div>
+
+            <!-- Simulation Result Card -->
+            <div class="bg-navy-950 border border-navy-800 rounded-xl p-4 space-y-3 font-mono text-xs">
+              <div class="flex justify-between items-center border-b border-navy-800/80 pb-2">
+                <span class="text-slate-400" data-i18n="sim.decision_label">Firstgate Route & Compute Decision:</span>
+                <span id="sim-model" class="text-emerald-400 font-bold flex items-center gap-1">
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> DeepSeek V3 (NYC On-Prem VPC)
+                </span>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <div><span data-i18n="sim.est_latency">Est. Latency:</span> <span id="sim-est-latency" class="text-cyan-400 font-bold">42 ms</span></div>
+                <div><span data-i18n="sim.est_cost">Est. Unit Cost:</span> <span id="sim-est-cost" class="text-emerald-400 font-bold">$0.0002 / 1k</span></div>
+                <div><span data-i18n="sim.cache_status">Vector Cache:</span> <span id="sim-cache-status" class="text-indigo-400 font-bold">Vector Cache Hit</span></div>
+                <div><span data-i18n="sim.pii_status">TEE Security:</span> <span id="sim-pii-status" class="text-emerald-400 font-bold">Encrypted (TEE)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture Topology & Four Pillars -->
+      <div class="space-y-6">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" data-i18n="pillars.header">Four Architectural Pillars of Firstgate Ecosystem</h2>
+          <p class="text-xs sm:text-sm text-slate-400" data-i18n="pillars.subheader">Unifying global GPU supply, dynamic model routing, enterprise governance, and hardware TEE security</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Pillar 1 -->
+          <div class="bg-navy-900/60 border border-navy-800 rounded-2xl p-6 hover:border-cyan-500/50 transition-all group space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-base font-bold text-white" data-i18n="pillar1.title">1. Global GPU Spot Marketplace</h3>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="pillar1.desc">
+              Aggregate multi-provider GPU capacity (AWS, GCP, Azure, CoreWeave, and private NYC VPC nodes). Real-time spot price arbitration reduces infrastructure spend by up to 68%.
+            </p>
+            <ul class="text-xs text-slate-400 font-mono space-y-1.5 pt-2">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span data-i18n="pillar1.feat1">Instant GPU Pod Provisioning (&lt; 15s)</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span data-i18n="pillar1.feat2">Spot & Reserved Arbitrator</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-navy-900/60 border border-navy-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-all group space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="git-fork" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-base font-bold text-white" data-i18n="pillar2.title">2. Dynamic Multi-Model Engine</h3>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="pillar2.desc">
+              Unified OpenAI protocol API access. Dynamically routes prompts between Claude 3.5, GPT-4o, Gemini 1.5, DeepSeek V3, and local clusters based on SLA, cost, and task accuracy.
+            </p>
+            <ul class="text-xs text-slate-400 font-mono space-y-1.5 pt-2">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span data-i18n="pillar2.feat1">Zero-downtime Automatic Fallback</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span data-i18n="pillar2.feat2">Sub-10ms Semantic Vector Caching</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-navy-900/60 border border-navy-800 rounded-2xl p-6 hover:border-indigo-500/50 transition-all group space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="pie-chart" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-base font-bold text-white" data-i18n="pillar3.title">3. Enterprise Resource & FinOps</h3>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="pillar3.desc">
+              Proprietary AI capacity & quota management. Establishes unified token budget caps, multi-tenant department isolation, and real-time ROI tracking across all LLM workloads.
+            </p>
+            <ul class="text-xs text-slate-400 font-mono space-y-1.5 pt-2">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                <span data-i18n="pillar3.feat1">Hierarchical Department Budget Caps</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                <span data-i18n="pillar3.feat2">Automated Idle GPU Reclaim & FinOps</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="bg-navy-900/60 border border-navy-800 rounded-2xl p-6 hover:border-purple-500/50 transition-all group space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="lock" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-base font-bold text-white" data-i18n="pillar4.title">4. Hardware Confidential (TEE)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="pillar4.desc">
+              Built for Wall Street & regulated enterprises. Encrypts prompt payloads in-flight and in-memory using NVIDIA H100 Confidential TEE enclosures with zero-trust audit logging.
+            </p>
+            <ul class="text-xs text-slate-400 font-mono space-y-1.5 pt-2">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                <span data-i18n="pillar4.feat1">Hardware Enclave TEE Protection</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                <span data-i18n="pillar4.feat2">Immutable ClickHouse Audit Store</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Measured Network Telemetry Chart -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="flex flex-wrap justify-between items-center gap-4">
+          <div>
+            <h3 class="text-lg font-bold text-white" data-i18n="telemetry.title">Live Gateway Network Telemetry</h3>
+            <p class="text-xs text-slate-400" data-i18n="telemetry.subtitle">Real-time measured client-to-edge RTT latency and network ping diagnostics</p>
+          </div>
+          <div class="flex items-center space-x-3 text-xs font-mono">
+            <span class="flex items-center gap-1.5 text-emerald-400"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> Measured Client RTT Ping (ms)</span>
+          </div>
+        </div>
+        <div class="h-64 w-full">
+          <canvas id="chart-telemetry"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= TAB 2: COMPUTE MARKETPLACE ================= -->
+    <section id="tab-marketplace" class="tab-content hidden space-y-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="market.title">AI Compute Spot Marketplace & Exchange</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="market.subtitle">Compare real-time GPU spot prices, reserve dedicated inference clusters, and deploy serverless vLLM endpoints across global regions</p>
+        </div>
+        <div class="flex items-center space-x-2 text-xs font-mono">
+          <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+            <i data-lucide="cpu" class="w-4 h-4"></i> 4,820 GPUs AVAILABLE
+          </span>
+        </div>
+      </div>
+
+      <!-- GPU Filter Pills -->
+      <div class="flex items-center space-x-2 text-xs font-mono overflow-x-auto pb-1">
+        <button onclick="filterGpuMarket('all')" id="gpu-filter-all" class="doc-lang-btn active" data-i18n="market.filter_all">All GPU Types</button>
+        <button onclick="filterGpuMarket('h100')" id="gpu-filter-h100" class="doc-lang-btn" data-i18n="market.filter_h100">H100 / H200</button>
+        <button onclick="filterGpuMarket('b200')" id="gpu-filter-b200" class="doc-lang-btn" data-i18n="market.filter_b200">Blackwell B200</button>
+        <button onclick="filterGpuMarket('l40s')" id="gpu-filter-l40s" class="doc-lang-btn" data-i18n="market.filter_l40s">L40S / A100</button>
+      </div>
+
+      <!-- GPU Spot Price Table -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs font-mono">
+            <thead>
+              <tr class="border-b border-navy-800 text-slate-400 bg-navy-950/60">
+                <th class="p-3" data-i18n="market.col_gpu">GPU Model</th>
+                <th class="p-3" data-i18n="market.col_vram">VRAM</th>
+                <th class="p-3" data-i18n="market.col_region">Region / Node</th>
+                <th class="p-3" data-i18n="market.col_cloud">Public Cloud Rate</th>
+                <th class="p-3" data-i18n="market.col_fg_spot">Firstgate Spot Rate</th>
+                <th class="p-3" data-i18n="market.col_savings">Savings</th>
+                <th class="p-3" data-i18n="market.col_action">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-navy-800/60" id="gpu-market-rows">
+              <!-- Dynamically rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Hosted Open Models Registry -->
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-lg font-bold text-white" data-i18n="models.title">Hosted Open-Weights AI Models Marketplace</h3>
+          <p class="text-xs text-slate-400" data-i18n="models.subtitle">One-click serverless deployment for state-of-the-art open models with sub-20ms first token latency</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+          <!-- Model 1 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-3 hover:border-cyan-500/40 transition-all">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-bold text-white">DeepSeek V3 (671B MoE)</div>
+                <div class="text-[11px] text-slate-400">FP8 Quantized • 128k Context</div>
+              </div>
+              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]">READY</span>
+            </div>
+            <div class="space-y-1 text-[11px] text-slate-300">
+              <div>TTFT: <strong class="text-cyan-400">14.2 ms</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.14 / 1M Tokens</strong></div>
+              <div>Hosting: <strong>NYC On-Prem VPC Pod</strong></div>
+            </div>
+            <button onclick="deployModelEndpoint('DeepSeek-V3')" class="w-full bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs py-2 rounded-lg transition-all">
+              Deploy Endpoint
+            </button>
+          </div>
+
+          <!-- Model 2 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-3 hover:border-purple-500/40 transition-all">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-bold text-white">DeepSeek R1 (Reasoning)</div>
+                <div class="text-[11px] text-slate-400">Reinforcement Learning • Chain-of-Thought</div>
+              </div>
+              <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2 py-0.5 rounded text-[10px]">POPULAR</span>
+            </div>
+            <div class="space-y-1 text-[11px] text-slate-300">
+              <div>TTFT: <strong class="text-cyan-400">18.5 ms</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.55 / 1M Tokens</strong></div>
+              <div>Hosting: <strong>AWS H100 TEE Cluster</strong></div>
+            </div>
+            <button onclick="deployModelEndpoint('DeepSeek-R1')" class="w-full bg-purple-500 hover:bg-purple-400 text-white font-bold text-xs py-2 rounded-lg transition-all">
+              Deploy Endpoint
+            </button>
+          </div>
+
+          <!-- Model 3 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-3 hover:border-indigo-500/40 transition-all">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-bold text-white">Llama 3.3 (70B Instruct)</div>
+                <div class="text-[11px] text-slate-400">Meta AI • 128k Context Window</div>
+              </div>
+              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]">READY</span>
+            </div>
+            <div class="space-y-1 text-[11px] text-slate-300">
+              <div>TTFT: <strong class="text-cyan-400">12.8 ms</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.35 / 1M Tokens</strong></div>
+              <div>Hosting: <strong>GCP L40S Pool</strong></div>
+            </div>
+            <button onclick="deployModelEndpoint('Llama-3.3-70B')" class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs py-2 rounded-lg transition-all">
+              Deploy Endpoint
+            </button>
+          </div>
+
+          <!-- Model 4 -->
+          <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-3 hover:border-emerald-500/40 transition-all">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-bold text-white">Qwen 2.5 Coder (32B)</div>
+                <div class="text-[11px] text-slate-400">Alibaba Cloud • Code & Math Specialism</div>
+              </div>
+              <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded text-[10px]">FASTEST</span>
+            </div>
+            <div class="space-y-1 text-[11px] text-slate-300">
+              <div>TTFT: <strong class="text-cyan-400">8.4 ms</strong></div>
+              <div>Price: <strong class="text-emerald-400">$0.18 / 1M Tokens</strong></div>
+              <div>Hosting: <strong>NYC East Edge POP</strong></div>
+            </div>
+            <button onclick="deployModelEndpoint('Qwen-2.5-Coder')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-navy-950 font-bold text-xs py-2 rounded-lg transition-all">
+              Deploy Endpoint
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: SMART ROUTER CONFIGURATOR ================= -->
+    <section id="tab-router" class="tab-content hidden space-y-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="router.title">Intelligent Router Configurator</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="router.subtitle">Configure model routing policies, fallback chains, and semantic cache thresholds</p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <button onclick="saveRouterPolicy()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all flex items-center space-x-1.5">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span data-i18n="router.save_btn">Save & Deploy Policy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Strategy Presets selector -->
+      <div class="grid md:grid-cols-3 gap-4">
+        <div onclick="selectRouterPreset('latency')" id="preset-latency" class="router-preset-card active cursor-pointer bg-navy-900/80 border border-cyan-500/50 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-white flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="router.preset_latency_title">NYC Ultra-Low Latency</span>
+            </span>
+            <span class="text-[10px] bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-mono" data-i18n="router.preset_latency_badge">FINTECH PRESET</span>
+          </div>
+          <p class="text-xs text-slate-300" data-i18n="router.preset_latency_desc">Prioritizes models closest to NYC edge nodes with lowest TTFT. Allows minor token cost trade-offs.</p>
+        </div>
+
+        <div onclick="selectRouterPreset('cost')" id="preset-cost" class="router-preset-card cursor-pointer bg-navy-900/40 border border-navy-800 hover:border-navy-700 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-white flex items-center gap-2">
+              <i data-lucide="piggy-bank" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="router.preset_cost_title">Enterprise Cost Saver</span>
+            </span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono" data-i18n="router.preset_cost_badge">ENTERPRISE PRESET</span>
+          </div>
+          <p class="text-xs text-slate-300" data-i18n="router.preset_cost_desc">Controls unit cost to minimum via semantic caching & model pruning (e.g. DeepSeek-V3 / Flash).</p>
+        </div>
+
+        <div onclick="selectRouterPreset('airgap')" id="preset-airgap" class="router-preset-card cursor-pointer bg-navy-900/40 border border-navy-800 hover:border-navy-700 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-white flex items-center gap-2">
+              <i data-lucide="lock" class="w-4 h-4 text-indigo-400"></i> <span data-i18n="router.preset_airgap_title">Strict On-Prem / VPC</span>
+            </span>
+            <span class="text-[10px] bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono" data-i18n="router.preset_airgap_badge">AIR-GAPPED</span>
+          </div>
+          <p class="text-xs text-slate-300" data-i18n="router.preset_airgap_desc">100% of requests restricted to local NYC private GPU clusters. Zero public cloud exposure.</p>
+        </div>
+      </div>
+
+      <!-- Fallback Chain Builder -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-6">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="list-ordered" class="w-5 h-5 text-cyan-400"></i> <span data-i18n="router.chain_title">Fallback Chain Execution Order</span>
+        </h3>
+
+        <div class="space-y-3" id="fallback-chain-list">
+          <!-- Step 1 -->
+          <div class="bg-navy-950 border border-navy-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+              <span class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 font-mono font-bold text-xs flex items-center justify-center border border-cyan-500/30">1</span>
+              <div>
+                <div class="text-sm font-bold text-white">Claude 3.5 Sonnet (Anthropic US-East)</div>
+                <div class="text-xs text-slate-400 font-mono">Primary Endpoint • Timeout: 1200ms • Max Cost: $3.00/1M</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+              <span class="text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/30">HEALTHY (24ms)</span>
+              <button class="text-slate-400 hover:text-slate-200"><i data-lucide="move" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-navy-950 border border-navy-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+              <span class="w-7 h-7 rounded-lg bg-navy-800 text-slate-300 font-mono font-bold text-xs flex items-center justify-center border border-navy-700">2</span>
+              <div>
+                <div class="text-sm font-bold text-white">GPT-4o (OpenAI Direct)</div>
+                <div class="text-xs text-slate-400 font-mono">Fallback 1 • Trigger on 429/500/503 • Timeout: 1500ms</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+              <span class="text-slate-300 bg-navy-800 px-2.5 py-1 rounded border border-navy-700">STANDBY</span>
+              <button class="text-slate-400 hover:text-slate-200"><i data-lucide="move" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-navy-950 border border-navy-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+              <span class="w-7 h-7 rounded-lg bg-navy-800 text-slate-300 font-mono font-bold text-xs flex items-center justify-center border border-navy-700">3</span>
+              <div>
+                <div class="text-sm font-bold text-white">DeepSeek V3 (NYC On-Premise GPU Cluster)</div>
+                <div class="text-xs text-slate-400 font-mono">Fallback 2 • Trigger on Latency > 1800ms • Zero External Cost</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+              <span class="text-slate-300 bg-navy-800 px-2.5 py-1 rounded border border-navy-700">STANDBY</span>
+              <button class="text-slate-400 hover:text-slate-200"><i data-lucide="move" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semantic Cache Settings -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 grid lg:grid-cols-2 gap-6 items-center">
+        <div class="space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="database" class="w-5 h-5 text-emerald-400"></i> <span data-i18n="router.cache_title">Vector Semantic Caching</span>
+          </h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="router.cache_desc">
+            Automatically matches historical prompts with cosine similarity above threshold. Cache hits return in 3.8ms with zero token cost.
+          </p>
+          <div class="pt-2">
+            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+              <span data-i18n="router.cache_thresh_label">Similarity Threshold (Cosine Similarity):</span>
+              <span class="text-emerald-400 font-bold" id="val-sim-thresh">0.92</span>
+            </div>
+            <input type="range" min="0.80" max="0.99" step="0.01" value="0.92" oninput="document.getElementById('val-sim-thresh').innerText = this.value" class="w-full accent-emerald-400 h-1.5 bg-navy-950 rounded-lg appearance-none cursor-pointer">
+          </div>
+        </div>
+
+        <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-3 font-mono text-xs">
+          <div class="flex justify-between items-center text-slate-400">
+            <span>Cache Efficiency Status:</span>
+            <span class="text-emerald-400 font-bold">OPTIMAL</span>
+          </div>
+          <div class="space-y-1.5 text-[11px]">
+            <div class="flex justify-between">
+              <span>Total Requests Cached:</span>
+              <span class="text-slate-200 font-bold">1,492,030</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Avg Latency (Cache Hit):</span>
+              <span class="text-cyan-400 font-bold">3.8 ms</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Estimated Cost Saved:</span>
+              <span class="text-emerald-400 font-bold">$48,290.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 4: RESOURCE GOVERNANCE ================= -->
+    <section id="tab-quotas" class="tab-content hidden space-y-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="quotas.title">Capacity Quotas & Cost Governance</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="quotas.subtitle">Multi-tenant department budgeting, hard token caps, and unified multi-cloud/private GPU allocation</p>
+        </div>
+        <div class="flex items-center space-x-2 text-xs font-mono bg-navy-900 border border-navy-800 px-3 py-1.5 rounded-lg text-slate-300">
+          <span data-i18n="quotas.org_budget">Monthly Org Budget Cap:</span>
+          <strong class="text-emerald-400 font-bold">$250,000 / mo</strong>
+        </div>
+      </div>
+
+      <!-- Department Allocation Table -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="building-2" class="w-5 h-5 text-cyan-400"></i> <span data-i18n="quotas.dept_table_title">Department Budget & Token Quotas</span>
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs font-mono">
+            <thead>
+              <tr class="border-b border-navy-800 text-slate-400 bg-navy-950/60">
+                <th class="p-3" data-i18n="quotas.col_dept">Department</th>
+                <th class="p-3" data-i18n="quotas.col_cap">Monthly Cap</th>
+                <th class="p-3" data-i18n="quotas.col_spend">Used Spend</th>
+                <th class="p-3" data-i18n="quotas.col_usage">Usage %</th>
+                <th class="p-3" data-i18n="quotas.col_rate">Rate Limit (QPS)</th>
+                <th class="p-3" data-i18n="quotas.col_action">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-navy-800/60">
+              <tr>
+                <td class="p-3 text-white font-bold flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Quant Trading Desk
+                </td>
+                <td class="p-3 text-slate-200">$100,000</td>
+                <td class="p-3 text-emerald-400 font-bold">$68,420</td>
+                <td class="p-3">
+                  <div class="w-24 bg-navy-950 rounded-full h-2 overflow-hidden border border-navy-800">
+                    <div class="bg-emerald-400 h-full" style="width: 68.4%"></div>
+                  </div>
+                </td>
+                <td class="p-3 text-slate-300">5,000 QPS</td>
+                <td class="p-3">
+                  <button onclick="editQuota('Quant Trading')" class="text-cyan-400 hover:underline">Edit Quota</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 text-white font-bold flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span> Risk & Compliance
+                </td>
+                <td class="p-3 text-slate-200">$50,000</td>
+                <td class="p-3 text-emerald-400 font-bold">$21,300</td>
+                <td class="p-3">
+                  <div class="w-24 bg-navy-950 rounded-full h-2 overflow-hidden border border-navy-800">
+                    <div class="bg-indigo-400 h-full" style="width: 42.6%"></div>
+                  </div>
+                </td>
+                <td class="p-3 text-slate-300">2,000 QPS</td>
+                <td class="p-3">
+                  <button onclick="editQuota('Risk & Compliance')" class="text-cyan-400 hover:underline">Edit Quota</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 text-white font-bold flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-yellow-400"></span> Enterprise Copilot
+                </td>
+                <td class="p-3 text-slate-200">$60,000</td>
+                <td class="p-3 text-yellow-400 font-bold">$54,190</td>
+                <td class="p-3">
+                  <div class="w-24 bg-navy-950 rounded-full h-2 overflow-hidden border border-navy-800">
+                    <div class="bg-yellow-400 h-full" style="width: 90.3%"></div>
+                  </div>
+                </td>
+                <td class="p-3 text-slate-300">1,500 QPS</td>
+                <td class="p-3">
+                  <button onclick="editQuota('Enterprise Copilot')" class="text-cyan-400 hover:underline">Edit Quota</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Heterogeneous Cloud Compute Mesh -->
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="server" class="w-5 h-5 text-indigo-400"></i> <span data-i18n="quotas.mesh_title">Compute Capacity Mesh</span>
+          </h3>
+          <div class="space-y-3 font-mono text-xs">
+            <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
+              <div>
+                <div class="text-slate-200 font-bold">NYC On-Prem H100 Cluster (Secured VPC)</div>
+                <div class="text-slate-400 text-[11px]">Local FinTech Pod • 64x H100 80GB</div>
+              </div>
+              <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-1 rounded">82% Utilized</span>
+            </div>
+
+            <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
+              <div>
+                <div class="text-slate-200 font-bold">AWS us-east-1 Capacity Pool</div>
+                <div class="text-slate-400 text-[11px]">Claude & Bedrock Orchestrator</div>
+              </div>
+              <span class="text-cyan-400 font-bold bg-cyan-500/10 px-2 py-1 rounded">45% Utilized</span>
+            </div>
+
+            <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
+              <div>
+                <div class="text-slate-200 font-bold">GCP us-central1 Capacity Pool</div>
+                <div class="text-slate-400 text-[11px]">Gemini 1.5 Pro & Flash Pipelines</div>
+              </div>
+              <span class="text-indigo-400 font-bold bg-indigo-500/10 px-2 py-1 rounded">38% Utilized</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i> <span data-i18n="quotas.chart_cost_title">Cost Distribution by Model</span>
+          </h3>
+          <div class="h-48 w-full flex items-center justify-center">
+            <canvas id="chart-cost-pie"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 5: WALL STREET SECURITY & AUDIT ================= -->
+    <section id="tab-security" class="tab-content hidden space-y-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="security.title">Wall Street Security, TEE & Audit Hub</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="security.subtitle">Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, and immutable ClickHouse audit logging</p>
+        </div>
+        <div class="flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-mono font-bold">
+          <i data-lucide="shield-check" class="w-4 h-4"></i> PII MASKING & TEE: ACTIVE
+        </div>
+      </div>
+
+      <!-- Interactive Real-time PII Masking Tester Tool -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="eye-off" class="w-5 h-5 text-cyan-400"></i> <span data-i18n="security.pii_title">Live PII & Financial Data Masking Tester</span>
+            </h3>
+            <p class="text-xs text-slate-400" data-i18n="security.pii_subtitle">Input prompt containing sensitive financial data to inspect Firstgate sub-millisecond redaction</p>
+          </div>
+          <button onclick="runPiiMaskingTest()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="security.pii_btn">
+            Test Masking
+          </button>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-4 font-mono text-xs">
+          <!-- Input raw prompt -->
+          <div class="space-y-2">
+            <label class="text-slate-300 font-semibold text-[11px]" data-i18n="security.pii_raw_label">Client Raw Request (Client-Side Raw Data):</label>
+            <textarea id="pii-input" rows="5" class="w-full bg-navy-950 border border-navy-800 rounded-xl p-3 text-slate-200 outline-none focus:border-cyan-500 resize-none">Execute trade order #TR-889410 for client John Doe (SSN: 334-92-8841, Credit Card: 4532-8819-9012-3310). Portfolio Value: $14,500,000. Account ID: ACC-WALLST-9041.</textarea>
+          </div>
+
+          <!-- Output masked prompt -->
+          <div class="space-y-2">
+            <label class="text-slate-300 font-semibold text-[11px]" data-i18n="security.pii_out_label">Firstgate Dispatched Request (Masked Payload):</label>
+            <div id="pii-output" class="w-full h-[126px] bg-navy-950 border border-navy-800 rounded-xl p-3 text-emerald-400 overflow-y-auto whitespace-pre-wrap">Execute trade order #TR-889410 for client [REDACTED_NAME] (SSN: [REDACTED_SSN], Credit Card: [REDACTED_CREDIT_CARD]). Portfolio Value: [REDACTED_FINANCIAL_VAL]. Account ID: [REDACTED_ACCOUNT_ID].</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Immutable ClickHouse Audit Log Table -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="flex flex-wrap justify-between items-center gap-4">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="scroll" class="w-5 h-5 text-indigo-400"></i> <span data-i18n="security.audit_title">ClickHouse Immutable Audit Log</span>
+          </h3>
+          <button onclick="exportAuditLog()" class="bg-navy-950 hover:bg-navy-800 border border-navy-700 text-slate-300 font-mono text-xs px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> <span data-i18n="security.audit_export_btn">Export SOC2 Log (CSV)</span>
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs font-mono">
+            <thead>
+              <tr class="border-b border-navy-800 text-slate-400 bg-navy-950/60">
+                <th class="p-3" data-i18n="security.col_time">Timestamp</th>
+                <th class="p-3" data-i18n="security.col_app">Client App</th>
+                <th class="p-3" data-i18n="security.col_model">Routed Endpoint</th>
+                <th class="p-3" data-i18n="security.col_latency">Latency</th>
+                <th class="p-3" data-i18n="security.col_tokens">Tokens</th>
+                <th class="p-3" data-i18n="security.col_pii">PII Redacted</th>
+                <th class="p-3" data-i18n="security.col_status">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-navy-800/60" id="audit-log-rows">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 6: MULTI-MODEL PLAYGROUND ================= -->
+    <section id="tab-playground" class="tab-content hidden space-y-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="playground.title">Interactive Multi-Model Playground</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="playground.subtitle">Dispatch a single prompt to 4 LLM clusters simultaneously to evaluate TTFT, total latency, token cost, and routing decisions side-by-side</p>
+        </div>
+      </div>
+
+      <!-- Playground Input Box -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="space-y-2">
+          <label class="text-xs text-slate-300 font-semibold flex justify-between">
+            <span data-i18n="playground.input_label">Enter Prompt for Parallel Routing Evaluation:</span>
+            <span class="text-cyan-400 font-mono">Firstgate Intelligent Proxy Active</span>
+          </label>
+          <textarea id="pg-prompt-input" rows="3" class="w-full bg-navy-950 border border-navy-800 rounded-xl p-3 text-xs text-slate-100 font-mono outline-none focus:border-cyan-500 resize-none">Explain the architectural differences between an API Gateway and a Multi-Model AI Routing Engine in financial trading systems.</textarea>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2 text-xs font-mono text-slate-400">
+            <span>Stream Output: <strong class="text-emerald-400">ENABLED (SSE)</strong></span>
+          </div>
+          <button onclick="runPlaygroundComparison()" id="pg-run-btn" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-6 py-2.5 rounded-xl transition-all shadow-md shadow-cyan-500/20 flex items-center space-x-2">
+            <i data-lucide="play" class="w-4 h-4 fill-navy-950"></i>
+            <span data-i18n="playground.run_btn">Run Parallel Evaluation</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Models Side-by-side Response Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4" id="pg-cards-container">
+        <!-- Model Card 1: Claude 3.5 Sonnet -->
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-4 space-y-3 font-mono flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex justify-between items-center border-b border-navy-800 pb-2">
+              <span class="text-xs font-bold text-white">Claude 3.5 Sonnet</span>
+              <span class="text-[10px] bg-cyan-500/20 text-cyan-400 px-1.5 py-0.5 rounded">Anthropic</span>
+            </div>
+            <div id="pg-res-1" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+              Click "Run Parallel Evaluation" to stream response...
+            </div>
+          </div>
+          <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
+            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-1" class="text-cyan-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-1" class="text-emerald-400 font-bold">--</span></div>
+          </div>
+        </div>
+
+        <!-- Model Card 2: GPT-4o -->
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-4 space-y-3 font-mono flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex justify-between items-center border-b border-navy-800 pb-2">
+              <span class="text-xs font-bold text-white">GPT-4o</span>
+              <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">OpenAI</span>
+            </div>
+            <div id="pg-res-2" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+              Click "Run Parallel Evaluation" to stream response...
+            </div>
+          </div>
+          <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
+            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-2" class="text-cyan-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-2" class="text-emerald-400 font-bold">--</span></div>
+          </div>
+        </div>
+
+        <!-- Model Card 3: DeepSeek V3 (NYC VPC) -->
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-4 space-y-3 font-mono flex flex-col justify-between ring-1 ring-emerald-500/50">
+          <div class="space-y-2">
+            <div class="flex justify-between items-center border-b border-navy-800 pb-2">
+              <span class="text-xs font-bold text-white flex items-center gap-1">
+                <i data-lucide="zap" class="w-3 h-3 text-emerald-400"></i> DeepSeek V3 (NYC)
+              </span>
+              <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">ROUTED</span>
+            </div>
+            <div id="pg-res-3" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+              Click "Run Parallel Evaluation" to stream response...
+            </div>
+          </div>
+          <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
+            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-3" class="text-emerald-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-3" class="text-emerald-400 font-bold">--</span></div>
+          </div>
+        </div>
+
+        <!-- Model Card 4: Gemini 1.5 Pro -->
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-4 space-y-3 font-mono flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex justify-between items-center border-b border-navy-800 pb-2">
+              <span class="text-xs font-bold text-white">Gemini 1.5 Pro</span>
+              <span class="text-[10px] bg-indigo-500/20 text-indigo-400 px-1.5 py-0.5 rounded">Google</span>
+            </div>
+            <div id="pg-res-4" class="text-xs text-slate-300 h-44 overflow-y-auto leading-relaxed bg-navy-950 p-2.5 rounded-lg border border-navy-850">
+              Click "Run Parallel Evaluation" to stream response...
+            </div>
+          </div>
+          <div class="pt-2 border-t border-navy-800/80 text-[11px] space-y-1 text-slate-400">
+            <div class="flex justify-between"><span>TTFT:</span><span id="pg-ttft-4" class="text-cyan-400 font-bold">-- ms</span></div>
+            <div class="flex justify-between"><span>Est. Cost:</span><span id="pg-cost-4" class="text-emerald-400 font-bold">--</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 7: DEVELOPER DOCS & SDK ================= -->
+    <section id="tab-docs" class="tab-content hidden space-y-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="docs.title">Developer Documentation & SDK</h2>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="docs.subtitle">Seamless drop-in replacement for OpenAI SDK. Modify 1 line `base_url` to unlock full intelligent routing & capacity governance</p>
+        </div>
+      </div>
+
+      <!-- Quickstart Code Snippets -->
+      <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="code" class="w-5 h-5 text-cyan-400"></i> Drop-in OpenAI Protocol Integration
+          </h3>
+          <div class="flex items-center space-x-2 font-mono text-xs">
+            <button onclick="setDocLang('python')" id="doc-btn-python" class="doc-lang-btn active">Python</button>
+            <button onclick="setDocLang('ts')" id="doc-btn-ts" class="doc-lang-btn">TypeScript</button>
+            <button onclick="setDocLang('curl')" id="doc-btn-curl" class="doc-lang-btn">cURL</button>
+          </div>
+        </div>
+
+        <!-- Python Code Snippet -->
+        <div id="code-python" class="code-block-container font-mono text-xs bg-navy-950 p-4 rounded-xl border border-navy-800 overflow-x-auto">
+          <pre class="text-slate-200"><span class="text-purple-400">import</span> openai
+
+<span class="text-slate-500"># Point OpenAI Client to Firstgate NYC Intelligent Gateway</span>
+client = openai.OpenAI(
+    base_url=<span class="text-emerald-400">"https://gateway.firstgate.ai/v1"</span>,
+    api_key=<span class="text-emerald-400">"fg_live_nyc_98f4201ab"</span>  <span class="text-slate-500"># Firstgate Managed Token</span>
+)
+
+<span class="text-slate-500"># Requests are dynamically routed based on your SLA & budget policy</span>
+response = client.chat.completions.create(
+    model=<span class="text-emerald-400">"firstgate/auto-low-latency"</span>, <span class="text-slate-500"># Firstgate Intelligent Routing target</span>
+    messages=[
+        {<span class="text-cyan-400">"role"</span>: <span class="text-emerald-400">"user"</span>, <span class="text-cyan-400">"content"</span>: <span class="text-emerald-400">"Calculate portfolio delta for 5,000 options contracts."</span>}
+    ],
+    extra_headers={
+        <span class="text-cyan-400">"X-Firstgate-Department"</span>: <span class="text-emerald-400">"QuantTrading"</span> <span class="text-slate-500"># Firstgate Quota Tracking</span>
+    }
+)
+
+print(response.choices[0].message.content)</pre>
+        </div>
+
+        <!-- TypeScript Code Snippet -->
+        <div id="code-ts" class="code-block-container hidden font-mono text-xs bg-navy-950 p-4 rounded-xl border border-navy-800 overflow-x-auto">
+          <pre class="text-slate-200"><span class="text-purple-400">import</span> OpenAI <span class="text-purple-400">from</span> <span class="text-emerald-400">'openai'</span>;
+
+<span class="text-purple-400">const</span> openai = <span class="text-purple-400">new</span> OpenAI({
+  baseURL: <span class="text-emerald-400">'https://gateway.firstgate.ai/v1'</span>,
+  apiKey: process.env.FIRSTGATE_API_KEY,
+});
+
+<span class="text-purple-400">async function</span> <span class="text-cyan-400 font-bold">main</span>() {
+  <span class="text-purple-400">const</span> completion = <span class="text-purple-400">await</span> openai.chat.completions.create({
+    model: <span class="text-emerald-400">'firstgate/auto-low-latency'</span>,
+    messages: [{ role: <span class="text-emerald-400">'user'</span>, content: <span class="text-emerald-400">'Summarize SEC 10-K report'</span> }],
+  });
+  console.log(completion.choices[0].message);
+}
+
+main();</pre>
+        </div>
+
+        <!-- cURL Code Snippet -->
+        <div id="code-curl" class="code-block-container hidden font-mono text-xs bg-navy-950 p-4 rounded-xl border border-navy-800 overflow-x-auto">
+          <pre class="text-slate-200">curl https://gateway.firstgate.ai/v1/chat/completions \
+  -H <span class="text-emerald-400">"Content-Type: application/json"</span> \
+  -H <span class="text-emerald-400">"Authorization: Bearer fg_live_nyc_98f4201ab"</span> \
+  -d '{
+    <span class="text-cyan-400">"model"</span>: <span class="text-emerald-400">"firstgate/auto-low-latency"</span>,
+    <span class="text-cyan-400">"messages"</span>: [{"role": <span class="text-emerald-400">"user"</span>, <span class="text-cyan-400">"content"</span>: <span class="text-emerald-400">"Ping Firstgate NYC Edge"</span>}]
+  }'</pre>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Node & F12 Proof Modal -->
+  <div id="modal-node-proof" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
+      <div class="flex justify-between items-center border-b border-navy-800 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <i data-lucide="check-check" class="w-4 h-4 text-cyan-400"></i> Node Health & Network Real Verification
+        </h3>
+        <button onclick="toggleNodeProofModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1.5">
+          <div class="text-cyan-400 font-bold text-[11px] uppercase tracking-wider">1. Current Live Environment (当前节点信息)</div>
+          <div>Active Host: <strong class="text-white" id="modal-host">http://localhost:5173</strong></div>
+          <div>HTTP Transport: <strong class="text-emerald-400">HTTP/1.1 (Vite Live Dev Server)</strong></div>
+          <div>Measured RTT Ping: <strong class="text-emerald-400" id="modal-rtt">Measuring...</strong></div>
+        </div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1.5">
+          <div class="text-emerald-400 font-bold text-[11px] uppercase tracking-wider">2. How to Prove it is Real in Browser F12 (如何验证真实性)</div>
+          <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
+            <li>Press <strong>F12</strong> (or Right Click -> Inspect) to open Browser Developer Tools.</li>
+            <li>Switch to the <strong>Network (网络)</strong> tab.</li>
+            <li>Observe the HEAD request dispatched to <code>/css/style.css?t=...</code> every 3 seconds.</li>
+            <li>Notice the <strong>200 OK</strong> status code and exact matching RTT timing!</li>
+          </ol>
+        </div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1 text-[11px]">
+          <div class="text-indigo-400 font-bold uppercase tracking-wider">3. Production Architecture Node (生产环境网关节点)</div>
+          <p class="text-slate-400 leading-relaxed">
+            In production deployment, requests are routed to <strong>NYC-East POP (Equinix NY4 Secaucus, NJ / 111 8th Ave NYC)</strong> connected directly to Wall Street high-frequency optical fiber backbones.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="toggleNodeProofModal()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all">
+          Close Inspector
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-navy-800 bg-navy-950 py-8 text-xs text-slate-400 font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-extrabold text-white">FIRSTGATE.AI</span>
+        <span>•</span>
+        <span>Institutional AI Compute Marketplace & Intelligent Gateway</span>
+      </div>
+      <div>
+        <span data-i18n="footer.text">NYC-East POP Point of Presence • SLA: 99.999% • SOC2 Type II Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
