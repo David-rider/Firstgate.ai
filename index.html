@@ -1459,9 +1459,25 @@ main();</pre>
 
   </main>
 
-  <!-- Interactive Node & F12 Proof Modal -->
-  <div id="modal-node-proof" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
+  <!-- Footer -->
+  <footer class="border-t border-navy-800 bg-navy-950 py-8 text-xs text-slate-400 font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-extrabold text-white">FIRSTGATE.AI</span>
+        <span>•</span>
+        <span>Institutional AI Compute Marketplace & Intelligent Gateway</span>
+      </div>
+      <div>
+        <span data-i18n="footer.text">NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality</span>
+      </div>
+    </div>
+  </footer>
+
+  </div> <!-- /#main-app-content -->
+
+  <!-- Interactive Node & F12 Proof Modal (Root Viewport Centered) -->
+  <div id="modal-node-proof" class="global-modal-overlay hidden">
+    <div class="global-modal-card bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
         <h3 class="text-sm font-bold text-white flex items-center gap-2">
           <i data-lucide="check-check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="modal.title">Node Health & Network Real Verification</span>
@@ -1503,9 +1519,9 @@ main();</pre>
     </div>
   </div>
 
-  <!-- Dedicated API & Token Sales Portal Redirect Modal -->
-  <div id="modal-portal-redirect" class="fixed inset-0 z-50 bg-navy-950/85 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="bg-navy-900 border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 font-mono relative overflow-hidden">
+  <!-- Dedicated API & Token Sales Portal Redirect Modal (Root Viewport Centered) -->
+  <div id="modal-portal-redirect" class="global-modal-overlay hidden">
+    <div class="global-modal-card bg-navy-900 border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 font-mono relative overflow-hidden">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
         <h3 class="text-sm font-bold text-white flex items-center gap-2">
           <i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="portal.modal_title">Redirecting to Firstgate API & Token Sales Portal</span>
@@ -1533,22 +1549,6 @@ main();</pre>
       </div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="border-t border-navy-800 bg-navy-950 py-8 text-xs text-slate-400 font-mono">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-4">
-      <div class="flex items-center space-x-2">
-        <span class="font-extrabold text-white">FIRSTGATE.AI</span>
-        <span>•</span>
-        <span>Institutional AI Compute Marketplace & Intelligent Gateway</span>
-      </div>
-      <div>
-        <span data-i18n="footer.text">NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality</span>
-      </div>
-    </div>
-  </footer>
-
-  </div> <!-- /#main-app-content -->
 
   <script type="module" src="/js/app.js"></script>
 </body>
