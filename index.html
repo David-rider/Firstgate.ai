@@ -192,7 +192,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center space-x-3 group" onclick="switchTab('about')">
+      <a href="#" class="flex items-center space-x-3 group" onclick="switchTab('overview')">
         <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-emerald-500 to-indigo-600 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all">
           <div class="w-full h-full bg-navy-950 rounded-[10.5px] flex items-center justify-center">
             <i data-lucide="cpu" class="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
@@ -212,6 +212,10 @@
         <button onclick="revealStargate()" class="nav-tab">
           <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i>
           <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
+        </button>
+        <button onclick="switchTab('overview')" id="nav-overview" class="nav-tab active">
+          <i data-lucide="layout-dashboard" class="w-4 h-4 text-cyan-400"></i>
+          <span data-i18n="nav.overview">Overview</span>
         </button>
         <button onclick="switchTab('marketplace')" id="nav-marketplace" class="nav-tab">
           <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i>
@@ -250,6 +254,9 @@
     <div id="mobile-menu" class="hidden lg:hidden border-b border-navy-800 bg-navy-950/95 px-4 py-3 space-y-2 text-xs font-semibold">
       <button onclick="revealStargate(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
         <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i> <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
+      </button>
+      <button onclick="switchTab('overview'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="layout-dashboard" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="nav.overview">Overview</span>
       </button>
       <button onclick="switchTab('marketplace'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
         <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="nav.marketplace">Compute Marketplace</span>

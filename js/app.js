@@ -62,6 +62,9 @@ export function enterStargatePortal() {
     if (stargate) stargate.classList.add('hidden');
     if (flash) flash.classList.remove('active');
     
+    // Ensure Overview tab is active and shown
+    switchTab('overview');
+
     // Trigger telemetry canvas resize in case it was initialized hidden
     const ctx = document.getElementById('chart-telemetry');
     if (ctx && telemetryChart) {
