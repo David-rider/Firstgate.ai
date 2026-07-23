@@ -311,7 +311,21 @@ export const translations = {
     'about.why_p4_desc': 'Unified OpenAI protocol access, semantic vector caching, and multi-tenant token quota governance.',
     'about.cta_title': 'Ready to Enter the AI Era?',
     'about.cta_desc': 'Connect with our team to discover how AI infrastructure, GPU spot computing, and intelligent gateway solutions can accelerate your business.',
-    'about.cta_btn': 'Schedule a Consultation 🚀'
+    'about.cta_btn': 'Schedule a Consultation 🚀',
+    
+    // Stats Section (PaleBlueDot Style)
+    'stats.clusters_val': '150+',
+    'stats.clusters_title': 'GPU Clusters',
+    'stats.clusters_desc': 'Diverse GPU models (H100/H200/B200/L40S) powering enterprise AI workloads',
+    'stats.gpus_val': '220,000+',
+    'stats.gpus_title': 'GPUs Connected',
+    'stats.gpus_desc': 'Massive high-speed interconnect driving inference & training at scale',
+    'stats.regions_val': '60+',
+    'stats.regions_title': 'Global POP Regions',
+    'stats.regions_desc': 'Multi-region coverage ensuring sub-millisecond routing latency',
+    'stats.sla_val': '99.999%',
+    'stats.sla_title': 'Institutional SLA',
+    'stats.sla_desc': 'Silicon TEE hardware enclaves with SOC2 compliant audit logging'
   },
 
   'zh-CN': {
@@ -624,7 +638,21 @@ export const translations = {
     'about.why_p4_desc': '统一 OpenAI 协议接入、语义向量缓存以及多租户部门 Token 配额硬封顶。',
     'about.cta_title': '准备好迈入 AI 智能时代了吗？',
     'about.cta_desc': '联系我们的专家团队，探索 AI 算力基础设施、GPU 竞价市场与智能网关解决方案如何加速您的业务。',
-    'about.cta_btn': '预约技术咨询 🚀'
+    'about.cta_btn': '预约技术咨询 🚀',
+    
+    // Stats Section (PaleBlueDot Style)
+    'stats.clusters_val': '150+',
+    'stats.clusters_title': 'GPU 算力集群',
+    'stats.clusters_desc': '涵盖 H100/H200/B200/L40S 多种型号，支撑企业级 AI 大模型算力需求',
+    'stats.gpus_val': '220,000+',
+    'stats.gpus_title': '已连接 GPU 算力卡',
+    'stats.gpus_desc': '海量高速互联 GPU 节点，驱动规模化 AI 推理与微调编排',
+    'stats.regions_val': '60+',
+    'stats.regions_title': '全球 POP 边缘节点',
+    'stats.regions_desc': '全球多区域覆盖，确保亚毫秒级低延迟流量与模型路由',
+    'stats.sla_val': '99.999%',
+    'stats.sla_title': '金融级 SLA 可用性',
+    'stats.sla_desc': '芯片级 TEE 硬件隔离防护，符合 SOC2 合规审计标准'
   },
 
   'zh-TW': {
@@ -937,6 +965,20 @@ export const translations = {
     'about.why_p4_desc': '統一 OpenAI 協定接入、語義向量快取以及多租戶部門 Token 配額硬封頂。',
     'about.cta_title': '準備好邁入 AI 智能時代了嗎？',
     'about.cta_desc': '聯繫我們的專家團隊，探索 AI 算力基礎設施、GPU 競價市場與智能網關解決方案如何加速您的業務。',
-    'about.cta_btn': '預約技術諮詢 🚀'
+    'about.cta_btn': '預約技術諮詢 🚀',
+    
+    // Stats Section (PaleBlueDot Style)
+    'stats.clusters_val': '150+',
+    'stats.clusters_title': 'GPU 算力集群',
+    'stats.clusters_desc': '涵蓋 H100/H200/B200/L40S 多種型號，支撐企業級 AI 大模型算力需求',
+    'stats.gpus_val': '220,000+',
+    'stats.gpus_title': '已連接 GPU 算力卡',
+    'stats.gpus_desc': '海量高速互聯 GPU 節點，驅動規模化 AI 推理與微調編排',
+    'stats.regions_val': '60+',
+    'stats.regions_title': '全球 POP 邊緣節點',
+    'stats.regions_desc': '全球多區域覆蓋，確保亞毫秒級低延遲流量與模型路由',
+    'stats.sla_val': '99.999%',
+    'stats.sla_title': '金融級 SLA 可用性',
+    'stats.sla_desc': '晶片級 TEE 硬體隔離防護，符合 SOC2 合規審計標準'
   }
 };

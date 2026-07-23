@@ -167,26 +167,25 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        <span class="font-mono text-emerald-400 font-semibold" id="top-cluster-status" data-i18n="top.edge_status">LOCAL DEV NODE: ONLINE (200 OK)</span>
-      </div>
-      <div class="hidden md:flex items-center space-x-3 text-slate-400 font-mono">
-        <span><span data-i18n="top.latency">Client RTT Latency</span>: <strong class="text-emerald-400 font-bold" id="top-latency">Measuring...</strong></span>
-        <span>•</span>
-        <span><span data-i18n="top.protocol">Transport Protocol</span>: <strong class="text-slate-200" data-i18n="top.proto_val">HTTP/1.1 (Vite Dev Server)</strong></span>
-        <span>•</span>
-        <span><span data-i18n="top.node_region">Active Node</span>: <strong class="text-slate-200" id="top-active-host">127.0.0.1:5173</strong></span>
-      </div>
+  <!-- Top Mini Notification & Language Bar -->
+  <div class="bg-navy-950/95 border-b border-navy-800 text-xs py-1.5 px-4 font-mono text-slate-400 flex flex-wrap justify-between items-center gap-2">
+    <div class="flex items-center space-x-3">
+      <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span data-i18n="top.edge_status">LOCAL DEV NODE: ONLINE (200 OK)</span>
+      </span>
+      <span class="hidden md:inline-block text-navy-700">•</span>
+      <span class="hidden md:inline-block"><span data-i18n="top.latency">Client RTT Latency</span>: <strong class="text-emerald-400 font-bold" id="top-latency">Measuring...</strong></span>
     </div>
     
-    <div class="flex items-center space-x-3 text-slate-400 font-mono text-[11px]">
-      <button onclick="toggleNodeProofModal()" class="bg-navy-800 hover:bg-navy-700 text-cyan-400 border border-cyan-500/30 px-2.5 py-0.5 rounded flex items-center gap-1 transition-all">
+    <div class="flex items-center space-x-3">
+      <button onclick="toggleNodeProofModal()" class="hover:text-cyan-400 transition-colors flex items-center gap-1">
         <i data-lucide="check-check" class="w-3.5 h-3.5 text-cyan-400"></i>
         <span data-i18n="top.verify_btn">Verify Node & F12 Proof</span>
       </button>
-      <span class="hidden sm:inline-block" data-i18n="top.sla">Target SLA: 99.999%</span>
-
-      <!-- i18n Language Selector Dropdown -->
-      <div class="flex items-center space-x-1 bg-navy-950 border border-navy-700 px-2 py-0.5 rounded text-xs">
+      <span class="text-navy-700">•</span>
+      <!-- i18n Language Selector -->
+      <div class="flex items-center space-x-1 bg-navy-900 border border-navy-700 px-2 py-0.5 rounded text-xs">
         <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
         <select id="lang-select" onchange="window.setLang(this.value)" class="bg-transparent text-slate-200 outline-none cursor-pointer font-mono">
           <option value="en" class="bg-navy-900 text-slate-200">English</option>
@@ -197,24 +196,12 @@
     </div>
   </div>
 
-  <!-- Live GPU Spot Market Rates Ticker Bar -->
-  <div class="bg-navy-950 border-b border-navy-800/80 text-[11px] font-mono py-1 px-4 overflow-x-auto whitespace-nowrap flex items-center space-x-6 text-slate-300">
-    <span class="text-cyan-400 font-bold flex items-center gap-1.5">
-      <i data-lucide="activity" class="w-3.5 h-3.5 animate-pulse"></i>
-      <span data-i18n="ticker.title">LIVE GLOBAL GPU SPOT MARKET RATES:</span>
-    </span>
-    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800" data-i18n="ticker.h100">NVIDIA H100 80GB: $2.15/hr (-48%)</span>
-    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800" data-i18n="ticker.h200">NVIDIA H200 141GB: $3.10/hr (-42%)</span>
-    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800" data-i18n="ticker.b200">NVIDIA Blackwell B200: $4.80/hr (-35%)</span>
-    <span class="bg-navy-900 px-2 py-0.5 rounded border border-navy-800 text-emerald-400" data-i18n="ticker.l40s">NVIDIA L40S 48GB: $0.82/hr (-60%)</span>
-  </div>
-
-  <!-- Main Navigation Navbar -->
-  <header class="border-b border-navy-800/80 bg-navy-950/80 backdrop-blur-xl sticky top-[33px] z-40">
+  <!-- Main Navigation Navbar (Streamlined PaleBlueDot Style) -->
+  <header class="border-b border-navy-800/80 bg-navy-950/90 backdrop-blur-xl sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center space-x-3 group" onclick="switchTab('overview')">
+      <a href="#" class="flex items-center space-x-3 group" onclick="switchTab('about')">
         <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-emerald-500 to-indigo-600 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all">
           <div class="w-full h-full bg-navy-950 rounded-[10.5px] flex items-center justify-center">
             <i data-lucide="cpu" class="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
@@ -225,53 +212,37 @@
             <span class="font-extrabold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-300">FIRSTGATE</span>
             <span class="bg-gradient-to-r from-cyan-500 to-emerald-400 text-navy-950 font-mono font-black text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wider">AI</span>
           </div>
-          <p class="text-[10px] text-slate-400 tracking-wider uppercase font-mono">AI Compute & Router</p>
+          <p class="text-[10px] text-slate-400 tracking-wider uppercase font-mono">The Intelligence Platform</p>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden lg:flex items-center space-x-1">
-        <button onclick="revealStargate()" class="nav-tab text-purple-400 border border-purple-500/20 bg-purple-500/5 hover:bg-purple-500/10 mr-2">
-          <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i>
-          <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
-        </button>
-        <button onclick="switchTab('overview')" id="nav-overview" class="nav-tab active">
-          <i data-lucide="layout-grid" class="w-4 h-4"></i>
-          <span data-i18n="nav.overview">Overview</span>
+      <!-- Streamlined Navigation Tabs (PaleBlueDot Style) -->
+      <nav class="hidden lg:flex items-center space-x-2 font-sans font-semibold text-xs">
+        <button onclick="switchTab('about')" id="nav-about" class="nav-tab active">
+          <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
+          <span data-i18n="nav.about">About Us</span>
         </button>
         <button onclick="switchTab('marketplace')" id="nav-marketplace" class="nav-tab">
           <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i>
           <span data-i18n="nav.marketplace">Compute Marketplace</span>
         </button>
         <button onclick="switchTab('router')" id="nav-router" class="nav-tab">
-          <i data-lucide="git-fork" class="w-4 h-4"></i>
+          <i data-lucide="git-fork" class="w-4 h-4 text-indigo-400"></i>
           <span data-i18n="nav.router">Smart Router</span>
         </button>
-        <button onclick="switchTab('quotas')" id="nav-quotas" class="nav-tab">
-          <i data-lucide="pie-chart" class="w-4 h-4"></i>
-          <span data-i18n="nav.quotas">Capacity Governance</span>
-        </button>
         <button onclick="switchTab('security')" id="nav-security" class="nav-tab">
-          <i data-lucide="shield" class="w-4 h-4"></i>
+          <i data-lucide="shield" class="w-4 h-4 text-purple-400"></i>
           <span data-i18n="nav.security">Security & TEE</span>
         </button>
-        <button onclick="switchTab('playground')" id="nav-playground" class="nav-tab">
-          <i data-lucide="terminal" class="w-4 h-4"></i>
-          <span data-i18n="nav.playground">Playground</span>
-        </button>
-        <button onclick="switchTab('docs')" id="nav-docs" class="nav-tab">
-          <i data-lucide="book-open" class="w-4 h-4"></i>
-          <span data-i18n="nav.docs">Docs</span>
-        </button>
-        <button onclick="switchTab('about')" id="nav-about" class="nav-tab">
-          <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
-          <span data-i18n="nav.about">About Us</span>
+        <button onclick="revealStargate()" class="nav-tab text-purple-300 border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 ml-2">
+          <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i>
+          <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
         </button>
       </nav>
 
-      <!-- Right Action CTA: Dedicated Portal Button -->
+      <!-- Right Action CTA -->
       <div class="flex items-center space-x-3">
-        <button onclick="openPortalModal()" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-cyan-500 via-emerald-400 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-xl transition-all shadow-lg shadow-cyan-500/25 border border-cyan-400/40">
+        <button onclick="openPortalModal()" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-cyan-500 via-emerald-400 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-navy-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-cyan-500/25 border border-cyan-400/40">
           <i data-lucide="key" class="w-4 h-4"></i>
           <span data-i18n="nav.console_btn">Buy API Key & Token</span>
         </button>
@@ -285,30 +256,21 @@
     </div>
 
     <!-- Mobile Dropdown Navigation -->
-    <div id="mobile-menu" class="hidden lg:hidden border-b border-navy-800 bg-navy-950/95 px-4 py-3 space-y-2">
-      <button onclick="switchTab('overview'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="layout-grid" class="w-4 h-4"></i> <span data-i18n="nav.overview">Overview</span>
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-navy-800 bg-navy-950/95 px-4 py-3 space-y-2 text-xs font-semibold">
+      <button onclick="switchTab('about'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="nav.about">About Us</span>
       </button>
       <button onclick="switchTab('marketplace'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
         <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="nav.marketplace">Compute Marketplace</span>
       </button>
       <button onclick="switchTab('router'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="git-fork" class="w-4 h-4"></i> <span data-i18n="nav.router">Smart Router</span>
-      </button>
-      <button onclick="switchTab('quotas'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="pie-chart" class="w-4 h-4"></i> <span data-i18n="nav.quotas">Capacity Governance</span>
+        <i data-lucide="git-fork" class="w-4 h-4 text-indigo-400"></i> <span data-i18n="nav.router">Smart Router</span>
       </button>
       <button onclick="switchTab('security'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="shield" class="w-4 h-4"></i> <span data-i18n="nav.security">Security & TEE</span>
+        <i data-lucide="shield" class="w-4 h-4 text-purple-400"></i> <span data-i18n="nav.security">Security & TEE</span>
       </button>
-      <button onclick="switchTab('playground'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="terminal" class="w-4 h-4"></i> <span data-i18n="nav.playground">Playground</span>
-      </button>
-      <button onclick="switchTab('docs'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="book-open" class="w-4 h-4"></i> <span data-i18n="nav.docs">Docs</span>
-      </button>
-      <button onclick="switchTab('about'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="nav.about">About Us</span>
+      <button onclick="revealStargate(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile text-purple-300">
+        <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i> <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
       </button>
       <button onclick="openPortalModal(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile text-cyan-400 font-bold">
         <i data-lucide="key" class="w-4 h-4"></i> <span data-i18n="nav.console_btn">Buy API Key & Token</span>
@@ -1354,6 +1316,41 @@ main();</pre>
               <span data-i18n="about.cta_btn">Schedule a Consultation 🚀</span>
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- PaleBlueDot-Style Token Factory & Global Compute Infrastructure Stats Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-2 hover:border-cyan-500/40 transition-all shadow-xl">
+          <div class="text-3xl font-extrabold text-cyan-400" data-i18n="stats.clusters_val">150+</div>
+          <h3 class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="stats.clusters_title">GPU Clusters</h3>
+          <p class="text-[11px] text-slate-400 font-sans leading-relaxed" data-i18n="stats.clusters_desc">
+            Diverse GPU models (H100/H200/B200/L40S) powering enterprise AI workloads
+          </p>
+        </div>
+
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-2 hover:border-emerald-500/40 transition-all shadow-xl">
+          <div class="text-3xl font-extrabold text-emerald-400" data-i18n="stats.gpus_val">220,000+</div>
+          <h3 class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="stats.gpus_title">GPUs Connected</h3>
+          <p class="text-[11px] text-slate-400 font-sans leading-relaxed" data-i18n="stats.gpus_desc">
+            Massive high-speed interconnect driving inference & training at scale
+          </p>
+        </div>
+
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-2 hover:border-indigo-500/40 transition-all shadow-xl">
+          <div class="text-3xl font-extrabold text-indigo-400" data-i18n="stats.regions_val">60+</div>
+          <h3 class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="stats.regions_title">Global POP Regions</h3>
+          <p class="text-[11px] text-slate-400 font-sans leading-relaxed" data-i18n="stats.regions_desc">
+            Multi-region coverage ensuring sub-millisecond routing latency
+          </p>
+        </div>
+
+        <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-2 hover:border-purple-500/40 transition-all shadow-xl">
+          <div class="text-3xl font-extrabold text-purple-400" data-i18n="stats.sla_val">99.999%</div>
+          <h3 class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="stats.sla_title">Institutional SLA</h3>
+          <p class="text-[11px] text-slate-400 font-sans leading-relaxed" data-i18n="stats.sla_desc">
+            Silicon TEE hardware enclaves with SOC2 compliant audit logging
+          </p>
         </div>
       </div>
 
