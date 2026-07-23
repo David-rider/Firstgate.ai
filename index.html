@@ -158,38 +158,38 @@
   <!-- MAIN DASHBOARD CONTENT -->
   <div id="main-app-content" class="hidden opacity-0 scale-95 transition-all duration-1000">
 
-    <!-- Top Mini Notification & Language Bar -->
-    <div class="bg-navy-950/95 border-b border-navy-800 text-xs py-1.5 px-4 font-mono text-slate-400 flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center space-x-3">
-        <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span data-i18n="top.edge_status">LOCAL DEV NODE: ONLINE (200 OK)</span>
-        </span>
-        <span class="hidden md:inline-block text-navy-700">•</span>
-        <span class="hidden md:inline-block"><span data-i18n="top.latency">Client RTT Latency</span>: <strong class="text-emerald-400 font-bold" id="top-latency">Measuring...</strong></span>
-      </div>
-      
-      <div class="flex items-center space-x-3">
-        <button onclick="toggleNodeProofModal()" class="hover:text-cyan-400 transition-colors flex items-center gap-1">
-          <i data-lucide="check-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-          <span data-i18n="top.verify_btn">Verify Node & F12 Proof</span>
-        </button>
-        <span class="text-navy-700">•</span>
-        <!-- i18n Language Selector -->
-        <div class="flex items-center space-x-1 bg-navy-900 border border-navy-700 px-2 py-0.5 rounded text-xs">
-          <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
-          <select id="lang-select" onchange="window.setLang(this.value)" class="bg-transparent text-slate-200 outline-none cursor-pointer font-mono">
-            <option value="en" class="bg-navy-900 text-slate-200">English</option>
-            <option value="zh-CN" class="bg-navy-900 text-slate-200">简体中文</option>
-            <option value="zh-TW" class="bg-navy-900 text-slate-200">繁體中文</option>
-          </select>
+    <!-- Combined Main Navigation Header (Sticky Top Bar + Nav Tabs) -->
+    <header class="border-b border-navy-800/80 bg-navy-950/95 backdrop-blur-xl sticky top-0 z-50 shadow-2xl">
+      <!-- Top Mini Notification & Language Bar (Sticky with Navbar) -->
+      <div class="border-b border-navy-800/60 text-xs py-1.5 px-4 font-mono text-slate-400 flex flex-wrap justify-between items-center gap-2 bg-navy-950/90">
+        <div class="flex items-center space-x-3">
+          <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span data-i18n="top.edge_status">LOCAL DEV NODE: ONLINE (200 OK)</span>
+          </span>
+          <span class="hidden md:inline-block text-navy-700">•</span>
+          <span class="hidden md:inline-block"><span data-i18n="top.latency">Client RTT Latency</span>: <strong class="text-emerald-400 font-bold" id="top-latency">Measuring...</strong></span>
+        </div>
+        
+        <div class="flex items-center space-x-3">
+          <button onclick="toggleNodeProofModal()" class="hover:text-cyan-400 transition-colors flex items-center gap-1">
+            <i data-lucide="check-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span data-i18n="top.verify_btn">Verify Node & F12 Proof</span>
+          </button>
+          <span class="text-navy-700">•</span>
+          <!-- i18n Language Selector -->
+          <div class="flex items-center space-x-1 bg-navy-900 border border-navy-700 px-2 py-0.5 rounded text-xs">
+            <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <select id="lang-select" onchange="window.setLang(this.value)" class="bg-transparent text-slate-200 outline-none cursor-pointer font-mono">
+              <option value="en" class="bg-navy-900 text-slate-200">English</option>
+              <option value="zh-CN" class="bg-navy-900 text-slate-200">简体中文</option>
+              <option value="zh-TW" class="bg-navy-900 text-slate-200">繁體中文</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
 
-  <!-- Main Navigation Navbar (Streamlined PaleBlueDot Style) -->
-  <header class="border-b border-navy-800/80 bg-navy-950/90 backdrop-blur-xl sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="#" class="flex items-center space-x-3 group" onclick="switchTab('about')">
@@ -1340,7 +1340,7 @@ main();</pre>
       <div class="space-y-6">
         <div class="text-center max-w-2xl mx-auto space-y-2">
           <h3 class="text-2xl font-bold text-white" data-i18n="about.timeline_title">Technology Evolution & Core Capabilities</h3>
-          <p class="text-xs text-slate-400">Two decades of continuous technological leadership across four major digital eras</p>
+          <p class="text-xs text-slate-400" data-i18n="about.timeline_sub">Two decades of continuous technological leadership across four major digital eras</p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
@@ -1438,14 +1438,6 @@ main();</pre>
             <div class="border-t border-navy-800/80 pt-3 text-[11px] text-slate-400 italic font-sans" data-i18n="about.t4_quote">
               "Empowering organizations to transform data into intelligence."
             </div>
-          </div>
-        </div>
-      </div>
-
-    </section>" data-i18n="about.why_p4_title">AI Tokenization & Gateway</div>
-            <p class="text-slate-300 text-[11px] leading-relaxed font-sans" data-i18n="about.why_p4_desc">
-              Unified OpenAI protocol access, semantic vector caching, and multi-tenant token quota governance.
-            </p>
           </div>
         </div>
       </div>
