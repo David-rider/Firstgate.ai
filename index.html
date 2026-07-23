@@ -207,11 +207,11 @@
         </div>
       </a>
 
-      <!-- Streamlined Navigation Tabs (PaleBlueDot Style) -->
+      <!-- Streamlined Navigation Tabs (Unified Border Styling) -->
       <nav class="hidden lg:flex items-center space-x-2 font-sans font-semibold text-xs">
-        <button onclick="switchTab('about')" id="nav-about" class="nav-tab active">
-          <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
-          <span data-i18n="nav.about">About Us</span>
+        <button onclick="revealStargate()" class="nav-tab">
+          <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i>
+          <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
         </button>
         <button onclick="switchTab('marketplace')" id="nav-marketplace" class="nav-tab">
           <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i>
@@ -225,9 +225,9 @@
           <i data-lucide="shield" class="w-4 h-4 text-purple-400"></i>
           <span data-i18n="nav.security">Security & TEE</span>
         </button>
-        <button onclick="revealStargate()" class="nav-tab text-purple-300 border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 ml-2">
-          <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i>
-          <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
+        <button onclick="switchTab('about')" id="nav-about" class="nav-tab active">
+          <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
+          <span data-i18n="nav.about">About Us</span>
         </button>
       </nav>
 
@@ -248,8 +248,8 @@
 
     <!-- Mobile Dropdown Navigation -->
     <div id="mobile-menu" class="hidden lg:hidden border-b border-navy-800 bg-navy-950/95 px-4 py-3 space-y-2 text-xs font-semibold">
-      <button onclick="switchTab('about'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
-        <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="nav.about">About Us</span>
+      <button onclick="revealStargate(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i> <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
       </button>
       <button onclick="switchTab('marketplace'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
         <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="nav.marketplace">Compute Marketplace</span>
@@ -260,8 +260,8 @@
       <button onclick="switchTab('security'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
         <i data-lucide="shield" class="w-4 h-4 text-purple-400"></i> <span data-i18n="nav.security">Security & TEE</span>
       </button>
-      <button onclick="revealStargate(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile text-purple-300">
-        <i data-lucide="orbit" class="w-4 h-4 text-purple-400"></i> <span data-i18n="nav.stargate_cover">FirstGate Portal</span>
+      <button onclick="switchTab('about'); toggleMobileMenu()" class="w-full text-left nav-tab-mobile">
+        <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="nav.about">About Us</span>
       </button>
       <button onclick="openPortalModal(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile text-cyan-400 font-bold">
         <i data-lucide="key" class="w-4 h-4"></i> <span data-i18n="nav.console_btn">Buy API Key & Token</span>
