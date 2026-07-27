@@ -22,15 +22,23 @@ const archivePath = path.resolve(archiveName);
 console.log(`[Export Pipeline] Building Vite production assets...`);
 execSync('npx vite build', { stdio: 'inherit' });
 
-console.log(`[Export Pipeline] Packing 'out' directory into '${archiveName}'...`);
+// Ensure 'out' directory also exists by copying 'dist' for compatibility
+const distDir = path.resolve('dist');
+const outDir = path.resolve('out');
+
+if (fs.existsSync(distDir)) {
+  fs.cpSync(distDir, outDir, { recursive: true });
+}
+
+console.log(`[Export Pipeline] Packing 'dist' directory into '${archiveName}'...`);
 
 try {
   if (process.platform === 'win32') {
-    const psCommand = `powershell -Command "Compress-Archive -Path out\\* -DestinationPath '${archiveName}' -Force"`;
+    const psCommand = `powershell -Command "Compress-Archive -Path dist\\* -DestinationPath '${archiveName}' -Force"`;
     execSync(psCommand, { stdio: 'inherit' });
   } else {
     // Linux / macOS fallback using standard zip utility
-    execSync(`zip -r '${archiveName}' out/*`, { stdio: 'inherit' });
+    execSync(`zip -r '${archiveName}' dist/*`, { stdio: 'inherit' });
   }
 
   console.log(`\n==================================================`);
@@ -40,5 +48,5 @@ try {
   console.log(`==================================================\n`);
 } catch (err) {
   console.warn(`[Export Pipeline Warning] Automatic zip compression skipped or failed: ${err.message}`);
-  console.log(`📁 'out' directory is still ready for deployment.`);
+  console.log(`📁 'dist' and 'out' directories are still ready for deployment.`);
 }
