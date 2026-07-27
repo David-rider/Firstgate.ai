@@ -299,3 +299,60 @@
   }
 }
 
+/* ==========================================================================
+   Mobile-Specific High-End Responsive Optimizations
+   ========================================================================== */
+
+/* Mobile Navigation Menu Animation */
+#mobile-menu {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
+  animation: mobileMenuSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes mobileMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Touch Device Touch Target & Tap Highlights */
+@media (max-width: 768px) {
+  /* Prevent horizontal text overflow & fit mobile viewport nicely */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Refine Mobile Padding */
+  .cyber-glow-card {
+    padding: 1.25rem !important;
+  }
+
+  /* Stargate Mobile Gate Sizing */
+  .stargate-glow {
+    box-shadow: 0 0 45px rgba(0, 240, 255, 0.4), 0 0 90px rgba(16, 185, 129, 0.2), inset 0 0 30px rgba(0, 240, 255, 0.2);
+  }
+
+  /* Table Horizontal Scroll Shadow Hint */
+  .mobile-table-wrapper {
+    position: relative;
+  }
+  .mobile-table-wrapper::after {
+    content: '👉 左右滑动查看完整表格 / Swipe for more';
+    display: block;
+    text-align: right;
+    font-family: monospace;
+    font-size: 0.65rem;
+    color: #00F0FF;
+    padding-top: 0.4rem;
+    opacity: 0.85;
+  }
+}
+
