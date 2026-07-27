@@ -1,12 +1,13 @@
 {
   "name": "firstgate-ai",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Firstgate.ai - Enterprise AI Gateway & Intelligent Routing Engine",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/export_pack.js",
+    "export": "node scripts/export_pack.js",
     "preview": "vite preview"
   },
   "devDependencies": {
