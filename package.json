@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/export_pack.js",
+    "build": "vite build",
     "export": "node scripts/export_pack.js",
     "preview": "vite preview"
   },

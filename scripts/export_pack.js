@@ -24,12 +24,21 @@ execSync('npx vite build', { stdio: 'inherit' });
 
 console.log(`[Export Pipeline] Packing 'out' directory into '${archiveName}'...`);
 
-// PowerShell Compress-Archive command for Windows
-const psCommand = `powershell -Command "Compress-Archive -Path out\\* -DestinationPath '${archiveName}' -Force"`;
-execSync(psCommand, { stdio: 'inherit' });
+try {
+  if (process.platform === 'win32') {
+    const psCommand = `powershell -Command "Compress-Archive -Path out\\* -DestinationPath '${archiveName}' -Force"`;
+    execSync(psCommand, { stdio: 'inherit' });
+  } else {
+    // Linux / macOS fallback using standard zip utility
+    execSync(`zip -r '${archiveName}' out/*`, { stdio: 'inherit' });
+  }
 
-console.log(`\n==================================================`);
-console.log(`✅ EXPORT SUCCESSFUL!`);
-console.log(`📦 Output File: ${archiveName}`);
-console.log(`📁 File Path:   ${archivePath}`);
-console.log(`==================================================\n`);
+  console.log(`\n==================================================`);
+  console.log(`✅ EXPORT SUCCESSFUL!`);
+  console.log(`📦 Output File: ${archiveName}`);
+  console.log(`📁 File Path:   ${archivePath}`);
+  console.log(`==================================================\n`);
+} catch (err) {
+  console.warn(`[Export Pipeline Warning] Automatic zip compression skipped or failed: ${err.message}`);
+  console.log(`📁 'out' directory is still ready for deployment.`);
+}
