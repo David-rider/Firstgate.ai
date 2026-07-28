@@ -27,6 +27,9 @@ const distDir = path.resolve('dist');
 const outDir = path.resolve('out');
 
 if (fs.existsSync(distDir)) {
+  if (fs.existsSync(outDir)) {
+    fs.rmSync(outDir, { recursive: true, force: true });
+  }
   fs.cpSync(distDir, outDir, { recursive: true });
 }
 

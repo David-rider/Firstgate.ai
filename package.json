@@ -1,7 +1,7 @@
 {
   "name": "firstgate-ai",
   "private": true,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Firstgate.ai - Enterprise AI Gateway & Intelligent Routing Engine",
   "type": "module",
   "scripts": {

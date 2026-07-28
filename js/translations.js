@@ -585,7 +585,29 @@ export const translations = {
     'stargate.vision_title': '多云桥接与隐私保障',
     'stargate.vision_desc': 'FirstGate 致力于解决安全的多云网络桥接与 AI 算力调度。通过零信任安全隧道与加密路由协议，跨越公有云物理边界，将异构 GPU 集群连接为统一的高安全网络。所有的企业级 LLM 负载均通过硬件隔离的机密安全飞地（TEE）运行，从芯片底层保障数据隐私安全。',
     'stargate.enter_gate': '进入控制台 ➔',
-    'stargate.skip': '直接进入 ➔'
+    'stargate.skip': '直接进入 ➔',
+
+    // Playground Page
+    'playground.title': '多模型对比试用台',
+    'playground.subtitle': '单次 Prompt 同时向 4 大模型集群发包，即时对比首包延迟 (TTFT)、总耗时、Token 成本与路由策略',
+    'playground.input_label': '输入 Prompt 进行并行测速与对比:',
+    'playground.proxy_active': 'Firstgate 智能代理已就绪',
+    'playground.prompt_placeholder': '请对比 API 网关与多模型 AI 智能路由引擎在金融交易系统中的架构差异。',
+    'playground.stream_label': '流式传输模式:',
+    'playground.stream_val': '已开启 (SSE)',
+    'playground.run_btn': '开始并行测试',
+    'playground.streaming': '流式传输中...',
+    'playground.click_run': '点击「开始并行测试」以即时流式输出响应...',
+    'playground.ttft_label': '首包延迟 (TTFT):',
+    'playground.cost_label': '预估成本:',
+    'playground.fastest': '最快',
+    'playground.lowest': '最低',
+    'playground.badge_routed': '命中路由',
+
+    // Docs Page
+    'docs.title': '开发文档与 SDK Quickstart',
+    'docs.subtitle': '无缝替代 OpenAI SDK。只需修改 1 行 `base_url`，即刻获得全量智能路由与算力治理能力',
+    'docs.integration_title': 'OpenAI 协议无缝替换集成'
   },
 
   'zh-TW': {
@@ -667,6 +689,10 @@ export const translations = {
     'pillar2.desc': '統一 OpenAI 協定 API 接入。基於 SLA 效能指標、Token 成本與質量得分，在 Claude 3.5、GPT-4o、Gemini 1.5、DeepSeek V3 及本地集群間秒級智能路由。',
     'pillar2.feat1': '零停機時間自動降級切換鏈',
     'pillar2.feat2': '亞10毫秒語義向量快取',
+    'pillar3.title': '3. 算力配額與 FinOps 治理',
+    'pillar3.desc': '自研算力與配額治理模式，跨 AWS、GCP、Azure 及本地 Private GPU 建立統一 Token 預算控制、多租戶部門隔離與 ROI 即時追蹤。',
+    'pillar3.feat1': '多層級部門預算與 Token 硬封頂',
+    'pillar3.feat2': '閒置 GPU 自動回收與 FinOps 優化',
     'pillar4.title': '4. 硬體級機密計算 (TEE)',
     'pillar4.desc': '專為華爾街與受監管企業打造。利用 NVIDIA H100 硬體 TEE 安全飛地（Enclave）在傳輸與記憶體中全流程加密 Prompt 載荷，搭配不可篡改審計日誌。',
     'pillar4.feat1': 'NVIDIA H100 硬體 Enclave TEE 保護',
@@ -706,6 +732,14 @@ export const translations = {
     'about.t4_item2': '亞毫秒級模型路由與晶片級 TEE 機密保護',
     'about.t4_quote': '「賦能企業將數據轉化為真正的智能能量。」',
     'about.cta_btn': '預約技術諮詢 🚀',
+
+    // Router Page
+    'router.title': '智能路由策略配置中心',
+    'router.subtitle': '配置模型路由策略、降級切換鏈及語義快取閾值',
+    'router.save_btn': '保存並部署策略',
+    'router.preset_latency_title': '紐約極速低時延',
+    'router.preset_latency_badge': '金融科技預設',
+    'router.preset_latency_desc': '優先選擇距離紐約邊緣節點最近且首包延遲最低的模型。允許適度 Token 成本折衷。',
     'router.preset_cost_title': '企業成本優化模式',
     'router.preset_cost_badge': '企業治理預設',
     'router.preset_cost_desc': '通過語義快取及模型裁剪，將單位成本控制在最低（如 DeepSeek-V3 / Flash）。',

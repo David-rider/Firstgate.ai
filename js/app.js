@@ -127,7 +127,7 @@ async function measureRealClientNetworkRTT() {
   const start = performance.now();
   try {
     // Ping origin asset to measure true browser network round-trip time (RTT)
-    await fetch('/css/style.css?t=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+    await fetch('./css/style.css?t=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
     const end = performance.now();
     const rtt = Math.max(0.5, (end - start)).toFixed(2);
 
