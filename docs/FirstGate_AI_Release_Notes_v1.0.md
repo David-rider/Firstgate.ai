@@ -6,11 +6,11 @@
 ## 📋 文档基本信息 / Document Metadata
 
 - **项目名称 / Project**: FirstGate.ai 机构级 AI 算力交易市场与智能路由网关
-- **当前版本 / Version**: `v1.0.10` (Production Stable Release)
+- **当前版本 / Version**: `v1.1.0` (Production Stable Release & Compliance Architecture Update)
 - **线上公网预览 / Live Preview**: [https://firstgate-ai.vercel.app/](https://firstgate-ai.vercel.app/)
 - **代码仓库 / Repository**: GitHub `David-rider/Firstgate.ai` (`main` branch)
 - **文档路径 / Location**: `docs/FirstGate_AI_Release_Notes_v1.0.md` & `docs/FirstGate_AI_Release_Notes_v1.0.docx`
-- **发布日期 / Date**: 2026年7月23日 (July 23, 2026)
+- **发布日期 / Date**: 2026年7月30日 (July 30, 2026)
 
 ---
 

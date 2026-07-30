@@ -126,8 +126,8 @@ window.toggleNodeProofModal = toggleNodeProofModal;
 async function measureRealClientNetworkRTT() {
   const start = performance.now();
   try {
-    // Ping origin asset to measure true browser network round-trip time (RTT)
-    await fetch('./css/style.css?t=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+    // Ping origin asset probe to measure true browser network round-trip time (RTT)
+    await fetch('./ping.txt?t=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
     const end = performance.now();
     const rtt = Math.max(0.5, (end - start)).toFixed(2);
 
@@ -223,6 +223,15 @@ export function toggleMobileMenu() {
 }
 window.toggleMobileMenu = toggleMobileMenu;
 
+// Legal Modal Toggle
+export function toggleLegalModal() {
+  const modal = document.getElementById('modal-legal');
+  if (modal) {
+    modal.classList.toggle('hidden');
+  }
+}
+window.toggleLegalModal = toggleLegalModal;
+
 // Render GPU Market Table
 function populateGpuMarketTable() {
   const tbody = document.getElementById('gpu-market-rows');
@@ -274,12 +283,12 @@ export function deployModelEndpoint(modelName) {
 }
 window.deployModelEndpoint = deployModelEndpoint;
 
-// Hardware Attestation Verifier Action
+// Hardware Attestation Verifier Action (Simulated Interactive Demo)
 export function verifyHardwareAttestation() {
   const digestElem = document.getElementById('attest-digest');
   const lang = getLang();
 
-  // Generate cryptographic hex hash
+  // Generate simulated cryptographic hex hash for evaluation demo
   const chars = '0123456789abcdef';
   let hash = 'sha256:';
   for (let i = 0; i < 64; i++) {
@@ -291,10 +300,10 @@ export function verifyHardwareAttestation() {
   }
 
   const msg = lang === 'en'
-    ? `[NVIDIA TEE Attestation] Enclave signature cryptographic challenge passed. Active H100 Pod is running inside hardware-isolated TEE memory.`
+    ? `[SIMULATED ENCLAVE PROOF] Cryptographic Attestation Completed (Demo Mode).\n\nSimulated Enclave: NVIDIA H100 TEE\nAttestation Digest: ${hash}\n\nNote: This is an interactive demo simulation.`
     : (lang === 'zh-TW'
-      ? `[NVIDIA TEE 遠程證明] 安全飛地密碼学驗證通過！當前運行的 H100 Pod 已加鎖在硬體隔離 TEE 記憶體中。`
-      : `[NVIDIA TEE 远程证明] 安全飞地密码学验证通过！当前运行的 H100 Pod 已加锁在硬件隔离 TEE 内存中。`);
+      ? `[模擬 TEE 遠程證明] 安全飛地密碼學驗證挑戰完成 (仿真演示)！\n\n飛地標識: NVIDIA H100 TEE Enclave (Simulated)\n摘要: ${hash}\n\n注：此功能為前端交互式仿真演示。`
+      : `[仿真 TEE 远程证明] 安全飞地密码学验证挑战完成 (仿真演示)！\n\n飞地标识: NVIDIA H100 TEE Enclave (Simulated)\n摘要: ${hash}\n\n注：此功能为前端交互式仿真演示。`);
   alert(msg);
 }
 window.verifyHardwareAttestation = verifyHardwareAttestation;

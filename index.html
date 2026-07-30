@@ -66,7 +66,7 @@
         </div>
         <div>
           <span class="font-extrabold text-white tracking-wider">FIRSTGATE INITIATIVE</span>
-          <p class="text-[9px] text-cyan-400 font-mono tracking-widest uppercase">FIRSTGATE GATEWAY V1</p>
+          <p class="text-[9px] text-cyan-400 font-mono tracking-widest uppercase" data-i18n="top.gateway_version">FIRSTGATE GATEWAY V1 (DEMO)</p>
         </div>
       </div>
       
@@ -202,7 +202,7 @@
             <span class="font-extrabold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-300">FIRSTGATE</span>
             <span class="bg-gradient-to-r from-cyan-500 to-emerald-400 text-navy-950 font-mono font-black text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wider">AI</span>
           </div>
-          <p class="text-[10px] text-slate-400 tracking-wider uppercase font-mono">The Intelligence Platform</p>
+          <p class="text-[10px] text-slate-400 tracking-wider uppercase font-mono" data-i18n="top.platform_subtitle">The Intelligence Platform</p>
         </div>
       </a>
 
@@ -287,7 +287,7 @@
           <div class="space-y-2 max-w-3xl">
             <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
-              <span>COMMERCIAL SALES PORTAL READY</span>
+              <span data-i18n="nav.sales_portal_ready">COMMERCIAL SALES PORTAL READY</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight" data-i18n="portal.banner_title">
               Direct Access to Institutional LLM API & Token Purchase Portal
@@ -561,6 +561,7 @@
           <p class="text-xs text-slate-400 mt-1" data-i18n="market.subtitle">Compare real-time GPU spot prices, reserve dedicated inference clusters, and deploy serverless vLLM endpoints across global regions</p>
         </div>
         <div class="flex items-center space-x-2 text-xs font-mono">
+          <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2.5 py-1.5 rounded-lg text-[10px] font-mono uppercase">SIMULATED DEMO DATA</span>
           <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
             <i data-lucide="cpu" class="w-4 h-4"></i> <span data-i18n="market.gpus_avail">4,820 GPUs AVAILABLE</span>
           </span>
@@ -692,6 +693,7 @@
           <p class="text-xs text-slate-400 mt-1" data-i18n="router.subtitle">Configure model routing policies, fallback chains, and semantic cache thresholds</p>
         </div>
         <div class="flex items-center space-x-3">
+          <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2.5 py-1.5 rounded-lg text-[10px] font-mono uppercase">SIMULATED ROUTER ENGINE</span>
           <button onclick="saveRouterPolicy()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all flex items-center space-x-1.5">
             <i data-lucide="save" class="w-4 h-4"></i>
             <span data-i18n="router.save_btn">Save & Deploy Policy</span>
@@ -834,9 +836,12 @@
           <h2 class="text-2xl font-bold text-white" data-i18n="quotas.title">Capacity Quotas & Cost Governance</h2>
           <p class="text-xs text-slate-400 mt-1" data-i18n="quotas.subtitle">Multi-tenant department budgeting, hard token caps, and unified multi-cloud/private GPU allocation</p>
         </div>
-        <div class="flex items-center space-x-2 text-xs font-mono bg-navy-900 border border-navy-800 px-3 py-1.5 rounded-lg text-slate-300">
-          <span data-i18n="quotas.org_budget">Monthly Org Budget Cap:</span>
-          <strong class="text-emerald-400 font-bold">$250,000 / mo</strong>
+        <div class="flex items-center space-x-2 text-xs font-mono">
+          <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2.5 py-1.5 rounded-lg text-[10px] font-mono uppercase">SIMULATED FINOPS GOVERNANCE</span>
+          <div class="bg-navy-900 border border-navy-800 px-3 py-1.5 rounded-lg text-slate-300">
+            <span data-i18n="quotas.org_budget">Monthly Org Budget Cap:</span>
+            <strong class="text-emerald-400 font-bold">$250,000 / mo</strong>
+          </div>
         </div>
       </div>
 
@@ -961,10 +966,10 @@
       <div class="flex flex-wrap justify-between items-center gap-4 border-b border-navy-800 pb-4">
         <div>
           <h2 class="text-2xl font-bold text-white" data-i18n="security.title">Wall Street Security, TEE & Compliance Hub</h2>
-          <p class="text-xs text-slate-400 mt-1" data-i18n="security.subtitle">Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II, HIPAA & NY DFS audit compliance</p>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="security.subtitle">Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II Architecture & NY DFS Framework Roadmap</p>
         </div>
         <div class="flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-mono font-bold">
-          <i data-lucide="shield-check" class="w-4 h-4"></i> <span data-i18n="security.pii_active_badge">PII MASKING & TEE: ACTIVE</span>
+          <i data-lucide="shield-check" class="w-4 h-4"></i> <span data-i18n="security.pii_active_badge">PII MASKING & TEE: DEMO ACTIVE</span>
         </div>
       </div>
 
@@ -1120,6 +1125,9 @@
         <div>
           <h2 class="text-2xl font-bold text-white" data-i18n="playground.title">Interactive Multi-Model Playground</h2>
           <p class="text-xs text-slate-400 mt-1" data-i18n="playground.subtitle">Dispatch a single prompt to 4 LLM clusters simultaneously to evaluate TTFT, total latency, token cost, and routing decisions side-by-side</p>
+        </div>
+        <div>
+          <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2.5 py-1.5 rounded-lg text-[10px] font-mono uppercase">SIMULATED BENCHMARK</span>
         </div>
       </div>
 
@@ -1477,13 +1485,56 @@ main();</pre>
       <div class="flex items-center space-x-2">
         <span class="font-extrabold text-white">FIRSTGATE.AI</span>
         <span>•</span>
-        <span>Institutional AI Compute Marketplace & Intelligent Gateway</span>
+        <span data-i18n="footer.sub_tag">Institutional AI Compute Marketplace & Intelligent Gateway</span>
       </div>
-      <div>
+      <div class="flex items-center space-x-4">
         <span data-i18n="footer.text">NYC-East POP Point of Presence • Target SLA: 99.999% • Designed for SOC2 & TEE Confidentiality</span>
+        <span>|</span>
+        <button onclick="toggleLegalModal()" class="text-cyan-400 hover:underline">Privacy & Terms</button>
       </div>
     </div>
   </footer>
+
+  <!-- Legal Notice & Privacy Policy Modal -->
+  <div id="modal-legal" class="global-modal-overlay hidden">
+    <div class="global-modal-card bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
+      <div class="flex justify-between items-center border-b border-navy-800 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <i data-lucide="shield" class="w-4 h-4 text-cyan-400"></i> <span>Legal Notice, Privacy Policy & Disclaimer</span>
+        </h3>
+        <button onclick="toggleLegalModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300 leading-relaxed max-h-80 overflow-y-auto">
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
+          <div class="text-cyan-400 font-bold text-[11px] uppercase">1. Platform Nature & Demo Disclaimer</div>
+          <p class="text-[11px] text-slate-400">
+            FirstGate.ai operates as an interactive demonstration platform. All telemetry charts, GPU spot marketplace pricing, hardware attestation proofs, and benchmark TTFT metrics displayed on this site represent simulated data for architecture evaluation and product illustration purposes.
+          </p>
+        </div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
+          <div class="text-emerald-400 font-bold text-[11px] uppercase">2. Privacy & Data Handling (GDPR Compliance)</div>
+          <p class="text-[11px] text-slate-400">
+            We prioritize data privacy. Local preference state (such as selected language) is stored locally in your browser's <code>localStorage</code>. No personal identifiable information (PII) or prompt contents from the interactive testing tools are transmitted to or stored on any external servers.
+          </p>
+        </div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
+          <div class="text-indigo-400 font-bold text-[11px] uppercase">3. Intellectual Property & Contact</div>
+          <p class="text-[11px] text-slate-400">
+            FirstGate.ai — Institutional AI Compute Marketplace & Intelligent Gateway architecture. For institutional inquiries, technical specs, or partnership evaluations, connect with our team.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="toggleLegalModal()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="modal.close_btn">
+          Close Inspector
+        </button>
+      </div>
+    </div>
+  </div>
 
   </div> <!-- /#main-app-content -->
 
@@ -1552,7 +1603,7 @@ main();</pre>
       </div>
 
       <div class="flex justify-end gap-3 pt-2">
-        <button onclick="togglePortalModal()" class="bg-navy-800 text-slate-300 hover:text-white font-bold text-xs px-4 py-2 rounded-lg transition-all">
+        <button onclick="togglePortalModal()" class="bg-navy-800 text-slate-300 hover:text-white font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="modal.cancel_btn">
           Cancel
         </button>
         <button onclick="proceedToPortal()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-5 py-2 rounded-lg transition-all shadow-md shadow-cyan-500/20" data-i18n="portal.modal_proceed">

@@ -186,22 +186,22 @@ export const translations = {
 
     // Security & Compliance Page
     'security.title': 'Wall Street Security, TEE & Compliance Architecture',
-    'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II & NY DFS compliant architecture',
-    'security.pii_active_badge': 'PII MASKING & TEE: ACTIVE',
-    'security.compliance_certs_title': 'Institutional Compliance & Architecture Standards',
-    'security.cert_soc2_title': 'SOC 2 Type II Architecture Ready',
+    'security.subtitle': 'Hardware-enclosed TEE confidential computing, Zero-Trust inline PII masking, SOC2 Type II Architecture & NY DFS Framework Roadmap',
+    'security.pii_active_badge': 'PII MASKING & TEE: DEMO ACTIVE',
+    'security.compliance_certs_title': 'Compliance & Security Architecture Roadmap',
+    'security.cert_soc2_title': 'SOC 2 Type II Architecture Ready (Planned)',
     'security.cert_soc2_desc': 'Designed to comply with AICPA Trust Services Criteria for Security, Availability & Confidentiality.',
     'security.cert_tee_title': 'NVIDIA H100 Hardware TEE Enclave',
     'security.cert_tee_desc': 'Encrypted APU memory enclosures & cryptographic remote attestation proof capability.',
-    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 Compliant',
-    'security.cert_nydfs_desc': 'Wall Street financial data locality, mandatory audit logging & encryption standards.',
-    'security.cert_gdpr_title': 'GDPR & EU AI Act Compliant',
-    'security.cert_gdpr_desc': 'Strict data sovereignty, zero model training retention, and regional isolation.',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 Framework Readiness',
+    'security.cert_nydfs_desc': 'Multi-factor access controls, continuous threat monitoring & strict financial data isolation architecture.',
+    'security.cert_gdpr_title': 'GDPR Privacy-by-Design Architecture',
+    'security.cert_gdpr_desc': 'Zero-Trust PII masking, local processing boundaries & verifiable data deletion controls.',
     
     'security.tee_inspector_title': 'Hardware TEE Remote Attestation Verifier',
     'security.tee_inspector_desc': 'Verify cryptographic SHA-256 enclave attestation signatures of H100 GPU pods',
-    'security.tee_verify_btn': 'Verify Hardware Attestation',
-    'security.attest_status': 'Hardware Attestation: VERIFIED (NVIDIA Enclave Certificate Spec Valid)',
+    'security.tee_verify_btn': 'Verify Hardware Attestation (Demo)',
+    'security.attest_status': 'Hardware Attestation: SIMULATED DEMO (NVIDIA Enclave Cert Spec)',
     'security.attest_digest_label': 'Attestation Hash Digest:',
 
     'security.pii_title': 'Live PII & Financial Data Masking Tester',
@@ -307,10 +307,9 @@ export const translations = {
     'nav.sales_portal_ready': 'COMMERCIAL SALES PORTAL READY',
     'footer.sub_tag': 'Institutional AI Compute Marketplace & Intelligent Gateway',
     'modal.cancel_btn': 'Cancel',
-    'security.compliance_certs_title': 'Compliance & Security Architecture Roadmap',
-    'security.cert_soc2_title': 'SOC 2 Type II Architecture Ready (Planned)',
-    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 Framework Readiness',
-    'security.cert_gdpr_title': 'GDPR Privacy-by-Design Architecture'
+    'top.gateway_version': 'FIRSTGATE GATEWAY V1 (DEMO)',
+    'top.platform_subtitle': 'The Institutional Intelligence Platform',
+    'models.col_qps': 'Max QPS Limit'
   },
 
   'zh-CN': {
@@ -498,22 +497,22 @@ export const translations = {
 
     // Security & Compliance Page
     'security.title': '华尔街安全、机密计算与合规架构',
-    'security.subtitle': '硬件级 TEE 机密计算保护、Zero-Trust 敏感数据脱敏、符合 SOC2 与纽约金融局合规标准设计',
-    'security.pii_active_badge': 'PII 脱敏与 TEE 机密保护：开启',
-    'security.compliance_certs_title': '机构级监管合规与架构标准设计',
-    'security.cert_soc2_title': '符合 SOC 2 Type II 架构标准',
+    'security.subtitle': '硬件隔离 TEE 机密计算、零信任内联 PII 脱敏、SOC2 Type II 架构与纽约金融局合规演进路线图',
+    'security.pii_active_badge': 'PII 脱敏与 TEE 演示：已开启',
+    'security.compliance_certs_title': '合规与安全架构演进路线图',
+    'security.cert_soc2_title': 'SOC 2 Type II 拟定架构 (规划中)',
     'security.cert_soc2_desc': '基于美国注册会计师协会 (AICPA) 安全性、可用性与机密性信任标准架构设计。',
     'security.cert_tee_title': 'NVIDIA H100 硬件 TEE 机密飞地',
     'security.cert_tee_desc': '加密 GPU 内存飞地与密码学远程证明 (Remote Attestation) 能力支持。',
-    'security.cert_nydfs_title': '遵从纽约金融局 23 NYCRR 500',
-    'security.cert_nydfs_desc': '华尔街金融级数据定界、强制只读审计日志与全流程高强度加密标准。',
-    'security.cert_gdpr_title': '符合 GDPR 与欧盟 AI 法案要求',
-    'security.cert_gdpr_desc': '严格的数据主权隔离，零模型训练保留，支持区域级算力隔离。',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 框架准备中',
+    'security.cert_nydfs_desc': '多因素访问控制、持续威胁监控与严格的金融数据隔离架构。',
+    'security.cert_gdpr_title': 'GDPR 隐私设计架构',
+    'security.cert_gdpr_desc': '零信任 PII 脱敏、本地处理边界与可验证的数据删除控制。',
 
     'security.tee_inspector_title': '硬件级 TEE 远程证明 (Remote Attestation) 验证器',
     'security.tee_inspector_desc': '校验 H100 GPU Pod 的密码学 SHA-256 安全飞地证明签名与硬件规范',
-    'security.tee_verify_btn': '验证硬件证明规范',
-    'security.attest_status': '硬件证明规范: 已校验 (符合 NVIDIA Enclave 硬件安全规范)',
+    'security.tee_verify_btn': '验证硬件证明规范 (仿真演示)',
+    'security.attest_status': '硬件证明规范: 仿真演示 (NVIDIA Enclave Cert Spec)',
     'security.attest_digest_label': '密码学证明 SHA-256 哈希值:',
 
     'security.pii_title': '实时 PII 与金融数据脱敏测试器',
@@ -614,7 +613,6 @@ export const translations = {
     // Docs Page
     'docs.title': '开发文档与 SDK Quickstart',
     'docs.subtitle': '无缝替代 OpenAI SDK。只需修改 1 行 `base_url`，即刻获得全量智能路由与算力治理能力',
-    'docs.integration_title': 'OpenAI 协议无缝替换集成',
 
     // About Us Final CTA
     'about.cta_title': '准备好迈入 AI 智能时代了吗？',
@@ -622,10 +620,9 @@ export const translations = {
     'nav.sales_portal_ready': '商业销售与算力交易 Portal',
     'footer.sub_tag': '机构级 AI 算力交易市场与动态智能路由网关',
     'modal.cancel_btn': '取消',
-    'security.compliance_certs_title': '合规与安全架构演进路线图',
-    'security.cert_soc2_title': 'SOC 2 Type II 拟定架构 (规划中)',
-    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 框架准备中',
-    'security.cert_gdpr_title': 'GDPR 隐私设计架构'
+    'top.gateway_version': 'FIRSTGATE 智能网关 V1 (演示)',
+    'top.platform_subtitle': '机构级 AI 智能平台',
+    'models.col_qps': '最高 QPS 限制'
   },
 
   'zh-TW': {
@@ -806,22 +803,22 @@ export const translations = {
 
     // Security & Compliance Page (真實嚴謹合規修改)
     'security.title': '華爾街安全、機密計算與合規架構',
-    'security.subtitle': '硬體級 TEE 機密計算保護、Zero-Trust 敏感資料脫敏、符合 SOC2 與紐約金融局合規標準設計',
-    'security.pii_active_badge': 'PII 脫敏與 TEE 機密保護：開啟',
-    'security.compliance_certs_title': '機構級監管合規與架構標準設計',
-    'security.cert_soc2_title': '符合 SOC 2 Type II 架構標準',
+    'security.subtitle': '硬體隔離 TEE 機密計算、零信任內聯 PII 脫敏、SOC2 Type II 架構與紐約金融局合規演進路線圖',
+    'security.pii_active_badge': 'PII 脫敏與 TEE 演示：已開啟',
+    'security.compliance_certs_title': '合規與安全架構演進路線圖',
+    'security.cert_soc2_title': 'SOC 2 Type II 擬定架構 (規劃中)',
     'security.cert_soc2_desc': '基於美國註冊會計師協會 (AICPA) 安全性、可用性與機密性信任標準架構設計。',
     'security.cert_tee_title': 'NVIDIA H100 硬體 TEE 機密飛地',
     'security.cert_tee_desc': '加密 GPU 記憶體飛地與密碼學遠程證明 (Remote Attestation) 能力支援。',
-    'security.cert_nydfs_title': '遵從紐約金融局 23 NYCRR 500',
-    'security.cert_nydfs_desc': '華爾街金融級資料定界、強制唯讀審計日誌與全流程高強度加密標準。',
-    'security.cert_gdpr_title': '符合 GDPR 與歐盟 AI 法案要求',
-    'security.cert_gdpr_desc': '嚴格的資料主權隔離，零模型訓練保留，支援區域級算力隔離。',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 框架準備中',
+    'security.cert_nydfs_desc': '多因素存取控制、持續威脅監控與嚴格的金融數據隔離架構。',
+    'security.cert_gdpr_title': 'GDPR 隱私設計架構',
+    'security.cert_gdpr_desc': '零信任 PII 脫敏、本地處理邊界與可驗證的數據刪除控制。',
     
     'security.tee_inspector_title': '硬體級 TEE 遠程證明 (Remote Attestation) 驗證器',
     'security.tee_inspector_desc': '驗證 H100 GPU Pod 的密碼學 SHA-256 安全飛地證明簽名與硬體規範',
-    'security.tee_verify_btn': '驗證硬體證明規範',
-    'security.attest_status': '硬體證明規範: 已校驗 (符合 NVIDIA Enclave 硬體安全規範)',
+    'security.tee_verify_btn': '驗證硬體證明規範 (仿真演示)',
+    'security.attest_status': '硬體證明規範: 仿真演示 (NVIDIA Enclave Cert Spec)',
     'security.attest_digest_label': '密碼學證明 SHA-256 哈希值:',
 
     'security.pii_title': '即時 PII 與金融資料脫敏測試器',
@@ -936,9 +933,8 @@ export const translations = {
     'nav.sales_portal_ready': '商業銷售與算力交易 Portal',
     'footer.sub_tag': '機構級 AI 算力交易市場與動態智能路由網關',
     'modal.cancel_btn': '取消',
-    'security.compliance_certs_title': '合規與安全架構演進路線圖',
-    'security.cert_soc2_title': 'SOC 2 Type II 擬定架構 (規劃中)',
-    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 框架準備中',
-    'security.cert_gdpr_title': 'GDPR 隱私設計架構'
+    'top.gateway_version': 'FIRSTGATE 智能網關 V1 (演示)',
+    'top.platform_subtitle': '機構級 AI 智能平台',
+    'models.col_qps': '最高 QPS 限制'
   }
 };
