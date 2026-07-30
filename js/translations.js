@@ -54,8 +54,8 @@ export const translations = {
     'ticker.l40s': 'NVIDIA L40S 48GB: $0.82/hr (-60%)',
 
     // Simulator Widget
-    'sim.header': 'Live Intelligent Router & Compute Arbitrator',
-    'sim.realtime': 'REAL NETWORK DIAGNOSTICS',
+    'sim.header': 'Real-Time Routing & Compute Arbitrator',
+    'sim.realtime': 'SIMULATED ROUTING DIAGNOSTICS',
     'sim.select_label': 'Select Enterprise AI Workload:',
     'sim.opt_quant': '📈 [FinTech] Perform Monte Carlo VaR simulation on 10k stock portfolio',
     'sim.opt_legal': '⚖️ [Compliance] Analyze 200-page SEC 10-K filing for risk disclosures',
@@ -176,7 +176,7 @@ export const translations = {
     'quotas.dept3': 'Enterprise Copilot',
     'quotas.mesh_title': 'Compute Capacity Mesh',
     'quotas.mesh1_name': 'NYC On-Prem H100 Cluster (Secured VPC)',
-    'quotas.mesh1_desc': 'Local FinTech Pod • 64x H100 80GB',
+    'quotas.mesh1_desc': 'Simulated Local Pod • High-Memory Node',
     'quotas.mesh2_name': 'AWS us-east-1 Capacity Pool',
     'quotas.mesh2_desc': 'Claude & Bedrock Orchestrator',
     'quotas.mesh3_name': 'GCP us-central1 Capacity Pool',
@@ -255,7 +255,7 @@ export const translations = {
     'modal.step3': 'Observe the HEAD request dispatched to <code>./ping.txt?t=...</code> every 3 seconds.',
     'modal.step4': 'Notice the <strong>200 OK</strong> status code and exact matching RTT timing!',
     'modal.sec3_title': '3. Production Architecture Node',
-    'modal.prod_desc': 'In production deployment, requests are routed to <strong>NYC-East POP (Equinix NY4 Secaucus, NJ / 111 8th Ave NYC)</strong> connected directly to Wall Street high-frequency optical fiber backbones.',
+    'modal.prod_desc': 'In production deployment spec, requests are routed to target NYC-East POP nodes connected to financial network backbones.',
     'modal.close_btn': 'Close Inspector',
 
     // Footer
@@ -309,7 +309,20 @@ export const translations = {
     'modal.cancel_btn': 'Cancel',
     'top.gateway_version': 'FIRSTGATE GATEWAY V1 (DEMO)',
     'top.platform_subtitle': 'The Institutional Intelligence Platform',
-    'models.col_qps': 'Max QPS Limit'
+    'models.col_qps': 'Max QPS Limit',
+
+    // Legal & Privacy Terms Modal
+    'legal.title': 'Legal Notice, Privacy Policy & Disclaimer',
+    'legal.sec1_title': '1. Architecture Demonstration Nature & Data Disclaimer',
+    'legal.sec1_text': 'FirstGate.ai Initiative operates as an interactive demonstration platform for institutional AI compute marketplace and prompt routing architecture. All telemetry metrics, GPU spot pricing, attestation hashes, and benchmark TTFT numbers presented are simulated data for evaluation and illustrative purposes.',
+    'legal.sec2_title': '2. Privacy & Network Resource Data Transmission (GDPR Notice)',
+    'legal.sec2_text': 'We prioritize privacy. The platform maintains no backend database to collect or track your personal identifiable information (PII) or prompt text. Local user choices (such as UI language preference) are saved strictly client-side in browser localStorage. Static scripts and asset libraries are served via public CDNs (jsDelivr, unpkg); accessing these assets transmits standard HTTP request headers (IP address and User-Agent) to CDN providers as technically required for web delivery.',
+    'legal.sec3_title': '3. Data Controller Identity & Data Subject Rights',
+    'legal.sec3_text': 'Data Controller: FirstGate.ai Infrastructure Initiative (Contact: legal@firstgate.ai). In accordance with GDPR and CCPA guidelines, you reserve full rights to inspect, restrict, or clear local browser storage state at any time.',
+    'legal.sec4_title': '4. Governing Framework & Effective Date',
+    'legal.sec4_text': 'Effective Date: July 30, 2026. Designed under Privacy-by-Design principles for institutional multi-cloud AI infrastructure evaluation.',
+    'legal.close_btn': 'Close Legal Notice',
+    'stargate.tech_spec': 'TECHNICAL SPECIFICATION • HYBRID CLOUD MULTI-CLOUD SECURE TUNNELING GATEWAY'
   },
 
   'zh-CN': {
@@ -366,7 +379,7 @@ export const translations = {
 
     // Simulator Widget
     'sim.header': '实时路由与算力竞价仲裁器',
-    'sim.realtime': '真实网络诊断',
+    'sim.realtime': '仿真路由诊断',
     'sim.select_label': '选择企业级 AI 业务负载:',
     'sim.opt_quant': '📈 [金融科技] 1万支股票组合蒙特卡洛 VaR 风险模拟',
     'sim.opt_legal': '⚖️ [风控合规] 分析200页 SEC 10-K 年报风险披露',
@@ -487,7 +500,7 @@ export const translations = {
     'quotas.dept3': '企业 AI Copilot 助手',
     'quotas.mesh_title': '算力节点网络分布',
     'quotas.mesh1_name': '纽约本地 H100 私有集群 (安全 VPC)',
-    'quotas.mesh1_desc': '本地金融 Pod • 64x H100 80GB',
+    'quotas.mesh1_desc': '仿真本地 Pod • 高显存节点',
     'quotas.mesh2_name': 'AWS us-east-1 算力池',
     'quotas.mesh2_desc': 'Claude & Bedrock 调度节点',
     'quotas.mesh3_name': 'GCP us-central1 算力池',
@@ -580,7 +593,7 @@ export const translations = {
     'modal.step3': '观察网页每 3 秒自动向 <code>./ping.txt?t=...</code> 发起的 HEAD 探针请求。',
     'modal.step4': '核对 <strong>200 OK</strong> 状态码与实测往返时间！',
     'modal.sec3_title': '3. 生产环境节点架构',
-    'modal.prod_desc': '在生产部署环境中，请求将被调度至<strong>纽约 Secaucus (Equinix NY4) 与曼哈顿 111 8th Ave</strong>，直连华尔街金融高频光纤骨干网。',
+    'modal.prod_desc': '在生产部署架构预想中，请求将被调度至纽约东区 POP 目标节点，直连金融网络骨干网。',
     'modal.close_btn': '关闭诊断窗口',
 
     // Footer
@@ -622,7 +635,20 @@ export const translations = {
     'modal.cancel_btn': '取消',
     'top.gateway_version': 'FIRSTGATE 智能网关 V1 (演示)',
     'top.platform_subtitle': '机构级 AI 智能平台',
-    'models.col_qps': '最高 QPS 限制'
+    'models.col_qps': '最高 QPS 限制',
+
+    // Legal & Privacy Terms Modal
+    'legal.title': '法律声明、隐私政策与平台免责声明',
+    'legal.sec1_title': '1. 平台交互演示属性与数据免责声明',
+    'legal.sec1_text': 'FirstGate.ai 倡议项目定位为机构级 AI 算力交易市场与 Prompt 智能路由架构的前端交互式演示平台。全站展示的所有网络诊断时延、GPU 竞价行情、硬件 Attestation 签名及测试 TTFT 指标，均为用于架构评估与产品示范的仿真模拟数据。',
+    'legal.sec2_title': '2. 隐私保护与网络资源传输说明 (GDPR 告知事项)',
+    'legal.sec2_text': '我们高度重视个人隐私。本平台不设后端数据库，不会收集、追踪或存储您的任何个人身份信息 (PII) 或测试输入。用户的界面语言偏好仅保存在您本地浏览器的 localStorage 中。前端静态脚本库经由公共 CDN (jsDelivr, unpkg) 加载，访问该资源时系统将按 Web 传输标准向 CDN 供应商传递 HTTP 请求头 (包含 IP 地址与 User-Agent)。',
+    'legal.sec3_title': '3. 数据控制者身份与数据主体权利',
+    'legal.sec3_text': '数据控制者: FirstGate.ai 基础设施项目组 (联系邮箱: legal@firstgate.ai)。根据 GDPR 及 CCPA 框架，您拥有随时检查、限制或清除本地浏览器存储状态的完整权利。',
+    'legal.sec4_title': '4. 适用框架与生效日期',
+    'legal.sec4_text': '生效日期: 2026 年 7 月 30 日。本平台遵循 Default-by-Privacy 隐私设计原则，专为机构多云 AI 算力评估而打造。',
+    'legal.close_btn': '关闭法律声明',
+    'stargate.tech_spec': '技术规范 • 混合多云安全隧道网关'
   },
 
   'zh-TW': {
@@ -679,7 +705,7 @@ export const translations = {
 
     // Simulator Widget
     'sim.header': '即時路由與算力競價仲裁器',
-    'sim.realtime': '真實網路診斷',
+    'sim.realtime': '仿真路由診斷',
     'sim.select_label': '選擇企業級 AI 業務負載:',
     'sim.opt_quant': '📈 [金融科技] 1萬支股票組合蒙特卡洛 VaR 風險模擬',
     'sim.opt_legal': '⚖️ [風控合規] 分析200頁 SEC 10-K 年報風險披露',
@@ -793,7 +819,7 @@ export const translations = {
     'quotas.dept3': '企業 AI Copilot 助手',
     'quotas.mesh_title': '算力節點網路分佈',
     'quotas.mesh1_name': '紐約本地 H100 私有集群 (安全 VPC)',
-    'quotas.mesh1_desc': '本地金融 Pod • 64x H100 80GB',
+    'quotas.mesh1_desc': '仿真本地 Pod • 高顯存節點',
     'quotas.mesh2_name': 'AWS us-east-1 算力池',
     'quotas.mesh2_desc': 'Claude & Bedrock 調度節點',
     'quotas.mesh3_name': 'GCP us-central1 算力池',
@@ -872,7 +898,7 @@ export const translations = {
     'modal.step3': '觀察網頁每 3 秒自動向 <code>./ping.txt?t=...</code> 發起的 HEAD 探針請求。',
     'modal.step4': '核對 <strong>200 OK</strong> 狀態碼與實測往返時間！',
     'modal.sec3_title': '3. 生產環境節點架構',
-    'modal.prod_desc': '在生產部署環境中，請求將被調度至<strong>紐約 Secaucus (Equinix NY4) 與曼哈頓 111 8th Ave</strong>，直連華爾街金融高頻光纖骨幹網。',
+    'modal.prod_desc': '在生產部署架構預想中，請求將被調度至紐約東區 POP 目標節點，直連金融網路骨幹網。',
     'modal.close_btn': '關閉診斷視窗',
 
     // Footer
@@ -935,6 +961,19 @@ export const translations = {
     'modal.cancel_btn': '取消',
     'top.gateway_version': 'FIRSTGATE 智能網關 V1 (演示)',
     'top.platform_subtitle': '機構級 AI 智能平台',
-    'models.col_qps': '最高 QPS 限制'
+    'models.col_qps': '最高 QPS 限制',
+
+    // Legal & Privacy Terms Modal
+    'legal.title': '法律聲明、隱私政策與平台免責聲明',
+    'legal.sec1_title': '1. 平台交互演示屬性與數據免責聲明',
+    'legal.sec1_text': 'FirstGate.ai 倡議項目定位為機構級 AI 算力交易市場與 Prompt 智能路由架構的前端交互式演示平台。全站展示的所有網路診斷時延、GPU 競價行情、硬體 Attestation 簽名及測試 TTFT 指標，均為用於架構評估與產品示範的仿真模擬數據。',
+    'legal.sec2_title': '2. 隱私保護與網路資源傳輸說明 (GDPR 告知事項)',
+    'legal.sec2_text': '我們高度重視個人隱私。本平台不設後端資料庫，不會收集、追蹤或存儲您的任何個人身份資訊 (PII) 或測試輸入。用戶的介面語言偏好僅保存在您本地瀏覽器的 localStorage 中。前端靜態腳本庫經由公共 CDN (jsDelivr, unpkg) 加載，訪問該資源時系統將按 Web 傳輸標準向 CDN 供應商傳遞 HTTP 請求頭 (包含 IP 地址與 User-Agent)。',
+    'legal.sec3_title': '3. 數據控制者身份與數據主體權利',
+    'legal.sec3_text': '數據控制者: FirstGate.ai 基礎設施項目組 (聯繫郵箱: legal@firstgate.ai)。根據 GDPR 及 CCPA 框架，您擁有隨時檢查、限制或清除本地瀏覽器存儲狀態的完整權利。',
+    'legal.sec4_title': '4. 適用框架與生效日期',
+    'legal.sec4_text': '生效日期: 2026 年 7 月 30 日。本平台遵循 Default-by-Privacy 隱私設計原則，專為機構多雲 AI 算力評估而打造。',
+    'legal.close_btn': '關閉法律聲明',
+    'stargate.tech_spec': '技術規範 • 混合多雲安全隧道網關'
   }
 };

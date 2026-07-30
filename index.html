@@ -149,7 +149,7 @@
     </div>
 
     <!-- Bottom Row: Footer credentials -->
-    <div class="max-w-7xl mx-auto w-full px-6 py-6 text-center text-[10px] text-slate-500 font-mono z-10 shrink-0">
+    <div class="max-w-7xl mx-auto w-full px-6 py-6 text-center text-[10px] text-slate-500 font-mono z-10 shrink-0" data-i18n="stargate.tech_spec">
       TECHNICAL SPECIFICATION • HYBRID CLOUD MULTI-CLOUD SECURE TUNNELING GATEWAY
     </div>
   </div>
@@ -331,10 +331,10 @@
               <img src="/images/gpu_cluster_hero.png" alt="Futuristic AI GPU Supercomputer Cluster" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent p-4 flex items-end justify-between">
                 <div class="font-mono text-xs text-slate-200">
-                  <div class="text-cyan-400 font-bold">NYC-East Liquid-Cooled H100 Cluster</div>
-                  <div class="text-[11px] text-slate-400">Equinix NY4 Secaucus • 100Gbps Direct Fiber</div>
+                  <div class="text-cyan-400 font-bold">Target Multi-Cloud Cluster Architecture</div>
+                  <div class="text-[11px] text-slate-400">High-Speed Interconnect Network Spec</div>
                 </div>
-                <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2.5 py-1 rounded text-xs font-mono font-bold">ONLINE</span>
+                <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 px-2.5 py-1 rounded text-xs font-mono font-bold">SPEC READY</span>
               </div>
             </div>
 
@@ -920,9 +920,12 @@
       <!-- Heterogeneous Cloud Compute Mesh -->
       <div class="grid lg:grid-cols-2 gap-6">
         <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-6 space-y-4">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <i data-lucide="server" class="w-5 h-5 text-indigo-400"></i> <span data-i18n="quotas.mesh_title">Compute Capacity Mesh</span>
-          </h3>
+          <div class="flex justify-between items-center">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="server" class="w-5 h-5 text-indigo-400"></i> <span data-i18n="quotas.mesh_title">Compute Capacity Mesh</span>
+            </h3>
+            <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-1 rounded text-[10px] font-mono uppercase">SIMULATED CAPACITY</span>
+          </div>
           <div class="space-y-3 font-mono text-xs">
             <div class="bg-navy-950 border border-navy-800 p-3 rounded-xl flex justify-between items-center">
               <div>
@@ -1496,41 +1499,48 @@ main();</pre>
   </footer>
 
   <!-- Legal Notice & Privacy Policy Modal -->
-  <div id="modal-legal" class="global-modal-overlay hidden">
+  <div id="modal-legal" class="global-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
     <div class="global-modal-card bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
-        <h3 class="text-sm font-bold text-white flex items-center gap-2">
-          <i data-lucide="shield" class="w-4 h-4 text-cyan-400"></i> <span>Legal Notice, Privacy Policy & Disclaimer</span>
+        <h3 id="legal-modal-title" class="text-sm font-bold text-white flex items-center gap-2">
+          <i data-lucide="shield" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="legal.title">Legal Notice, Privacy Policy & Disclaimer</span>
         </h3>
-        <button onclick="toggleLegalModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <button onclick="toggleLegalModal()" aria-label="Close Modal" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-300 leading-relaxed max-h-80 overflow-y-auto">
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
-          <div class="text-cyan-400 font-bold text-[11px] uppercase">1. Platform Nature & Demo Disclaimer</div>
-          <p class="text-[11px] text-slate-400">
-            FirstGate.ai operates as an interactive demonstration platform. All telemetry charts, GPU spot marketplace pricing, hardware attestation proofs, and benchmark TTFT metrics displayed on this site represent simulated data for architecture evaluation and product illustration purposes.
+          <div class="text-cyan-400 font-bold text-[11px] uppercase" data-i18n="legal.sec1_title">1. Architecture Demonstration Nature & Data Disclaimer</div>
+          <p class="text-[11px] text-slate-400" data-i18n="legal.sec1_text">
+            FirstGate.ai Initiative operates as an interactive demonstration platform for institutional AI compute marketplace and prompt routing architecture. All telemetry metrics, GPU spot pricing, attestation hashes, and benchmark TTFT numbers presented are simulated data for evaluation and illustrative purposes.
           </p>
         </div>
 
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
-          <div class="text-emerald-400 font-bold text-[11px] uppercase">2. Privacy & Data Handling (GDPR Compliance)</div>
-          <p class="text-[11px] text-slate-400">
-            We prioritize data privacy. Local preference state (such as selected language) is stored locally in your browser's <code>localStorage</code>. No personal identifiable information (PII) or prompt contents from the interactive testing tools are transmitted to or stored on any external servers.
+          <div class="text-emerald-400 font-bold text-[11px] uppercase" data-i18n="legal.sec2_title">2. Privacy & Network Resource Data Transmission (GDPR Notice)</div>
+          <p class="text-[11px] text-slate-400" data-i18n="legal.sec2_text">
+            We prioritize privacy. The platform maintains no backend database to collect or track your personal identifiable information (PII) or prompt text. Local user choices (such as UI language preference) are saved strictly client-side in browser localStorage. Static scripts and asset libraries are served via public CDNs (jsDelivr, unpkg); accessing these assets transmits standard HTTP request headers (IP address and User-Agent) to CDN providers as technically required for web delivery.
           </p>
         </div>
 
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
-          <div class="text-indigo-400 font-bold text-[11px] uppercase">3. Intellectual Property & Contact</div>
-          <p class="text-[11px] text-slate-400">
-            FirstGate.ai — Institutional AI Compute Marketplace & Intelligent Gateway architecture. For institutional inquiries, technical specs, or partnership evaluations, connect with our team.
+          <div class="text-indigo-400 font-bold text-[11px] uppercase" data-i18n="legal.sec3_title">3. Data Controller Identity & Data Subject Rights</div>
+          <p class="text-[11px] text-slate-400" data-i18n="legal.sec3_text">
+            Data Controller: FirstGate.ai Infrastructure Initiative (Contact: legal@firstgate.ai). In accordance with GDPR and CCPA guidelines, you reserve full rights to inspect, restrict, or clear local browser storage state at any time.
+          </p>
+        </div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-2">
+          <div class="text-purple-400 font-bold text-[11px] uppercase" data-i18n="legal.sec4_title">4. Governing Framework & Effective Date</div>
+          <p class="text-[11px] text-slate-400" data-i18n="legal.sec4_text">
+            Effective Date: July 30, 2026. Designed under Privacy-by-Design principles for institutional multi-cloud AI infrastructure evaluation.
           </p>
         </div>
       </div>
 
       <div class="flex justify-end pt-2">
-        <button onclick="toggleLegalModal()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="modal.close_btn">
-          Close Inspector
+        <button onclick="toggleLegalModal()" class="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="legal.close_btn">
+          Close Legal Notice
         </button>
       </div>
     </div>
@@ -1539,13 +1549,13 @@ main();</pre>
   </div> <!-- /#main-app-content -->
 
   <!-- Interactive Node & F12 Proof Modal (Root Viewport Centered) -->
-  <div id="modal-node-proof" class="global-modal-overlay hidden">
+  <div id="modal-node-proof" class="global-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="node-modal-title">
     <div class="global-modal-card bg-navy-900 border border-navy-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 font-mono">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
-        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+        <h3 id="node-modal-title" class="text-sm font-bold text-white flex items-center gap-2">
           <i data-lucide="check-check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="modal.title">Node Health & Network Real Verification</span>
         </h3>
-        <button onclick="toggleNodeProofModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <button onclick="toggleNodeProofModal()" aria-label="Close Modal" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-300">
@@ -1561,7 +1571,7 @@ main();</pre>
           <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
             <li data-i18n="modal.step1">Press <strong>F12</strong> (or Right Click -> Inspect) to open Browser Developer Tools.</li>
             <li data-i18n="modal.step2">Switch to the <strong>Network</strong> tab.</li>
-            <li data-i18n="modal.step3">Observe the HEAD request dispatched to <code>/css/style.css?t=...</code> every 3 seconds.</li>
+            <li data-i18n="modal.step3">Observe the HEAD request dispatched to <code>./ping.txt?t=...</code> every 3 seconds.</li>
             <li data-i18n="modal.step4">Notice the <strong>200 OK</strong> status code and exact matching RTT timing!</li>
           </ol>
         </div>
@@ -1569,7 +1579,7 @@ main();</pre>
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1 text-[11px]">
           <div class="text-indigo-400 font-bold uppercase tracking-wider" data-i18n="modal.sec3_title">3. Production Architecture Node</div>
           <p class="text-slate-400 leading-relaxed" data-i18n="modal.prod_desc">
-            In production deployment, requests are routed to <strong>NYC-East POP (Equinix NY4 Secaucus, NJ / 111 8th Ave NYC)</strong> connected directly to Wall Street high-frequency optical fiber backbones.
+            In production deployment spec, requests are routed to target NYC-East POP nodes connected to financial network backbones.
           </p>
         </div>
       </div>
@@ -1583,13 +1593,13 @@ main();</pre>
   </div>
 
   <!-- Dedicated API & Token Sales Portal Redirect Modal (Root Viewport Centered) -->
-  <div id="modal-portal-redirect" class="global-modal-overlay hidden">
+  <div id="modal-portal-redirect" class="global-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="portal-modal-title">
     <div class="global-modal-card bg-navy-900 border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 font-mono relative overflow-hidden">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
-        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+        <h3 id="portal-modal-title" class="text-sm font-bold text-white flex items-center gap-2">
           <i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="portal.modal_title">Redirecting to Firstgate API & Token Sales Portal</span>
         </h3>
-        <button onclick="togglePortalModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <button onclick="togglePortalModal()" aria-label="Close Modal" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-300 leading-relaxed">

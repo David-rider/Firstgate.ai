@@ -677,3 +677,15 @@ function initCostPieChart() {
     }
   });
 }
+
+// Global Accessibility: Close Modals on ESC Key Press
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    ['modal-legal', 'modal-node-proof', 'modal-portal-redirect'].forEach((id) => {
+      const modal = document.getElementById(id);
+      if (modal && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+      }
+    });
+  }
+});
