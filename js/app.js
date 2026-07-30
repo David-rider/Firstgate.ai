@@ -101,17 +101,10 @@ export function togglePortalModal() {
 }
 window.togglePortalModal = togglePortalModal;
 
-export function proceedToPortal() {
-  const lang = getLang();
-  const msg = lang === 'en'
-    ? '[Firstgate Portal Redirect] Opening secure billing portal (https://portal.firstgate.ai)...'
-    : (lang === 'zh-TW'
-      ? '[Firstgate 交易控制台] 正在跳轉至安全 Token & API 購買 Portal (https://portal.firstgate.ai)...'
-      : '[Firstgate 交易控制台] 正在跳转至安全 Token & API 购买 Portal (https://portal.firstgate.ai)...');
-  alert(msg);
-  togglePortalModal();
-}
-window.proceedToPortal = proceedToPortal;
+// NOTE: The billing portal (portal.firstgate.ai) is not live yet, so there is
+// deliberately no redirect handler here. When the portal launches, wire the modal
+// action to a real <a href> pointing at the single PORTAL_URL constant below.
+export const PORTAL_URL = 'https://portal.firstgate.ai';
 
 // Modal Inspector Toggle
 export function toggleNodeProofModal() {

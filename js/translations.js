@@ -22,7 +22,7 @@ export const translations = {
     'nav.playground': 'Playground',
     'nav.docs': 'Developer Docs',
     'nav.portal_link': 'API & Token Sales Portal',
-    'nav.console_btn': 'Buy API Key & Token',
+    'nav.console_btn': 'API Key & Token (Coming Soon)',
 
     // Hero Section
     'hero.badge': 'Real-Time Edge Diagnostics + Multi-Model Routing + Wall Street FinOps',
@@ -39,12 +39,15 @@ export const translations = {
     'hero.badge_security_sub': 'Hardware Confidential',
 
     // Portal Redirect Showcase Section
-    'portal.banner_title': 'Direct Access to Institutional LLM API & Token Purchase Portal',
-    'portal.banner_desc': 'Purchase dedicated API keys, high-concurrency token quota packages, and private GPU inference slots via our specialized billing & checkout portal.',
-    'portal.launch_btn': 'Launch API & Token Portal 🚀',
-    'portal.modal_title': 'Redirecting to Firstgate API & Token Sales Portal',
-    'portal.modal_desc': 'You will be redirected to the secure portal (portal.firstgate.ai) to manage API keys, top-up token balances, and inspect transaction invoices.',
-    'portal.modal_proceed': 'Proceed to Billing Portal',
+    'portal.banner_title': 'Institutional LLM API & Token Purchase Portal (Launching Soon)',
+    'portal.banner_desc': 'Dedicated API keys, high-concurrency token quota packages, and private GPU inference slots will be offered through our billing & checkout portal. The portal is currently in development and not yet open.',
+    'portal.launch_btn': 'View Portal Launch Status',
+    'portal.modal_title': 'Firstgate API & Token Portal — Not Yet Live',
+    'portal.modal_desc': 'The Firstgate billing portal is still under development. Once live, it will handle API key issuance, token balance top-ups, and transaction invoices. No purchase, account registration, or payment function is available on this site today.',
+    'portal.host_label': 'Planned Portal Host',
+    'portal.status_label': 'Current Status',
+    'portal.status_val': 'IN DEVELOPMENT — NOT YET LIVE',
+    'portal.modal_ack': 'Understood',
 
     // GPU Ticker Bar
     'ticker.title': 'LIVE GLOBAL GPU SPOT MARKET RATES:',
@@ -304,7 +307,7 @@ export const translations = {
     'about.cta_title': 'Ready to Enter the AI Era?',
     'about.cta_desc': 'Connect with our team to discover how AI infrastructure, GPU spot computing, and intelligent gateway solutions can accelerate your business.',
     'about.cta_btn': 'Schedule a Consultation 🚀',
-    'nav.sales_portal_ready': 'COMMERCIAL SALES PORTAL READY',
+    'nav.sales_portal_ready': 'COMMERCIAL SALES PORTAL — COMING SOON',
     'footer.sub_tag': 'Institutional AI Compute Marketplace & Intelligent Gateway',
     'modal.cancel_btn': 'Cancel',
     'top.gateway_version': 'FIRSTGATE GATEWAY V1 (DEMO)',
@@ -385,7 +388,7 @@ export const translations = {
     'nav.playground': '对比测试台',
     'nav.docs': '开发文档',
     'nav.portal_link': 'Token 算力购买 Portal',
-    'nav.console_btn': '购买 API Key & Token',
+    'nav.console_btn': 'API Key & Token（即将开放）',
 
     // Hero Section
     'hero.badge': '真实边缘网络诊断 + 动态智能路由 + 华尔街级 FinOps',
@@ -402,12 +405,15 @@ export const translations = {
     'hero.badge_security_sub': '硬件级机密保护',
 
     // Portal Redirect Showcase Section
-    'portal.banner_title': '直连机构级 LLM API 密钥与 Token 算力购买 Portal',
-    'portal.banner_desc': '通过专有算力与 Token 交易控制台，一键购买专属 API Key、高并发 Token 配额包及私有 GPU 算力资源。',
-    'portal.launch_btn': '前往 API & Token 算力交易控制台 🚀',
-    'portal.modal_title': '正在跳转至 Firstgate API 密钥与 Token 购买控制台',
-    'portal.modal_desc': '您即将跳转至安全交易控制台 (portal.firstgate.ai)，用以管理 API 密钥、充值 Token 余额及开具增值税发票。',
-    'portal.modal_proceed': '继续前往 Portal 控制台',
+    'portal.banner_title': '机构级 LLM API 密钥与 Token 算力购买 Portal（即将开放）',
+    'portal.banner_desc': '专属 API Key、高并发 Token 配额包及私有 GPU 算力资源，未来将通过专有交易与结算控制台提供。该 Portal 目前仍在开发中，尚未开放。',
+    'portal.launch_btn': '查看 Portal 开放进度',
+    'portal.modal_title': 'Firstgate API 与 Token 购买 Portal —— 尚未上线',
+    'portal.modal_desc': 'Firstgate 交易结算控制台目前仍在开发中。上线后将用于 API 密钥签发、Token 余额充值及交易发票管理。本站当前不提供任何购买、账号注册或支付功能。',
+    'portal.host_label': '规划中的 Portal 域名',
+    'portal.status_label': '当前状态',
+    'portal.status_val': '开发中 —— 尚未上线',
+    'portal.modal_ack': '我知道了',
 
     // GPU Ticker Bar
     'ticker.title': '全球 GPU 实时竞价市场行情:',
@@ -669,7 +675,7 @@ export const translations = {
     // About Us Final CTA
     'about.cta_title': '准备好迈入 AI 智能时代了吗？',
     'about.cta_desc': '联系我们的专家团队，探索 AI 算力基础设施、GPU 竞价市场与智能网关解决方案如何加速您的业务。',
-    'nav.sales_portal_ready': '商业销售与算力交易 Portal',
+    'nav.sales_portal_ready': '商业销售与算力交易 Portal（即将开放）',
     'footer.sub_tag': '机构级 AI 算力交易市场与动态智能路由网关',
     'modal.cancel_btn': '取消',
     'top.gateway_version': 'FIRSTGATE 智能网关 V1 (演示)',
@@ -750,7 +756,7 @@ export const translations = {
     'nav.playground': '對比測試台',
     'nav.docs': '開發文檔',
     'nav.portal_link': 'Token 算力購買 Portal',
-    'nav.console_btn': '購買 API Key & Token',
+    'nav.console_btn': 'API Key & Token（即將開放）',
 
     // Hero Section
     'hero.badge': '真實邊緣網路診斷 + 動態智能路由 + 華爾街級 FinOps',
@@ -767,12 +773,15 @@ export const translations = {
     'hero.badge_security_sub': '硬體級機密保護',
 
     // Portal Redirect Showcase Section
-    'portal.banner_title': '直連機構級 LLM API 密鑰與 Token 算力購買 Portal',
-    'portal.banner_desc': '通過專有算力與 Token 交易控制台，一鍵購買專屬 API Key、高併發 Token 配額包及私有 GPU 算力資源。',
-    'portal.launch_btn': '前往 API & Token 算力交易控制台 🚀',
-    'portal.modal_title': '正在跳轉至 Firstgate API 密鑰與 Token 購買控制台',
-    'portal.modal_desc': '您即將跳轉至安全交易控制台 (portal.firstgate.ai)，用以管理 API 密鑰、充值 Token 餘額及開具交易發票。',
-    'portal.modal_proceed': '繼續前往 Portal 控制台',
+    'portal.banner_title': '機構級 LLM API 密鑰與 Token 算力購買 Portal（即將開放）',
+    'portal.banner_desc': '專屬 API Key、高併發 Token 配額包及私有 GPU 算力資源，未來將透過專有交易與結算控制台提供。該 Portal 目前仍在開發中，尚未開放。',
+    'portal.launch_btn': '查看 Portal 開放進度',
+    'portal.modal_title': 'Firstgate API 與 Token 購買 Portal —— 尚未上線',
+    'portal.modal_desc': 'Firstgate 交易結算控制台目前仍在開發中。上線後將用於 API 密鑰簽發、Token 餘額充值及交易發票管理。本站當前不提供任何購買、帳號註冊或支付功能。',
+    'portal.host_label': '規劃中的 Portal 網域',
+    'portal.status_label': '當前狀態',
+    'portal.status_val': '開發中 —— 尚未上線',
+    'portal.modal_ack': '我知道了',
 
     // GPU Ticker Bar
     'ticker.title': '全球 GPU 即時競價市場行情:',
@@ -1034,7 +1043,7 @@ export const translations = {
     // About Us Final CTA
     'about.cta_title': '準備好邁入 AI 智能時代了嗎？',
     'about.cta_desc': '聯繫我們的專家團隊，探索 AI 算力基礎設施、GPU 競價市場與智能網關解決方案如何加速您的業務。',
-    'nav.sales_portal_ready': '商業銷售與算力交易 Portal',
+    'nav.sales_portal_ready': '商業銷售與算力交易 Portal（即將開放）',
     'footer.sub_tag': '機構級 AI 算力交易市場與動態智能路由網關',
     'modal.cancel_btn': '取消',
     'top.gateway_version': 'FIRSTGATE 智能網關 V1 (演示)',

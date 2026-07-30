@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Security: delivered via meta because WP Engine standard WordPress hosting does not
+       expose self-service response-header configuration. See docs/DOMAIN_CONFIG.md.
+       A full Content-Security-Policy meta tag is planned here once the inline onclick
+       handlers are refactored (see docs/PORTAL_LAUNCH_CHECKLIST.md §4). -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>Firstgate.ai — Institutional AI Compute Marketplace & Intelligent Gateway</title>
   <meta name="description" content="Institutional AI Compute Marketplace and Dynamic Inference Gateway. Real-time GPU spot pricing (H100/H200/B200), sub-millisecond prompt routing, zero-trust TEE confidential computing, and enterprise FinOps.">
-  <link rel="canonical" href="https://firstgate-ai.vercel.app/">
+  <link rel="canonical" href="https://firstgate.ai/">
   
   <!-- High-Definition Native SVG Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23070A11'/><polygon points='50,15 85,35 85,75 50,95 15,75 15,35' fill='none' stroke='%2300F0FF' stroke-width='6'/><circle cx='50' cy='55' r='18' fill='%2310B981'/></svg>">
@@ -13,8 +20,8 @@
   <!-- OpenGraph Social Sharing Metadata -->
   <meta property="og:title" content="Firstgate.ai — Institutional AI Compute Marketplace & Intelligent Gateway">
   <meta property="og:description" content="Institutional AI Compute Marketplace and Dynamic Inference Gateway. Real-time GPU spot pricing, sub-millisecond prompt routing, and zero-trust TEE security.">
-  <meta property="og:image" content="https://firstgate-ai.vercel.app/images/gpu_cluster_hero.png">
-  <meta property="og:url" content="https://firstgate-ai.vercel.app/">
+  <meta property="og:image" content="https://firstgate.ai/images/gpu_cluster_hero.png">
+  <meta property="og:url" content="https://firstgate.ai/">
   <meta property="og:type" content="website">
 
   <!-- Structured Data JSON-LD -->
@@ -23,6 +30,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "FirstGate.ai",
+    "url": "https://firstgate.ai/",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "All",
     "offers": {
@@ -41,6 +49,12 @@
       darkMode: 'class',
       theme: {
         extend: {
+          // Register the self-hosted webfonts on Tailwind's own font utilities,
+          // otherwise .font-sans / .font-mono override the CSS and the fonts never load.
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace']
+          },
           colors: {
             navy: {
               950: '#070A11',
@@ -64,11 +78,17 @@
     }
   </script>
 
-  <!-- Lucide Icons (pinned version 0.460.0) -->
-  <script src="https://unpkg.com/lucide@0.460.0"></script>
+  <!-- Lucide Icons (pinned 0.460.0 + Subresource Integrity: browser rejects the file if tampered) -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"
+          integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
 
-  <!-- Chart.js (pinned version 4.4.1 for production stability) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Chart.js (pinned 4.4.1 + Subresource Integrity: browser rejects the file if tampered) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
+          integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
 
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -261,7 +281,7 @@
       <div class="flex items-center space-x-3">
         <button onclick="openPortalModal()" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-cyan-500 via-emerald-400 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-navy-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-cyan-500/25 border border-cyan-400/40">
           <i data-lucide="key" class="w-4 h-4"></i>
-          <span data-i18n="nav.console_btn">Buy API Key & Token</span>
+          <span data-i18n="nav.console_btn">API Key & Token (Coming Soon)</span>
         </button>
 
         <!-- Mobile Menu Toggle Button -->
@@ -293,7 +313,7 @@
         <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="nav.about">About Us</span>
       </button>
       <button onclick="openPortalModal(); toggleMobileMenu()" class="w-full text-left nav-tab-mobile text-cyan-400 font-bold">
-        <i data-lucide="key" class="w-4 h-4"></i> <span data-i18n="nav.console_btn">Buy API Key & Token</span>
+        <i data-lucide="key" class="w-4 h-4"></i> <span data-i18n="nav.console_btn">API Key & Token (Coming Soon)</span>
       </button>
     </div>
   </header>
@@ -310,18 +330,18 @@
           <div class="space-y-2 max-w-3xl">
             <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
-              <span data-i18n="nav.sales_portal_ready">COMMERCIAL SALES PORTAL READY</span>
+              <span data-i18n="nav.sales_portal_ready">COMMERCIAL SALES PORTAL — COMING SOON</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight" data-i18n="portal.banner_title">
-              Direct Access to Institutional LLM API & Token Purchase Portal
+              Institutional LLM API & Token Purchase Portal (Launching Soon)
             </h2>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="portal.banner_desc">
-              Purchase dedicated API keys, high-concurrency token quota packages, and private GPU inference slots via our specialized billing & checkout portal.
+              Dedicated API keys, high-concurrency token quota packages, and private GPU inference slots will be offered through our billing & checkout portal. The portal is currently in development and not yet open.
             </p>
           </div>
 
           <button onclick="openPortalModal()" class="bg-gradient-to-r from-cyan-500 via-emerald-400 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-navy-950 font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-xl shadow-cyan-500/30 flex items-center space-x-2 shrink-0">
-            <span data-i18n="portal.launch_btn">Launch API & Token Portal 🚀</span>
+            <span data-i18n="portal.launch_btn">View Portal Launch Status</span>
           </button>
         </div>
       </div>
@@ -368,7 +388,7 @@
               </button>
               <button onclick="openPortalModal()" class="bg-navy-900 hover:bg-navy-800 border border-cyan-500/40 text-cyan-400 font-semibold text-sm px-6 py-3 rounded-xl transition-all flex items-center space-x-2">
                 <i data-lucide="key" class="w-4 h-4 text-emerald-400"></i>
-                <span data-i18n="nav.console_btn">Buy API Key & Token</span>
+                <span data-i18n="nav.console_btn">API Key & Token (Coming Soon)</span>
               </button>
             </div>
 
@@ -1627,27 +1647,24 @@ main();</pre>
     <div class="global-modal-card bg-navy-900 border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 font-mono relative overflow-hidden">
       <div class="flex justify-between items-center border-b border-navy-800 pb-3">
         <h3 id="portal-modal-title" class="text-sm font-bold text-white flex items-center gap-2">
-          <i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="portal.modal_title">Redirecting to Firstgate API & Token Sales Portal</span>
+          <i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="portal.modal_title">Firstgate API & Token Portal — Not Yet Live</span>
         </h3>
         <button onclick="togglePortalModal()" aria-label="Close Modal" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
         <p data-i18n="portal.modal_desc">
-          You will be redirected to the secure portal (portal.firstgate.ai) to manage API keys, top-up token balances, and inspect transaction invoices.
+          The Firstgate billing portal is still under development. Once live, it will handle API key issuance, token balance top-ups, and transaction invoices. No purchase, account registration, or payment function is available on this site today.
         </p>
         <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 space-y-1 font-mono text-[11px]">
-          <div>Target Portal Host: <strong class="text-cyan-400">https://portal.firstgate.ai</strong></div>
-          <div>Billing Status: <strong class="text-emerald-400">SSL Encrypted 256-bit</strong></div>
+          <div><span data-i18n="portal.host_label">Planned Portal Host</span>: <strong class="text-slate-300">portal.firstgate.ai</strong></div>
+          <div><span data-i18n="portal.status_label">Current Status</span>: <strong class="text-yellow-400" data-i18n="portal.status_val">IN DEVELOPMENT — NOT YET LIVE</strong></div>
         </div>
       </div>
 
-      <div class="flex justify-end gap-3 pt-2">
-        <button onclick="togglePortalModal()" class="bg-navy-800 text-slate-300 hover:text-white font-bold text-xs px-4 py-2 rounded-lg transition-all" data-i18n="modal.cancel_btn">
-          Cancel
-        </button>
-        <button onclick="proceedToPortal()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-5 py-2 rounded-lg transition-all shadow-md shadow-cyan-500/20" data-i18n="portal.modal_proceed">
-          Proceed to Billing Portal
+      <div class="flex justify-end pt-2">
+        <button onclick="togglePortalModal()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-navy-950 font-bold text-xs px-5 py-2 rounded-lg transition-all shadow-md shadow-cyan-500/20" data-i18n="portal.modal_ack">
+          Understood
         </button>
       </div>
     </div>
