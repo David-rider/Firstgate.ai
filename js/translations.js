@@ -332,7 +332,7 @@ export const translations = {
     'top.protocol': '传输协议',
     'top.node_region': '当前连接节点',
     'top.status': '网关集群状态',
-    'top.soc2': '符合 SOC2 与 TEE 硬件机密架构',
+    'top.soc2': '面向 SOC2 与 TEE 硬件机密架构设计',
     'top.sla': '目标可用性 SLA: 99.999%',
     'top.verify_btn': '节点验证与 F12 抓包证明',
     'top.proto_val': 'HTTP/1.1 (Vite 开发服务器)',
@@ -597,7 +597,7 @@ export const translations = {
     'modal.close_btn': '关闭诊断窗口',
 
     // Footer
-    'footer.text': '纽约东区 POP 节点 • 目标 SLA: 99.999% • 符合 SOC2 与 TEE 硬件机密架构',
+    'footer.text': '纽约东区 POP 节点 • 目标 SLA: 99.999% • 面向 SOC2 与 TEE 架构设计',
 
     // FirstGate Cover Landing Page
     'stargate.title': 'FIRSTGATE 多云安全网络隧道与智能关口',
@@ -658,7 +658,7 @@ export const translations = {
     'top.protocol': '傳輸協定',
     'top.node_region': '當前連接節點',
     'top.status': '網關集群狀態',
-    'top.soc2': '符合 SOC2 與 TEE 硬體機密架構',
+    'top.soc2': '面向 SOC2 與 TEE 硬體機密架構設計',
     'top.sla': '目標可用性 SLA: 99.999%',
     'top.verify_btn': '節點驗證與 F12 抓包證明',
     'top.proto_val': 'HTTP/1.1 (Vite 開發伺服器)',
@@ -902,7 +902,7 @@ export const translations = {
     'modal.close_btn': '關閉診斷視窗',
 
     // Footer
-    'footer.text': '紐約東區 POP 節點 • 目標 SLA: 99.999% • 符合 SOC2 與 TEE 硬體機密架構',
+    'footer.text': '紐約東區 POP 節點 • 目標 SLA: 99.999% • 面向 SOC2 與 TEE 架構設計',
 
     // FirstGate Cover Landing Page
     'stargate.title': 'FIRSTGATE 多雲安全網路隧道與智能關口',
