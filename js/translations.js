@@ -252,7 +252,7 @@ export const translations = {
     'modal.sec2_title': '2. How to Prove it is Real in Browser F12',
     'modal.step1': 'Press <strong>F12</strong> (or Right Click -> Inspect) to open Browser Developer Tools.',
     'modal.step2': 'Switch to the <strong>Network</strong> tab.',
-    'modal.step3': 'Observe the HEAD request dispatched to <code>/css/style.css?t=...</code> every 3 seconds.',
+    'modal.step3': 'Observe the HEAD request dispatched to <code>./ping.txt?t=...</code> every 3 seconds.',
     'modal.step4': 'Notice the <strong>200 OK</strong> status code and exact matching RTT timing!',
     'modal.sec3_title': '3. Production Architecture Node',
     'modal.prod_desc': 'In production deployment, requests are routed to <strong>NYC-East POP (Equinix NY4 Secaucus, NJ / 111 8th Ave NYC)</strong> connected directly to Wall Street high-frequency optical fiber backbones.',
@@ -303,7 +303,14 @@ export const translations = {
     'about.t4_quote': '"Empowering organizations to transform data into intelligence."',
     'about.cta_title': 'Ready to Enter the AI Era?',
     'about.cta_desc': 'Connect with our team to discover how AI infrastructure, GPU spot computing, and intelligent gateway solutions can accelerate your business.',
-    'about.cta_btn': 'Schedule a Consultation 🚀'
+    'about.cta_btn': 'Schedule a Consultation 🚀',
+    'nav.sales_portal_ready': 'COMMERCIAL SALES PORTAL READY',
+    'footer.sub_tag': 'Institutional AI Compute Marketplace & Intelligent Gateway',
+    'modal.cancel_btn': 'Cancel',
+    'security.compliance_certs_title': 'Compliance & Security Architecture Roadmap',
+    'security.cert_soc2_title': 'SOC 2 Type II Architecture Ready (Planned)',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 Framework Readiness',
+    'security.cert_gdpr_title': 'GDPR Privacy-by-Design Architecture'
   },
 
   'zh-CN': {
@@ -571,7 +578,7 @@ export const translations = {
     'modal.sec2_title': '2. 如何在浏览器 F12 中验证真实性',
     'modal.step1': '按下 <strong>F12</strong>（或右键 -> 检查）打开浏览器开发者工具。',
     'modal.step2': '切换至 <strong>Network (网络)</strong> 标签页。',
-    'modal.step3': '观察网页每 3 秒自动向 <code>/css/style.css?t=...</code> 发起的 HEAD 请求。',
+    'modal.step3': '观察网页每 3 秒自动向 <code>./ping.txt?t=...</code> 发起的 HEAD 探针请求。',
     'modal.step4': '核对 <strong>200 OK</strong> 状态码与实测往返时间！',
     'modal.sec3_title': '3. 生产环境节点架构',
     'modal.prod_desc': '在生产部署环境中，请求将被调度至<strong>纽约 Secaucus (Equinix NY4) 与曼哈顿 111 8th Ave</strong>，直连华尔街金融高频光纤骨干网。',
@@ -611,7 +618,14 @@ export const translations = {
 
     // About Us Final CTA
     'about.cta_title': '准备好迈入 AI 智能时代了吗？',
-    'about.cta_desc': '联系我们的专家团队，探索 AI 算力基础设施、GPU 竞价市场与智能网关解决方案如何加速您的业务。'
+    'about.cta_desc': '联系我们的专家团队，探索 AI 算力基础设施、GPU 竞价市场与智能网关解决方案如何加速您的业务。',
+    'nav.sales_portal_ready': '商业销售与算力交易 Portal',
+    'footer.sub_tag': '机构级 AI 算力交易市场与动态智能路由网关',
+    'modal.cancel_btn': '取消',
+    'security.compliance_certs_title': '合规与安全架构演进路线图',
+    'security.cert_soc2_title': 'SOC 2 Type II 拟定架构 (规划中)',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 框架准备中',
+    'security.cert_gdpr_title': 'GDPR 隐私设计架构'
   },
 
   'zh-TW': {
@@ -858,7 +872,7 @@ export const translations = {
     'modal.sec2_title': '2. 如何在瀏覽器 F12 中驗證真實性',
     'modal.step1': '按下 <strong>F12</strong>（或右鍵 -> 檢查）打開瀏覽器開發者工具。',
     'modal.step2': '切換至 <strong>Network (網路)</strong> 標籤頁。',
-    'modal.step3': '觀察網頁每 3 秒自動向 <code>/css/style.css?t=...</code> 發起的 HEAD 請求。',
+    'modal.step3': '觀察網頁每 3 秒自動向 <code>./ping.txt?t=...</code> 發起的 HEAD 探針請求。',
     'modal.step4': '核對 <strong>200 OK</strong> 狀態碼與實測往返時間！',
     'modal.sec3_title': '3. 生產環境節點架構',
     'modal.prod_desc': '在生產部署環境中，請求將被調度至<strong>紐約 Secaucus (Equinix NY4) 與曼哈頓 111 8th Ave</strong>，直連華爾街金融高頻光纖骨幹網。',
@@ -918,6 +932,13 @@ export const translations = {
 
     // About Us Final CTA
     'about.cta_title': '準備好邁入 AI 智能時代了嗎？',
-    'about.cta_desc': '聯繫我們的專家團隊，探索 AI 算力基礎設施、GPU 競價市場與智能網關解決方案如何加速您的業務。'
+    'about.cta_desc': '聯繫我們的專家團隊，探索 AI 算力基礎設施、GPU 競價市場與智能網關解決方案如何加速您的業務。',
+    'nav.sales_portal_ready': '商業銷售與算力交易 Portal',
+    'footer.sub_tag': '機構級 AI 算力交易市場與動態智能路由網關',
+    'modal.cancel_btn': '取消',
+    'security.compliance_certs_title': '合規與安全架構演進路線圖',
+    'security.cert_soc2_title': 'SOC 2 Type II 擬定架構 (規劃中)',
+    'security.cert_nydfs_title': 'NY DFS 23 NYCRR 500 框架準備中',
+    'security.cert_gdpr_title': 'GDPR 隱私設計架構'
   }
 };

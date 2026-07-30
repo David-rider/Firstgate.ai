@@ -362,30 +362,39 @@ export function selectRouterPreset(presetType) {
     targetCard.classList.add('active');
   }
 
-  const lang = getLang();
-  const msg = lang === 'en' 
-    ? `[Firstgate Router] Policy preset updated to: ${presetType.toUpperCase()}. Routing nodes updated across NYC POP.`
-    : (lang === 'zh-TW'
-      ? `[Firstgate Router] 路由策略已更新為: ${presetType.toUpperCase()}。已同步至紐約全量 POP 節點。`
-      : `[Firstgate Router] 路由策略已更新为: ${presetType.toUpperCase()}。已同步至纽约全量 POP 节点。`);
+  const latWeightElem = document.getElementById('sim-lat-weight');
+  const costWeightElem = document.getElementById('sim-cost-weight');
 
-  alert(msg);
+  if (latWeightElem && costWeightElem) {
+    if (presetType === 'latency') {
+      latWeightElem.value = 90;
+      costWeightElem.value = 10;
+    } else if (presetType === 'cost') {
+      latWeightElem.value = 20;
+      costWeightElem.value = 80;
+    } else if (presetType === 'airgap') {
+      latWeightElem.value = 50;
+      costWeightElem.value = 50;
+    }
+  }
+
+  runRoutingSimulation();
 }
 window.selectRouterPreset = selectRouterPreset;
 
 export function saveRouterPolicy() {
   const lang = getLang();
   const msg = lang === 'en'
-    ? '[Firstgate Control Plane] Router policy & fallback chain successfully compiled & deployed to 12 NYC Edge Nodes in 0.8ms!'
+    ? '[Firstgate Control Plane] Routing policy deployed to Gateway Edge Nodes (Simulated Demo).'
     : (lang === 'zh-TW'
-      ? '[Firstgate 控制平面] 路由策略與降級鏈已在 0.8ms 內編譯並成功部署至 12 個紐約邊緣節點！'
-      : '[Firstgate 控制平面] 路由策略与降级链已在 0.8ms 内编译并成功部署至 12 个纽约边缘节点！');
+      ? '[Firstgate 控制平面] 路由策略與降級鏈已成功部署至網關邊緣節點 (仿真演示)！'
+      : '[Firstgate 控制平面] 路由策略与降级链已成功部署至网关边缘节点 (仿真演示)！');
 
   alert(msg);
 }
 window.saveRouterPolicy = saveRouterPolicy;
 
-// Interactive Real-Time PII Masking Tester
+// Interactive Real-Time PII Masking Tester (Enhanced Regex)
 export function runPiiMaskingTest() {
   const inputElem = document.getElementById('pii-input');
   const outputElem = document.getElementById('pii-output');
@@ -395,17 +404,24 @@ export function runPiiMaskingTest() {
   const rawText = inputElem.value;
 
   let masked = rawText
-    .replace(/\b\d{3}-\d{2}-\d{4}\b/g, '[REDACTED_SSN]')
-    .replace(/\b\d{4}-\d{4}-\d{4}-\d{4}\b/g, '[REDACTED_CREDIT_CARD]')
-    .replace(/John Doe/gi, '[REDACTED_NAME]')
+    // SSN (Formatted: NNN-NN-NNNN, or Unformatted: 9 digits)
+    .replace(/\b\d{3}[-]?\d{2}[-]?\d{4}\b/g, '[REDACTED_SSN]')
+    // Credit Cards (Formatted with dashes/spaces, or 13-19 digits continuous)
+    .replace(/\b(?:\d[ -]*?){13,19}\b/g, '[REDACTED_CREDIT_CARD]')
+    // Email addresses
+    .replace(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g, '[REDACTED_EMAIL]')
+    // Names (Demo names)
+    .replace(/John Doe|Jane Smith|Alice Johnson/gi, '[REDACTED_NAME]')
+    // Financial Amounts
     .replace(/\$\d{1,3}(,\d{3})*(\.\d+)?/g, '[REDACTED_FINANCIAL_VAL]')
+    // Account Numbers
     .replace(/ACC-WALLST-\d+/g, '[REDACTED_ACCOUNT_ID]');
 
   outputElem.innerText = masked;
 }
 window.runPiiMaskingTest = runPiiMaskingTest;
 
-// Populate ClickHouse Immutable Audit Log Rows
+// Populate ClickHouse Immutable Audit Log Rows with Dynamic Timestamps
 function populateAuditLogs() {
   const tbody = document.getElementById('audit-log-rows');
   if (!tbody) return;
@@ -413,12 +429,18 @@ function populateAuditLogs() {
   const cleanStr = t('security.pii_clean');
   const redactedStr = (n) => `${n} ${t('security.pii_redacted')}`;
 
+  const now = new Date();
+  const formatTime = (offsetSec) => {
+    const d = new Date(now.getTime() - offsetSec * 1000);
+    return d.toISOString().replace('T', ' ').substring(0, 23);
+  };
+
   const sampleLogs = [
-    { time: '2026-07-20 23:14:02.194', app: 'quant-trader-bot-01', model: 'deepseek-v3 (NYC-VPC)', lat: '16.4 ms', tokens: '1,420', pii: cleanStr, status: '200 OK' },
-    { time: '2026-07-20 23:13:58.841', app: 'compliance-auditor-v2', model: 'claude-3-5-sonnet', lat: '34.1 ms', tokens: '8,920', pii: redactedStr(3), status: '200 OK' },
-    { time: '2026-07-20 23:13:52.301', app: 'risk-analytics-engine', model: 'gpt-4o', lat: '42.8 ms', tokens: '4,100', pii: redactedStr(1), status: '200 OK' },
-    { time: '2026-07-20 23:13:44.912', app: 'exec-copilot-portal', model: 'gemini-1-5-pro', lat: '28.9 ms', tokens: '2,310', pii: cleanStr, status: '200 OK' },
-    { time: '2026-07-20 23:13:31.004', app: 'quant-trader-bot-02', model: 'deepseek-v3 (NYC-VPC)', lat: '14.8 ms', tokens: '12,040', pii: cleanStr, status: '200 OK' }
+    { time: formatTime(5), app: 'quant-trader-bot-01', model: 'deepseek-v3 (NYC-VPC)', lat: '16.4 ms', tokens: '1,420', pii: cleanStr, status: '200 OK' },
+    { time: formatTime(12), app: 'compliance-auditor-v2', model: 'claude-3-5-sonnet', lat: '34.1 ms', tokens: '8,920', pii: redactedStr(3), status: '200 OK' },
+    { time: formatTime(28), app: 'risk-analytics-engine', model: 'gpt-4o', lat: '42.8 ms', tokens: '4,100', pii: redactedStr(1), status: '200 OK' },
+    { time: formatTime(45), app: 'exec-copilot-portal', model: 'gemini-1-5-pro', lat: '28.9 ms', tokens: '2,310', pii: cleanStr, status: '200 OK' },
+    { time: formatTime(72), app: 'quant-trader-bot-02', model: 'deepseek-v3 (NYC-VPC)', lat: '14.8 ms', tokens: '12,040', pii: cleanStr, status: '200 OK' }
   ];
 
   tbody.innerHTML = sampleLogs.map(log => `
@@ -435,34 +457,36 @@ function populateAuditLogs() {
 }
 
 export function exportAuditLog() {
-  const csvContent = "data:text/csv;charset=utf-8,Timestamp,Client_App,Routed_Model,Latency,Tokens,PII_Redacted,Status\n" +
-    "2026-07-20 23:14:02.194,quant-trader-bot-01,deepseek-v3,16.4ms,1420,0,200_OK\n" +
-    "2026-07-20 23:13:58.841,compliance-auditor-v2,claude-3-5-sonnet,34.1ms,8920,3,200_OK";
+  const nowStr = new Date().toISOString().substring(0, 19).replace('T', ' ');
+  const csvHeader = "# FIRSTGATE AI - SIMULATED DEMO AUDIT LOG DATA (FOR EVALUATION PURPOSE ONLY)\n";
+  const csvContent = "data:text/csv;charset=utf-8," + encodeURIComponent(csvHeader + "Timestamp,Client_App,Routed_Model,Latency,Tokens,PII_Redacted,Status\n" +
+    `${nowStr},quant-trader-bot-01,deepseek-v3,16.4ms,1420,0,200_OK\n` +
+    `${nowStr},compliance-auditor-v2,claude-3-5-sonnet,34.1ms,8920,3,200_OK\n`);
   
-  const encodedUri = encodeURI(csvContent);
   const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "Firstgate_SOC2_Audit_Log_Export.csv");
+  link.setAttribute("href", csvContent);
+  link.setAttribute("download", "FirstGate_Audit_Log_Simulation_Export.csv");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
 window.exportAuditLog = exportAuditLog;
 
-// Multi-Model Playground Streaming Test Simulator
+// Playground Parallel Multi-Model Evaluation Test
 export function runPlaygroundComparison() {
   const btn = document.getElementById('pg-run-btn');
-
   if (btn) {
     btn.disabled = true;
-    const streamingText = t('playground.streaming');
-    btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> ${streamingText}`;
+    btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> <span>${t('playground.streaming')}</span>`;
+    if (window.lucide) lucide.createIcons();
   }
 
   const card1 = document.getElementById('pg-res-1');
   const card2 = document.getElementById('pg-res-2');
   const card3 = document.getElementById('pg-res-3');
   const card4 = document.getElementById('pg-res-4');
+
+  if (!card1 || !card2 || !card3 || !card4) return;
 
   card1.innerText = '';
   card2.innerText = '';
@@ -475,17 +499,18 @@ export function runPlaygroundComparison() {
   document.getElementById('pg-ttft-3').innerText = initStreamStr;
   document.getElementById('pg-ttft-4').innerText = initStreamStr;
 
+  const currentLang = getLang();
   const responses = {
-    c1: t('lang') === 'en'
+    c1: currentLang === 'en'
       ? "An API Gateway proxies requests, authenticating endpoints and rate-limiting calls. An AI Routing Engine like Firstgate dynamically inspects token payloads, evaluates LLM availability, latency (TTFT), cost per 1k tokens, and routes prompts to optimal endpoints."
       : "API 网关主要负责 HTTP 鉴权与限流。而像 Firstgate 样的 AI 智能路由引擎，能动态解析 Prompt Token，实时评估 TTFT 延迟与成本，在多模型间做最优智能调度。",
-    c2: t('lang') === 'en'
+    c2: currentLang === 'en'
       ? "API Gateways handle standard HTTP traffic governance. AI Routing Engines add semantic caching, automatic fallback chains, PII redaction, and cost-optimized multi-provider token management tailored for real-time financial trading systems."
       : "API 网关治理标准网络流量。AI 路由引擎进一步提供语义向量缓存、自动降级链、零信任 PII 脱敏以及针对金融交易系统优化的多云算力成本控制。",
-    c3: t('lang') === 'en'
+    c3: currentLang === 'en'
       ? "⚡ [Firstgate Selected Node: NYC VPC] An AI Routing Engine acts as a dynamic control plane that translates financial trading prompts into execution calls across heterogeneous GPU clusters, reducing cost by 70% while guaranteeing sub-20ms SLA."
       : "⚡ [Firstgate 选中节点: 纽约 VPC 私有集群] AI 智能路由引擎作为控制平面，将金融交易 Prompt 调度至异构 GPU 资源，在保证亚20ms SLA 的同时降低 70% 成本。",
-    c4: t('lang') === 'en'
+    c4: currentLang === 'en'
       ? "While traditional API gateways govern operational QPS, an Enterprise AI Routing Engine provides intelligent model arbitration, vector-based semantic response retrieval, and token budget enforcement."
       : "传统 API 网关管控运维 QPS，而企业级 AI 路由引擎提供智能模型仲裁、向量语义缓存检索以及算力配额与预算硬封顶控制。"
   };
@@ -545,13 +570,19 @@ export function editQuota(deptName) {
     ? `Set new monthly budget cap ($) for ${deptName}:` 
     : (lang === 'zh-TW' ? `請輸入 ${deptName} 的月度預算上限 ($):` : `请输入 ${deptName} 的月度预算上限 ($):`);
 
-  const newCap = prompt(promptText, "120000");
-  if (newCap) {
+  const newCapInput = prompt(promptText, "120000");
+  if (newCapInput !== null) {
+    const numericCap = parseFloat(newCapInput.replace(/[^0-9.]/g, ''));
+    if (isNaN(numericCap) || numericCap < 0) {
+      alert(lang === 'en' ? 'Invalid numeric amount entered.' : '请输入有效的数字金额。');
+      return;
+    }
+
     const alertMsg = lang === 'en'
-      ? `[Firstgate Governance] ${deptName} budget cap updated to $${parseInt(newCap).toLocaleString()}. Allocated across NYC Edge Gateway.`
+      ? `Budget cap for [${deptName}] updated to $${numericCap.toLocaleString()} (Simulated Demo).`
       : (lang === 'zh-TW'
-        ? `[Firstgate 配額治理] ${deptName} 月度預算已更新為 $${parseInt(newCap).toLocaleString()}。已同步分配至紐約網關。`
-        : `[Firstgate 配额治理] ${deptName} 月度预算已更新为 $${parseInt(newCap).toLocaleString()}。已同步分配至纽约网关。`);
+        ? `[${deptName}] 月度預算上限已更新為 $${numericCap.toLocaleString()} (仿真演示)`
+        : `[${deptName}] 月度预算上限已更新为 $${numericCap.toLocaleString()} (仿真演示)`);
     alert(alertMsg);
   }
 }
