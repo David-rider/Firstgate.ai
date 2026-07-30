@@ -702,48 +702,6 @@ export const translations = {
     'pillar4.feat1': 'NVIDIA H100 硬體 Enclave TEE 保護',
     'pillar4.feat2': 'ClickHouse 不可篡改審計日誌庫',
 
-    // Telemetry Chart
-    'telemetry.title': '即時邊緣網路時延監控',
-    'telemetry.subtitle': '用戶端至 Firstgate 邊緣節點的真實 RTT 網路往返時延 (每 3 秒自動更新)',
-    'telemetry.legend': '實測 RTT 時延 (ms)',
-
-    // Compute Marketplace Page
-    'market.title': 'AI 算力交易與 Spot 競價市場',
-    'market.subtitle': '即時對比全球 GPU 競價價格，一鍵預定專用推理算力集群，部署跨區域 Serverless vLLM 節點',
-    'market.gpus_avail': '4,820 張 GPU 算力在線',
-    'market.filter_all': '全部 GPU 類型',
-    'market.filter_h100': 'H100 / H200 系列',
-    'market.filter_b200': 'Blackwell B200',
-    'market.filter_l40s': 'L40S / A100',
-    'market.col_gpu': 'GPU 型號',
-    'market.col_vram': '顯存大小',
-    'market.col_region': '節點區域',
-    'market.col_cloud': '公有雲標準價',
-    'market.col_fg_spot': 'Firstgate 競價',
-    'market.col_savings': '節省比例',
-    'market.col_action': '操作',
-    'market.reserve_btn': '立即預定 Pod',
-    'market.status_avail': '算力就緒',
-    'market.status_demand': '高需求爭搶',
-
-    // Models Marketplace Section
-    'models.title': '託管開源大模型市場',
-    'models.subtitle': '一鍵拉起 SOTA 開源模型 Serverless 端點，提供亞 20ms 首包延遲體驗',
-    'models.m1_desc': 'FP8 量化版本 • 128k 上下文窗口',
-    'models.m2_desc': '強化學習 • 思維鏈 (CoT) 深度推理',
-    'models.m3_desc': 'Meta 旗艦大模型 • 128k 長文本',
-    'models.m4_desc': '阿里雲出品 • 程式碼與數學推理專家',
-    'models.badge_ready': '服務就緒',
-    'models.badge_popular': '最受歡迎',
-    'models.badge_fastest': '響應最快',
-    'models.price_unit': '/ 100萬 Tokens',
-    'models.host_label': '託管部署節點:',
-    'models.m1_host': '紐約本地私有 VPC 節點',
-    'models.m2_host': 'AWS H100 TEE 安全機密集群',
-    'models.m3_host': 'GCP L40S 算力池',
-    'models.m4_host': '紐約東區 POP 邊緣節點',
-    'models.deploy_btn': '部署推理端點',
-
     // About Us Section (Consolidated & Streamlined)
     'nav.stargate_cover': 'FirstGate 智能大門',
     'nav.about': '關於我們',
@@ -777,8 +735,6 @@ export const translations = {
     'about.t4_item1': 'Spot 競價算力套利與 vLLM 集群編排',
     'about.t4_item2': '亞毫秒級模型路由與晶片級 TEE 機密保護',
     'about.t4_quote': '「賦能企業將數據轉化為真正的智能能量。」',
-    'about.cta_title': '準備好邁入 AI 智能時代了嗎？',
-    'about.cta_desc': '聯繫我們的專家團隊，探索 AI 算力基礎設施、GPU 競價市場與智能網關解決方案如何加速您的業務。',
     'about.cta_btn': '預約技術諮詢 🚀',
 
     // Router Page
@@ -916,6 +872,52 @@ export const translations = {
     'stargate.vision_title': '多雲橋接與隱私保障',
     'stargate.vision_desc': 'FirstGate 致力於解決安全的多雲網路橋接與 AI 算力調度。通過零信任安全隧道與加密路由協定，跨越公有雲物理邊界，將異構 GPU 集群連接為統一的高安全網路。所有的企業級 LLM 負載均通過硬體隔離的機密安全飛地（TEE）運行，從晶片底層保障數據隱私安全。',
     'stargate.enter_gate': '進入控制台 ➔',
-    'stargate.skip': '直接進入 ➔'
+    'stargate.skip': '直接進入 ➔',
+
+    // Compute Marketplace Page
+    'market.title': 'AI 算力交易與 Spot 競價市場',
+    'market.subtitle': '即時對比全球 GPU 競價價格，一鍵預定專用推理算力集群，部署跨區域 Serverless vLLM 節點',
+    'market.gpus_avail': '4,820 張 GPU 算力在線',
+    'market.filter_all': '全部 GPU 類型',
+    'market.filter_h100': 'H100 / H200 系列',
+    'market.filter_b200': 'Blackwell B200',
+    'market.filter_l40s': 'L40S / A100',
+    'market.col_gpu': 'GPU 型號',
+    'market.col_vram': '顯存大小',
+    'market.col_region': '節點區域',
+    'market.col_cloud': '公有雲標準價',
+    'market.col_fg_spot': 'Firstgate 競價',
+    'market.col_savings': '節省比例',
+    'market.col_action': '操作',
+    'market.reserve_btn': '立即預定 Pod',
+    'market.status_avail': '算力就緒',
+    'market.status_demand': '高需求爭搶',
+
+    // Models Marketplace Section
+    'models.title': '託管開源大模型市場',
+    'models.subtitle': '一鍵拉起 SOTA 開源模型 Serverless 端點，提供亞 20ms 首包延遲體驗',
+    'models.m1_desc': 'FP8 量化版本 • 128k 上下文窗口',
+    'models.m2_desc': '強化學習 • 思維鏈 (CoT) 深度推理',
+    'models.m3_desc': '32k 上下文窗口 • 極致高速推理',
+    'models.m4_desc': '企業級程式碼專用 • 128k 上下文',
+    'models.badge_ready': '可部署',
+    'models.badge_popular': '熱門',
+    'models.badge_fastest': '最快',
+    'models.price_unit': '每 1M Tokens',
+    'models.host_label': '推薦部署節點:',
+    'models.m1_host': '紐約 VPC 私有 H100 集群',
+    'models.m2_host': 'Firstgate 專有推理池',
+    'models.m3_host': 'AWS us-east-1 Spot',
+    'models.m4_host': 'GCP us-central1 Spot',
+    'models.deploy_btn': '部署端點',
+
+    // Telemetry Chart
+    'telemetry.title': '即時邊緣網路時延監控',
+    'telemetry.subtitle': '用戶端至 Firstgate 邊緣節點的真實 RTT 網路往返時延 (每 3 秒自動更新)',
+    'telemetry.legend': '實測 RTT 時延 (ms)',
+
+    // About Us Final CTA
+    'about.cta_title': '準備好邁入 AI 智能時代了嗎？',
+    'about.cta_desc': '聯繫我們的專家團隊，探索 AI 算力基礎設施、GPU 競價市場與智能網關解決方案如何加速您的業務。'
   }
 };
