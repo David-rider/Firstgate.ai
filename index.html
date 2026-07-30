@@ -97,9 +97,9 @@
       <div class="flex items-center space-x-2 bg-navy-900 border border-navy-800 px-3 py-1 rounded text-xs font-mono">
         <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
         <select onchange="window.setLang(this.value)" class="bg-transparent text-slate-200 outline-none cursor-pointer">
-          <option value="en" class="bg-navy-900">EN</option>
-          <option value="zh-CN" class="bg-navy-900">简</option>
-          <option value="zh-TW" class="bg-navy-900">繁</option>
+          <option value="en" class="bg-navy-900" data-i18n="lang.en">EN</option>
+          <option value="zh-CN" class="bg-navy-900" data-i18n="lang.zh_cn">简</option>
+          <option value="zh-TW" class="bg-navy-900" data-i18n="lang.zh_tw">繁</option>
         </select>
       </div>
     </div>
@@ -126,10 +126,10 @@
             <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> ACTIVE</span>
           </div>
           <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-300">
-            <div>Topology: <span class="text-white font-bold">Multi-Cloud Mesh</span></div>
-            <div>SLA Target: <span class="text-emerald-400 font-bold">99.999%</span></div>
-            <div>Security: <span class="text-indigo-400 font-bold">Hardware TEE</span></div>
-            <div>Audit Log: <span class="text-white font-bold">ClickHouse</span></div>
+            <div>Topology: <span class="text-white font-bold" data-i18n="stargate.cred_mesh">Multi-Cloud Mesh</span></div>
+            <div><span data-i18n="stargate.cred_sla">SLA Target:</span> <span class="text-emerald-400 font-bold">99.999%</span></div>
+            <div><span data-i18n="stargate.cred_sec">Security:</span> <span class="text-indigo-400 font-bold">Hardware TEE</span></div>
+            <div><span data-i18n="stargate.cred_audit">Audit Log:</span> <span class="text-white font-bold">ClickHouse</span></div>
           </div>
         </div>
       </div>
@@ -203,9 +203,9 @@
           <div class="flex items-center space-x-1 bg-navy-900 border border-navy-700 px-2 py-0.5 rounded text-xs">
             <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
             <select id="lang-select" onchange="window.setLang(this.value)" class="bg-transparent text-slate-200 outline-none cursor-pointer font-mono">
-              <option value="en" class="bg-navy-900 text-slate-200">English</option>
-              <option value="zh-CN" class="bg-navy-900 text-slate-200">简体中文</option>
-              <option value="zh-TW" class="bg-navy-900 text-slate-200">繁體中文</option>
+              <option value="en" class="bg-navy-900 text-slate-200" data-i18n="lang.en">English</option>
+              <option value="zh-CN" class="bg-navy-900 text-slate-200" data-i18n="lang.zh_cn">简体中文</option>
+              <option value="zh-TW" class="bg-navy-900 text-slate-200" data-i18n="lang.zh_tw">繁體中文</option>
             </select>
           </div>
         </div>
@@ -354,10 +354,10 @@
               <img src="/images/gpu_cluster_hero.png" alt="Futuristic AI GPU Supercomputer Cluster" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent p-4 flex items-end justify-between">
                 <div class="font-mono text-xs text-slate-200">
-                  <div class="text-cyan-400 font-bold">Target Multi-Cloud Cluster Architecture</div>
-                  <div class="text-[11px] text-slate-400">High-Speed Interconnect Network Spec</div>
+                  <div class="text-cyan-400 font-bold" data-i18n="hero.img_title">Target Multi-Cloud Cluster Architecture</div>
+                  <div class="text-[11px] text-slate-400" data-i18n="hero.img_desc">High-Speed Interconnect Network Spec</div>
                 </div>
-                <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 px-2.5 py-1 rounded text-xs font-mono font-bold">SPEC READY</span>
+                <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 px-2.5 py-1 rounded text-xs font-mono font-bold" data-i18n="hero.img_badge">SPEC READY</span>
               </div>
             </div>
 
@@ -452,8 +452,8 @@
               <div class="grid grid-cols-2 gap-2 text-[11px]">
                 <div><span data-i18n="sim.est_latency">Est. Latency:</span> <span id="sim-est-latency" class="text-cyan-400 font-bold">42 ms</span></div>
                 <div><span data-i18n="sim.est_cost">Est. Unit Cost:</span> <span id="sim-est-cost" class="text-emerald-400 font-bold">$0.0002 / 1k</span></div>
-                <div><span data-i18n="sim.cache_status">Vector Cache:</span> <span id="sim-cache-status" class="text-indigo-400 font-bold">Vector Cache Hit</span></div>
-                <div><span data-i18n="sim.pii_status">TEE Security:</span> <span id="sim-pii-status" class="text-emerald-400 font-bold">Encrypted (TEE)</span></div>
+                <div><span data-i18n="sim.cache_status">Vector Cache:</span> <span id="sim-cache-status" class="text-indigo-400 font-bold" data-i18n="sim.cache_hit">Vector Cache Hit</span></div>
+                <div><span data-i18n="sim.pii_status">TEE Security:</span> <span id="sim-pii-status" class="text-emerald-400 font-bold" data-i18n="sim.tee_encrypted">Encrypted (TEE)</span></div>
               </div>
             </div>
           </div>
@@ -602,7 +602,7 @@
       <!-- GPU Spot Price Table -->
       <div class="bg-navy-900/80 border border-navy-800 rounded-2xl p-4 sm:p-6 space-y-4">
         <div class="flex justify-between items-center">
-          <span class="text-xs font-bold text-white uppercase tracking-wider">Spot Rates Arbitrator</span>
+          <span class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="market.table_title">Spot Rates Arbitrator</span>
           <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded text-[10px] font-mono uppercase" data-i18n="badge.demo_data">SIMULATED DEMO DATA</span>
         </div>
         <div class="overflow-x-auto mobile-table-wrapper">
@@ -1012,7 +1012,7 @@
           <h3 class="text-base font-bold text-white flex items-center gap-2">
             <i data-lucide="award" class="w-5 h-5 text-cyan-400"></i> <span data-i18n="security.compliance_certs_title">Compliance & Security Architecture Roadmap</span>
           </h3>
-          <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-2 py-0.5 rounded">DEMO ARCHITECTURE EVALUATION</span>
+          <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-2 py-0.5 rounded" data-i18n="security.badge_eval">DEMO ARCHITECTURE EVALUATION</span>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
@@ -1020,7 +1020,7 @@
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-cyan-400 font-bold text-sm">
               <span data-i18n="security.cert_soc2_title">SOC 2 Type II Architecture Ready (Planned)</span>
-              <span class="text-[9px] bg-cyan-500/20 text-cyan-300 px-1.5 py-0.5 rounded border border-cyan-500/40">PLANNED</span>
+              <span class="text-[9px] bg-cyan-500/20 text-cyan-300 px-1.5 py-0.5 rounded border border-cyan-500/40" data-i18n="security.badge_planned">PLANNED</span>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_soc2_desc">
               Designed to comply with AICPA Trust Services Criteria for Security, Availability & Confidentiality.
@@ -1031,7 +1031,7 @@
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-emerald-400 font-bold text-sm">
               <span data-i18n="security.cert_tee_title">NVIDIA H100 Hardware TEE Enclave</span>
-              <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-500/40">DEMO READY</span>
+              <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-500/40" data-i18n="security.badge_demo_ready">DEMO READY</span>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_tee_desc">
               Encrypted APU memory enclosures & cryptographic remote attestation proof capability.
@@ -1042,7 +1042,7 @@
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-indigo-400 font-bold text-sm">
               <span data-i18n="security.cert_nydfs_title">NY DFS 23 NYCRR 500 Framework Readiness</span>
-              <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-500/40">IN PROGRESS</span>
+              <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-500/40" data-i18n="security.badge_in_progress">IN PROGRESS</span>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_nydfs_desc">
               Multi-factor access controls, continuous threat monitoring & strict financial data isolation architecture.
@@ -1053,7 +1053,7 @@
           <div class="bg-navy-900/80 border border-navy-800 p-5 rounded-2xl space-y-2">
             <div class="flex justify-between items-center text-purple-400 font-bold text-sm">
               <span data-i18n="security.cert_gdpr_title">GDPR Privacy-by-Design Architecture</span>
-              <span class="text-[9px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded border border-purple-500/40">DESIGN READY</span>
+              <span class="text-[9px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded border border-purple-500/40" data-i18n="security.badge_design_ready">DESIGN READY</span>
             </div>
             <p class="text-slate-300 leading-relaxed text-[11px]" data-i18n="security.cert_gdpr_desc">
               Zero-Trust PII masking, local processing boundaries & verifiable data deletion controls.

@@ -331,7 +331,37 @@ export const translations = {
     'badge.sim_finops': 'SIMULATED FINOPS GOVERNANCE',
     'badge.sim_benchmark': 'SIMULATED BENCHMARK',
     'badge.sim_capacity': 'SIMULATED CAPACITY',
-    'models.price_label': 'Price:'
+    'models.price_label': 'Price:',
+
+    // Stargate Cover Credentials
+    'stargate.cred_mesh': 'Multi-Cloud Mesh',
+    'stargate.cred_sla': 'SLA Target:',
+    'stargate.cred_sec': 'Security:',
+    'stargate.cred_audit': 'Audit Log:',
+
+    // Hero Image Card
+    'hero.img_title': 'Target Multi-Cloud Cluster Architecture',
+    'hero.img_desc': 'High-Speed Interconnect Network Spec',
+    'hero.img_badge': 'SPEC READY',
+
+    // Simulator Initial State
+    'sim.cache_hit': 'Vector Cache Hit',
+    'sim.tee_encrypted': 'Encrypted (TEE)',
+
+    // Spot Rates Header
+    'market.table_title': 'Spot Rates Arbitrator',
+
+    // Security Roadmap Status Badges
+    'security.badge_eval': 'DEMO ARCHITECTURE EVALUATION',
+    'security.badge_planned': 'PLANNED',
+    'security.badge_in_progress': 'IN PROGRESS',
+    'security.badge_design_ready': 'DESIGN READY',
+    'security.badge_demo_ready': 'DEMO READY',
+
+    // Language Dropdown Labels
+    'lang.en': 'English',
+    'lang.zh_cn': '简体中文',
+    'lang.zh_tw': '繁體中文'
   },
 
   'zh-CN': {
@@ -666,7 +696,37 @@ export const translations = {
     'badge.sim_finops': '仿真 FinOps 治理',
     'badge.sim_benchmark': '仿真基准测试',
     'badge.sim_capacity': '仿真算力分布',
-    'models.price_label': '价格:'
+    'models.price_label': '价格:',
+
+    // Stargate Cover Credentials
+    'stargate.cred_mesh': '多云算力网络',
+    'stargate.cred_sla': '目标 SLA:',
+    'stargate.cred_sec': '安全防护:',
+    'stargate.cred_audit': '审计日志:',
+
+    // Hero Image Card
+    'hero.img_title': '目标多云集群架构预想',
+    'hero.img_desc': '高速互联网络规范说明',
+    'hero.img_badge': '架构就绪',
+
+    // Simulator Initial State
+    'sim.cache_hit': '向量缓存命中',
+    'sim.tee_encrypted': '硬件 TEE 加密',
+
+    // Spot Rates Header
+    'market.table_title': '竞价行情仲裁器',
+
+    // Security Roadmap Status Badges
+    'security.badge_eval': '架构演进与仿真评估',
+    'security.badge_planned': '规划中',
+    'security.badge_in_progress': '推进中',
+    'security.badge_design_ready': '设计就绪',
+    'security.badge_demo_ready': '演示就绪',
+
+    // Language Dropdown Labels
+    'lang.en': 'English',
+    'lang.zh_cn': '简体中文',
+    'lang.zh_tw': '繁體中文'
   },
 
   'zh-TW': {
@@ -1001,6 +1061,36 @@ export const translations = {
     'badge.sim_finops': '仿真 FinOps 治理',
     'badge.sim_benchmark': '仿真基準測試',
     'badge.sim_capacity': '仿真算力分佈',
-    'models.price_label': '價格:'
+    'models.price_label': '價格:',
+
+    // Stargate Cover Credentials
+    'stargate.cred_mesh': '多雲算力網路',
+    'stargate.cred_sla': '目標 SLA:',
+    'stargate.cred_sec': '安全防護:',
+    'stargate.cred_audit': '審計日誌:',
+
+    // Hero Image Card
+    'hero.img_title': '目標多雲集群架構預想',
+    'hero.img_desc': '高速互聯網路規範說明',
+    'hero.img_badge': '架構就緒',
+
+    // Simulator Initial State
+    'sim.cache_hit': '向量快取命中',
+    'sim.tee_encrypted': '硬體 TEE 加密',
+
+    // Spot Rates Header
+    'market.table_title': '競價行情仲裁器',
+
+    // Security Roadmap Status Badges
+    'security.badge_eval': '架構演進與仿真評估',
+    'security.badge_planned': '規劃中',
+    'security.badge_in_progress': '推進中',
+    'security.badge_design_ready': '設計就緒',
+    'security.badge_demo_ready': '演示就緒',
+
+    // Language Dropdown Labels
+    'lang.en': 'English',
+    'lang.zh_cn': '簡體中文',
+    'lang.zh_tw': '繁體中文'
   }
 };
