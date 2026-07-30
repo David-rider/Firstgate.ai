@@ -1,4 +1,16 @@
-/* Firstgate.ai High-Tech Futuristic Cyber Style System */
+/* Native High-Performance System Font Stack (No External Google Fonts Dependency) */
+:root {
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
 
 @keyframes pulseGlow {
   0%, 100% {

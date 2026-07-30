@@ -678,14 +678,28 @@ function initCostPieChart() {
   });
 }
 
-// Global Accessibility: Close Modals on ESC Key Press
+// Global Accessibility: Focus Trap & ESC Key Handler
 window.addEventListener('keydown', (e) => {
+  const activeModal = ['modal-legal', 'modal-node-proof', 'modal-portal-redirect']
+    .map(id => document.getElementById(id))
+    .find(m => m && !m.classList.contains('hidden'));
+
+  if (!activeModal) return;
+
   if (e.key === 'Escape') {
-    ['modal-legal', 'modal-node-proof', 'modal-portal-redirect'].forEach((id) => {
-      const modal = document.getElementById(id);
-      if (modal && !modal.classList.contains('hidden')) {
-        modal.classList.add('hidden');
-      }
-    });
+    activeModal.classList.add('hidden');
+  } else if (e.key === 'Tab') {
+    const focusables = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      last.focus();
+      e.preventDefault();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      first.focus();
+      e.preventDefault();
+    }
   }
 });

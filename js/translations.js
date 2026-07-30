@@ -316,13 +316,22 @@ export const translations = {
     'legal.sec1_title': '1. Architecture Demonstration Nature & Data Disclaimer',
     'legal.sec1_text': 'FirstGate.ai Initiative operates as an interactive demonstration platform for institutional AI compute marketplace and prompt routing architecture. All telemetry metrics, GPU spot pricing, attestation hashes, and benchmark TTFT numbers presented are simulated data for evaluation and illustrative purposes.',
     'legal.sec2_title': '2. Privacy & Network Resource Data Transmission (GDPR Notice)',
-    'legal.sec2_text': 'We prioritize privacy. The platform maintains no backend database to collect or track your personal identifiable information (PII) or prompt text. Local user choices (such as UI language preference) are saved strictly client-side in browser localStorage. Static scripts and asset libraries are served via public CDNs (jsDelivr, unpkg); accessing these assets transmits standard HTTP request headers (IP address and User-Agent) to CDN providers as technically required for web delivery.',
+    'legal.sec2_text': 'We prioritize privacy. The platform maintains no backend database to collect or track your personal identifiable information (PII) or prompt text. Local user choices (such as UI language preference) are saved strictly client-side in browser localStorage. Static scripts and asset libraries are served via public CDNs (cdn.tailwindcss.com, cdn.jsdelivr.net, unpkg.com); accessing these assets transmits standard HTTP request headers (IP address and User-Agent) to CDN providers as technically required for web delivery.',
     'legal.sec3_title': '3. Data Controller Identity & Data Subject Rights',
     'legal.sec3_text': 'Data Controller: FirstGate.ai Infrastructure Initiative (Contact: legal@firstgate.ai). In accordance with GDPR and CCPA guidelines, you reserve full rights to inspect, restrict, or clear local browser storage state at any time.',
     'legal.sec4_title': '4. Governing Framework & Effective Date',
     'legal.sec4_text': 'Effective Date: July 30, 2026. Designed under Privacy-by-Design principles for institutional multi-cloud AI infrastructure evaluation.',
     'legal.close_btn': 'Close Legal Notice',
-    'stargate.tech_spec': 'TECHNICAL SPECIFICATION • HYBRID CLOUD MULTI-CLOUD SECURE TUNNELING GATEWAY'
+    'stargate.tech_spec': 'TECHNICAL SPECIFICATION • HYBRID CLOUD MULTI-CLOUD SECURE TUNNELING GATEWAY',
+    'footer.legal_btn': 'Privacy & Terms',
+
+    // Badges & Common UI Labels
+    'badge.demo_data': 'SIMULATED DEMO DATA',
+    'badge.sim_router': 'SIMULATED ROUTER ENGINE',
+    'badge.sim_finops': 'SIMULATED FINOPS GOVERNANCE',
+    'badge.sim_benchmark': 'SIMULATED BENCHMARK',
+    'badge.sim_capacity': 'SIMULATED CAPACITY',
+    'models.price_label': 'Price:'
   },
 
   'zh-CN': {
@@ -642,13 +651,22 @@ export const translations = {
     'legal.sec1_title': '1. 平台交互演示属性与数据免责声明',
     'legal.sec1_text': 'FirstGate.ai 倡议项目定位为机构级 AI 算力交易市场与 Prompt 智能路由架构的前端交互式演示平台。全站展示的所有网络诊断时延、GPU 竞价行情、硬件 Attestation 签名及测试 TTFT 指标，均为用于架构评估与产品示范的仿真模拟数据。',
     'legal.sec2_title': '2. 隐私保护与网络资源传输说明 (GDPR 告知事项)',
-    'legal.sec2_text': '我们高度重视个人隐私。本平台不设后端数据库，不会收集、追踪或存储您的任何个人身份信息 (PII) 或测试输入。用户的界面语言偏好仅保存在您本地浏览器的 localStorage 中。前端静态脚本库经由公共 CDN (jsDelivr, unpkg) 加载，访问该资源时系统将按 Web 传输标准向 CDN 供应商传递 HTTP 请求头 (包含 IP 地址与 User-Agent)。',
+    'legal.sec2_text': '我们高度重视个人隐私。本平台不设后端数据库，不会收集、追踪或存储您的任何个人身份信息 (PII) 或测试输入。用户的界面语言偏好仅保存在您本地浏览器的 localStorage 中。前端静态脚本库经由公共 CDN (cdn.tailwindcss.com, cdn.jsdelivr.net, unpkg.com) 加载，访问该资源时系统将按 Web 传输标准向 CDN 供应商传递 HTTP 请求头 (包含 IP 地址与 User-Agent)。',
     'legal.sec3_title': '3. 数据控制者身份与数据主体权利',
     'legal.sec3_text': '数据控制者: FirstGate.ai 基础设施项目组 (联系邮箱: legal@firstgate.ai)。根据 GDPR 及 CCPA 框架，您拥有随时检查、限制或清除本地浏览器存储状态的完整权利。',
     'legal.sec4_title': '4. 适用框架与生效日期',
     'legal.sec4_text': '生效日期: 2026 年 7 月 30 日。本平台遵循 Default-by-Privacy 隐私设计原则，专为机构多云 AI 算力评估而打造。',
     'legal.close_btn': '关闭法律声明',
-    'stargate.tech_spec': '技术规范 • 混合多云安全隧道网关'
+    'stargate.tech_spec': '技术规范 • 混合多云安全隧道网关',
+    'footer.legal_btn': '隐私与条款',
+
+    // Badges & Common UI Labels
+    'badge.demo_data': '示意数据 (仿真演示)',
+    'badge.sim_router': '仿真路由引擎',
+    'badge.sim_finops': '仿真 FinOps 治理',
+    'badge.sim_benchmark': '仿真基准测试',
+    'badge.sim_capacity': '仿真算力分布',
+    'models.price_label': '价格:'
   },
 
   'zh-TW': {
@@ -968,12 +986,21 @@ export const translations = {
     'legal.sec1_title': '1. 平台交互演示屬性與數據免責聲明',
     'legal.sec1_text': 'FirstGate.ai 倡議項目定位為機構級 AI 算力交易市場與 Prompt 智能路由架構的前端交互式演示平台。全站展示的所有網路診斷時延、GPU 競價行情、硬體 Attestation 簽名及測試 TTFT 指標，均為用於架構評估與產品示範的仿真模擬數據。',
     'legal.sec2_title': '2. 隱私保護與網路資源傳輸說明 (GDPR 告知事項)',
-    'legal.sec2_text': '我們高度重視個人隱私。本平台不設後端資料庫，不會收集、追蹤或存儲您的任何個人身份資訊 (PII) 或測試輸入。用戶的介面語言偏好僅保存在您本地瀏覽器的 localStorage 中。前端靜態腳本庫經由公共 CDN (jsDelivr, unpkg) 加載，訪問該資源時系統將按 Web 傳輸標準向 CDN 供應商傳遞 HTTP 請求頭 (包含 IP 地址與 User-Agent)。',
+    'legal.sec2_text': '我們高度重視個人隱私。本平台不設後端資料庫，不會收集、追蹤或存儲您的任何個人身份資訊 (PII) 或測試輸入。用戶的介面語言偏好僅保存在您本地瀏覽器的 localStorage 中。前端靜態腳本庫經由公共 CDN (cdn.tailwindcss.com, cdn.jsdelivr.net, unpkg.com) 加載，訪問該資源時系統將按 Web 傳輸標準向 CDN 供應商傳遞 HTTP 請求頭 (包含 IP 地址與 User-Agent)。',
     'legal.sec3_title': '3. 數據控制者身份與數據主體權利',
     'legal.sec3_text': '數據控制者: FirstGate.ai 基礎設施項目組 (聯繫郵箱: legal@firstgate.ai)。根據 GDPR 及 CCPA 框架，您擁有隨時檢查、限制或清除本地瀏覽器存儲狀態的完整權利。',
     'legal.sec4_title': '4. 適用框架與生效日期',
     'legal.sec4_text': '生效日期: 2026 年 7 月 30 日。本平台遵循 Default-by-Privacy 隱私設計原則，專為機構多雲 AI 算力評估而打造。',
     'legal.close_btn': '關閉法律聲明',
-    'stargate.tech_spec': '技術規範 • 混合多雲安全隧道網關'
+    'stargate.tech_spec': '技術規範 • 混合多雲安全隧道網關',
+    'footer.legal_btn': '隱私與條款',
+
+    // Badges & Common UI Labels
+    'badge.demo_data': '示意數據 (仿真演示)',
+    'badge.sim_router': '仿真路由引擎',
+    'badge.sim_finops': '仿真 FinOps 治理',
+    'badge.sim_benchmark': '仿真基準測試',
+    'badge.sim_capacity': '仿真算力分佈',
+    'models.price_label': '價格:'
   }
 };
